@@ -1,6 +1,0 @@
-Superman(30): Flying
-
-Batman(26): none
-
-superman200(22): Flying
-
