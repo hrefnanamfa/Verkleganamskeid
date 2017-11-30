@@ -13,7 +13,6 @@ class ManagerUI
         ManagerUI();
         virtual ~ManagerUI();
         void startUI();
-
 };
 
 #endif // MANAGERUI_H
