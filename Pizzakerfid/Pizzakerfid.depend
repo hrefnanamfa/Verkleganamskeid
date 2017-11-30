@@ -63,3 +63,67 @@
 	"Pizza.h"
 	<iostream>
 
+1512056976 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\main.cpp
+	<iostream>
+	"MainUI.h"
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\mainui.h
+	<iostream>
+	<string>
+	"ManagerUI.h"
+	"SalesUI.h"
+	"BakeUI.h"
+	"DeliveryUI.h"
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\managerui.h
+	<iostream>
+	<string>
+	"Pizza.h"
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\pizza.h
+	<iostream>
+	"Topping.h"
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\topping.h
+	<iostream>
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\salesui.h
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\bakeui.h
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\deliveryui.h
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\bakeui.cpp
+	"BakeUI.h"
+	"PizzaUI.h"
+	<iostream>
+
+1512056635 c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\include\pizzaui.h
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\deliveryui.cpp
+	"DeliveryUI.h"
+	<iostream>
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\mainui.cpp
+	"MainUI.h"
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\managerui.cpp
+	"ManagerUI.h"
+	"PizzaUI.h"
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\pizza.cpp
+	"Pizza.h"
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\pizzaui.cpp
+	"PizzaUI.h"
+	"Pizza.h"
+	<iostream>
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\salesui.cpp
+	"SalesUI.h"
+	<iostream>
+
+1512056635 source:c:\users\hrefn\documents\hellohrefna\verkleganamskeid\pizzakerfid\src\topping.cpp
+	"Topping.h"
+	<string.h>
+
