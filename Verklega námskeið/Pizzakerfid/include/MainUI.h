@@ -3,6 +3,10 @@
 #include <iostream>
 #include <string>
 #include "ManagerUI.h"
+#include "SalesUI.h"
+#include "BakeUI.h"
+#include "DeliveryUI.h"
+
 using namespace std;
 
 class MainUI

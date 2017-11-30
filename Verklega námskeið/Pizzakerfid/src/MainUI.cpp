@@ -14,29 +14,33 @@ MainUI::~MainUI()
 void MainUI::startUI(){
     char selection = '\0';
 
-    while(selection != 'q'){
+    while(selection != 'Q'){
 
         cout << "Please choose your position:" << endl;
         cout << "m: for manager" << endl;
-        cout << "s: for sales person" << endl;
+        cout << "s: for sales" << endl;
         cout << "b: for baker" << endl;
-        cout << "d: for delivery man" << endl;
+        cout << "d: for delivery" << endl;
         cout << "q: for quit" << endl;
 
         cin >> selection;
-        if(selection == 'm'){
+        selection = toupper(selection);
+
+        if(selection == 'M') {
             ManagerUI managerui;
             managerui.startUI();
         }
-
-        else if(selection == 's'){
+        else if(selection == 'S') {
+            SalesUI salesui;
+            salesui.startUI();
         }
-
-        else if(selection == 'b'){
-
+        else if(selection == 'B') {
+            BakeUI bakeui;
+            bakeui.startUI();
         }
-        else if(selection == 'd'){
-
+        else if(selection == 'D') {
+            DeliveryUI deliveryUI;
+            deliveryUI.startUI();
         }
     }
 }
