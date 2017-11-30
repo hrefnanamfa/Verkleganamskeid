@@ -51,7 +51,7 @@ istream& operator>>(istream& in, SuperHero& hero) {
 ostream& operator<<(ostream& out, const SuperHero& hero) {
 
     out << hero.name;
-    out << "(";
+    out << " (";
     out << hero.age;
 
     out << "): ";
