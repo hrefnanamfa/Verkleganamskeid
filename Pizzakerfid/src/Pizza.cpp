@@ -11,7 +11,6 @@ int Pizza::getToppingCount()const{
     return toppingCount;
 }
 
-
 Pizza::Pizza(int numberOfToppings){
     toppingCount = numberOfToppings;
     toppings = new Topping[toppingCount];

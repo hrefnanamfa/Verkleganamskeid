@@ -8,9 +8,12 @@ using namespace std;
 class Pizza
 {
     private:
+        int size;
+        string type;
         Topping *toppings;
         int toppingCount;
         int currentToppingNum;
+
     public:
         Pizza();
         Pizza(int numberOfToppings);

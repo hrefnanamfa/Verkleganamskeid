@@ -17,11 +17,11 @@ void MainUI::startUI(){
     while(selection != 'Q'){
 
         cout << "Please choose your position:" << endl;
-        cout << "m: for manager" << endl;
-        cout << "s: for sales" << endl;
-        cout << "b: for baker" << endl;
-        cout << "d: for delivery" << endl;
-        cout << "q: for quit" << endl;
+        cout << "m: Managing" << endl;
+        cout << "s: Sales" << endl;
+        cout << "b: Bakery" << endl;
+        cout << "d: Delivery" << endl;
+        cout << "q: Quit" << endl;
 
         cin >> selection;
         selection = toupper(selection);

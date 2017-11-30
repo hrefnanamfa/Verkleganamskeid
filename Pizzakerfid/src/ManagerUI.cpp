@@ -12,31 +12,40 @@ ManagerUI::~ManagerUI()
 }
 void ManagerUI::startUI(){
     char selection = '\n';
-    while (selection != 'Q'){
-        cout << "Choose your appropriate option" << endl;
-        cout << "p: Add a type of pizza" << endl;
-        cout << "t: Add toppings" << endl;
-        cout << "m: Make a menu" << endl;
-        cout << "e: Add extras" << endl;
-        cout << "d: Add delivery destination" << endl;
-        cout << "q: to go back" << endl;
+    while (selection != 'Q' || selection != 'q'){
+        cout << "What would you like to manage?" << endl;
+        cout << "1: Pizza size" << endl;
+        cout << "2: Pizza type" << endl;
+        cout << "3: Toppings" << endl;
+        cout << "4: Menu" << endl;
+        cout << "5: Extras" << endl;
+        cout << "6: Delivery location" << endl;
+        cout << "q: Go back" << endl;
 
         cin >> selection;
-        selection = toupper(selection);
-        if(selection == 'P'){
-            PizzaUI pizzaui;
-            pizzaui.startUI();
+        PizzaUI pizzaui;
+
+        if(selection == '1'){
+        pizzaui.startUIsize();
         }
 
-        else if(selection == 'T'){
+        else if(selection == '2'){
 
         }
 
-        else if(selection == 'M'){
+        else if(selection == '3'){
+        pizzaui.startUItopping();
 
         }
-        else if(selection == 'E'){
+        else if(selection == '4'){
 
         }
+        else if(selection == '5'){
+
+        }
+        else if(selection == '6'){
+
+        }
+
     }
 }

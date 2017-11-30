@@ -14,8 +14,11 @@ PizzaUI::~PizzaUI()
 {
     //dtor
 }
+void PizzaUI::startUIsize() {
+    cout << "How large? (in inches)" << endl;
 
-void PizzaUI::startUI() {
+}
+void PizzaUI::startUItopping() {
     int topCount;
     cout << "How many toppings: ";
     cin >> topCount;

@@ -10,7 +10,8 @@ class PizzaUI
         PizzaUI();
         virtual ~PizzaUI();
 
-        void startUI();
+        void startUIsize();
+        void startUItopping();
 };
 
 #endif // PIZZAUI_H

@@ -33,7 +33,7 @@ void BakeUI::startUI() {
 
         if(selection == 'P') {
             PizzaUI pizzaui;
-            pizzaui.startUI();
+            pizzaui.startUIsize();
         }
         else if(selection == 'S') {
 
