@@ -1,0 +1,4 @@
+Storm 25 f 
+Johnny 0 n 
+Bravo 20 g 
+Daredevil 32h 
