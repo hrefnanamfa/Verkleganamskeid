@@ -130,11 +130,13 @@ int main()
         int recordCount = fin.tellg() / sizeof(SuperHero);
         fin.seekg(0);
 
+        vector <SuperHero> new_hero_array(recordCount);
+
         //Get all super heroes in binary file and print them to the screen.
         for(int i = 0; i < recordCount; i++)
         {
-            fin.read((char*)(&hero_array[i]), sizeof(SuperHero));
-            cout << hero_array[i] << endl;
+            fin.read((char*)(&new_hero_array[i]), sizeof(SuperHero));
+            cout << new_hero_array[i] << endl;
         }
     }
     else

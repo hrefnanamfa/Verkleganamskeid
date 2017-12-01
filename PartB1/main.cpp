@@ -77,10 +77,6 @@ ostream& operator<<(ostream& out, const SuperHero& hero) {
     return out;
 }
 
-void SuperHero::setVerbose(bool flag) {
-    verbose = flag;
-}
-
 int main()
 {
     ofstream fout;
@@ -91,7 +87,6 @@ int main()
     fout.open("hetjur.txt", ios::app);
 
     cin >> hero;
-    hero.setVerbose(false);
 
     fout << hero << endl;
 
@@ -100,7 +95,6 @@ int main()
     fin.open("hetjur.txt");
 
     string s;
-    hero.setVerbose(false);
 
     if(fin.is_open()) {
         while(!fin.eof()){
