@@ -18,10 +18,11 @@ class Pizza
 
     public:
         Pizza();
+        virtual ~Pizza();
         Pizza(int numberOfToppings);
         int getToppingCount()const;
+        void initialize(int numberOfToppings, int inches);
         void setSize(int number, int inches);
-        virtual ~Pizza();
         void addTopping(Topping topping);
         friend ostream& operator <<(ostream& out, const Pizza& pizza);
         friend istream& operator >>(istream& in, Pizza& pizza);

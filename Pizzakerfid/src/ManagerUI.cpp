@@ -10,6 +10,7 @@ ManagerUI::~ManagerUI()
 {
     //dtor
 }
+
 void ManagerUI::startUI(){
     char selection = '\n';
     while (selection != 'Q' || selection != 'q'){
@@ -23,19 +24,17 @@ void ManagerUI::startUI(){
         cout << "q: Go back" << endl;
 
         cin >> selection;
+
         PizzaUI pizzaui;
 
         if(selection == '1'){
-        pizzaui.startUIsize();
+            pizzaui.startUIsize();
         }
-
         else if(selection == '2'){
 
         }
-
         else if(selection == '3'){
-        pizzaui.startUItopping();
-
+            pizzaui.startUItopping();
         }
         else if(selection == '4'){
 

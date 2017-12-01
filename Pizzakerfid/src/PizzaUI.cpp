@@ -1,4 +1,3 @@
-
 #include "PizzaUI.h"
 #include <iostream>
 
@@ -19,7 +18,9 @@ void PizzaUI::startUIsize() {
 
 }
 void PizzaUI::startUItopping() {
+
     int topCount;
+
     cout << "How many toppings: ";
     cin >> topCount;
 
@@ -30,4 +31,6 @@ void PizzaUI::startUItopping() {
         cin >> topping;
         pizza.addTopping(topping);
     }
+
+    cout << pizza;
 }

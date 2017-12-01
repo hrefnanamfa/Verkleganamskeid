@@ -18,17 +18,17 @@ Topping::~Topping()
 
 ostream& operator <<(ostream& out, const Topping& topping){
 
-    out << topping.name << " " << topping.price << endl;
+    out << topping.name << " " << topping.price;
 
     return out;
 }
 
 istream& operator >>(istream& in, Topping& topping) {
 
-    cout << "Name: ";
+    //cout << "Name: ";
     in >> topping.name;
 
-    cout << "Price: ";
+    //cout << "Price: ";
     in >> topping.price;
 
     return in;
