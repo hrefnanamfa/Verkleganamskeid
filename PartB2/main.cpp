@@ -102,10 +102,12 @@ int main()
     ifstream fin;
 
     int hero_amount = get_amount_of_heroes();
-    vector <SuperHero> hero_array(hero_amount);
+    //vector <SuperHero> hero_array(hero_amount);
+    SuperHero *hero_array = new SuperHero[hero_amount];
 
     ///Start of main function.
     //Write in all the super heroes.
+
     for(int i = 0; i < hero_amount; i++)
     {
         hero_array[i].setVerbose(true);
@@ -115,9 +117,10 @@ int main()
     //Print all super heroes into a binary file.
     fout.open("binary_hetjur.dat", ios::binary|ios::app);
 
+    fout.write((char*)hero_array, sizeof(SuperHero) * hero_amount);
+
     for(int i = 0; i < hero_amount; i++)
     {
-        fout.write((char*)(&hero_array[i]), sizeof(SuperHero));
     }
 
     fout.close();
@@ -130,14 +133,17 @@ int main()
         int recordCount = fin.tellg() / sizeof(SuperHero);
         fin.seekg(0);
 
-        vector <SuperHero> new_hero_array(recordCount);
+        SuperHero *hero = new SuperHero[recordCount];
+
+        fin.read((char*)hero, sizeof(SuperHero) * recordCount);
 
         //Get all super heroes in binary file and print them to the screen.
         for(int i = 0; i < recordCount; i++)
         {
-            fin.read((char*)(&new_hero_array[i]), sizeof(SuperHero));
-            cout << new_hero_array[i] << endl;
+            cout << hero[i] << endl;
         }
+
+        fin.close();
     }
     else
     {
