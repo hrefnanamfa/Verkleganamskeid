@@ -1,12 +1,12 @@
 #ifndef EMPLOYEESALARYSERVICE_H
 #define EMPLOYEESALARYSERVICE_H
-#include "EmployeeSalary.h"
-#include "EmployeeSalaryRepository.h"
-#include "InvalidIdException.h"
-#include "InvalidSalaryException.h"
-#include "InvalidNameException.h"
-#include "InvalidMonthException.h"
-#include "InvalidYearException.h"
+#include "../models/EmployeeSalary.h"
+#include "../repositories/EmployeeSalaryRepository.h"
+#include "../exceptions/InvalidIdException.h"
+#include "../exceptions/InvalidSalaryException.h"
+#include "../exceptions/InvalidNameException.h"
+#include "../exceptions/InvalidMonthException.h"
+#include "../exceptions/InvalidYearException.h"
 
 
 class EmployeeSalaryService
@@ -17,8 +17,12 @@ class EmployeeSalaryService
 
     public:
         EmployeeSalaryService();
-        void add_salary(const EmployeeSalary& salary);
         virtual ~EmployeeSalaryService();
+
+        void add_salary(const EmployeeSalary& salary);
+        void load_salary_file(string filename);
+        void find_id();
+
         bool isValidId(string id);
         bool isValidSalary(int salary);
         bool isValidName(string name);

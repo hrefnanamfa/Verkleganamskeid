@@ -2,11 +2,11 @@
 #define MAINUI_H
 #include <string>
 #include <iostream>
-#include "EmployeeSalaryService.h"
-#include "InvalidIdException.h"
-#include "InvalidSalaryException.h"
-#include "InvalidNameException.h"
-#include "InvalidMonthException.h"
+#include "../services/EmployeeSalaryService.h"
+#include "../exceptions/InvalidIdException.h"
+#include "../exceptions/InvalidSalaryException.h"
+#include "../exceptions/InvalidNameException.h"
+#include "../exceptions/InvalidMonthException.h"
 using namespace std;
 
 class MainUI

@@ -1,4 +1,4 @@
-#include "InvalidIdException.h"
+#include "../include/exceptions/InvalidIdException.h"
 
 InvalidIdException::InvalidIdException()
 {

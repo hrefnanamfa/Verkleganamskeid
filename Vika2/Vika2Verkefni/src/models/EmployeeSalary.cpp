@@ -1,4 +1,4 @@
-#include "EmployeeSalary.h"
+#include "../../include/models/EmployeeSalary.h"
 
 EmployeeSalary::EmployeeSalary(string name, string id, int salary, int month, int year)
 {
@@ -47,10 +47,10 @@ istream& operator >>(istream& in, EmployeeSalary salary){
     return in;
 }
 ostream& operator <<(ostream& out, const EmployeeSalary salary){
-    out << "Name:   " << salary.name << endl;
-    out << "Id:     " << salary.id << endl;
-    out << "Salary: " << salary.salary << endl;
-    out << "Month:  " << salary.month << endl;
-    out << "Year:   " << salary.year << endl;
+    out << salary.name << ",";
+    out << salary.id << ",";
+    out << salary.salary << ",";
+    out << salary.month << ",";
+    out << salary.year << ",";
     return out;
 }

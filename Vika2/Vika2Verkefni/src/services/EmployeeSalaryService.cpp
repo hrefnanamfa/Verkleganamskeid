@@ -1,4 +1,4 @@
-#include "EmployeeSalaryService.h"
+#include "../../include/services/EmployeeSalaryService.h"
 
 int const ID_SIZE = 10;
 
@@ -13,6 +13,17 @@ EmployeeSalaryService::~EmployeeSalaryService()
 }
 void EmployeeSalaryService::add_salary(const EmployeeSalary& salary){
     salary_repo.add_salary(salary);
+}
+
+void EmployeeSalaryService::load_salary_file(string filename){
+    salary_repo.load_salaries(filename);
+}
+
+void EmployeeSalaryService::find_id(){
+    int id;
+    cout << "SSN: ";
+    cin >> id;
+    salary_repo.find_id(id);
 }
 
 bool EmployeeSalaryService::isValidId(string id){
