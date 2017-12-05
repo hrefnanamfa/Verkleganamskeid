@@ -1,6 +1,6 @@
 #include "EmployeeSalary.h"
 
-EmployeeSalary::EmployeeSalary(string name, string id, double salary, int month, int year)
+EmployeeSalary::EmployeeSalary(string name, string id, int salary, int month, int year)
 {
     this->name = name;
     this->id = id;
@@ -8,11 +8,26 @@ EmployeeSalary::EmployeeSalary(string name, string id, double salary, int month,
     this->month = month;
     this->year = year;
 }
-
-EmployeeSalary::~EmployeeSalary()
-{
-    //dtor
+string EmployeeSalary::getName()const {
+    return this->name;
 }
+
+string EmployeeSalary::getId() const{
+    return this->id;
+}
+
+int EmployeeSalary::getSalary() const{
+    return this->salary;
+}
+
+int EmployeeSalary::getMonth() const{
+    return this->month;
+}
+
+int EmployeeSalary::getYear() const{
+    return this->year;
+}
+
 istream& operator >>(istream& in, EmployeeSalary salary){
     cout << "Name:   ";
     in >> ws;

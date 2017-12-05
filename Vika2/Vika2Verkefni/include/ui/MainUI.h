@@ -3,6 +3,10 @@
 #include <string>
 #include <iostream>
 #include "EmployeeSalaryService.h"
+#include "InvalidIdException.h"
+#include "InvalidSalaryException.h"
+#include "InvalidNameException.h"
+#include "InvalidMonthException.h"
 using namespace std;
 
 class MainUI
@@ -15,7 +19,6 @@ class MainUI
         void startUI();
         virtual ~MainUI();
         EmployeeSalary create_salary();
-        bool validateId(string id);
 };
 
 #endif // MAINUI_H

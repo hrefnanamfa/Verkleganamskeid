@@ -1,4 +1,5 @@
 #include "MainUI.h"
+#include <cstdlib>
 int const ID_SIZE = 10;
 
 
@@ -43,32 +44,76 @@ void MainUI::startUI(){
 EmployeeSalary MainUI::create_salary(){
     string name;
     string id;
-    int month, year;
-    double salary;
+    int month, year, salary;
+    bool allowed = false;
+    do{
+        try{
+            cout << "Name:   ";
+            cin >> ws;
+            getline(cin, name);
+            allowed = salary_service.isValidName(name);
+        }
+        catch (InvalidNameException){
+            cout << "[Invalid name! The name should only contain letters from the alphabet]" << endl;
+        }
+    }while(!allowed);
 
-    cout << "Name:   ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "Id:     ";
+    allowed = false;
 
-    cin >> id;
-    while(!validateId(id)){
-        cout << "[Invalid Id! Try again}" << endl;
-        cout << "Id:     ";
-        cin >> id;
-    }
+    do{
+        try{
+            cout << "Id:     ";
+            cin >> id;
+            allowed = salary_service.isValidId(id);
 
-    cout << "Salary: ";
-    cin >> salary;
-    cout << "Month:  ";
-    cin >> month;
-    cout << "Year:   ";
-    cin >> year;
+            }
+        catch (InvalidIdException){
+
+            cout << "[Invalid Id! The id should contain 10 numbers]" << endl;
+        }
+    }while(!allowed);
+
+    allowed = false;
+
+    do{
+        try{
+            cout << "Salary: ";
+            cin >> salary;
+            allowed = salary_service.isValidSalary(salary);
+        }
+        catch (InvalidSalaryException){
+            cout << "[Invalid salary! The salary can not be less than 0]" << endl;
+        }
+    }while(!allowed);
+
+    allowed = false;
+
+    do{
+         try{
+            cout << "Month:  ";
+            cin >> month;
+            allowed = salary_service.isValidMonth(month);
+         }
+         catch(InvalidMonthException){
+            cout << "[Invalid month! The month should be a number from 1 to 12]" << endl;
+         }
+    }while(!allowed);
+
+    allowed = false;
+
+    do{
+        try{
+            cout << "Year:   ";
+            cin >> year;
+            allowed = salary_service.isValidYear(year);
+        }
+        catch(InvalidYearException){
+            cout << "[Invalid year! The year is 2017]" << endl;
+        }
+    }while(!allowed);
+
     cout << endl;
     return EmployeeSalary(name, id, salary, month, year);
 }
 
-bool MainUI::validateId(string id){
-
-}
 
