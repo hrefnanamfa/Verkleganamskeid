@@ -1,4 +1,4 @@
-#include "InvalidNameException.h"
+#include "../../include/exceptions/InvalidNameException.h"
 
 InvalidNameException::InvalidNameException()
 {

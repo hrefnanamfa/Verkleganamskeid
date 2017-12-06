@@ -1,7 +1,8 @@
-#include "MainUI.h"
+#include "../../include/ui/MainUI.h"
 #include <cstdlib>
-int const ID_SIZE = 10;
 
+int const ID_SIZE = 10;
+string const filename = "salaries.txt";
 
 MainUI::MainUI()
 {
@@ -12,31 +13,50 @@ MainUI::~MainUI()
 {
     //dtor
 }
+
 void MainUI::startUI(){
+
+    string id, year;
     char input = '\0';
 
+    salary_service.load_salary_file(filename);
+
     do{
-    cout << "Hello please pick an option: " << endl;
-    cout << endl;
-    cout << "1. Add a salary record" << endl;
-    cout << "2. Get all salary records for a given SSN" << endl;
-    cout << "3. Get a total salary for a given SSN and a given year" << endl;
-    cout << "4. Get the name of the employee with the highest total salary for a given year" << endl;
-    cin >> input;
+        cout << "Hello please pick an option: " << endl << endl;
+        cout << "1. Add a salary record" << endl;
+        cout << "2. Get all salary records for a given SSN" << endl;
+        cout << "3. Get a total salary for a given SSN and a given year" << endl;
+        cout << "4. Get the name of the employee with the highest total salary for a given year" << endl;
+        cin >> input;
 
-    if(input == '1'){
-        salary_service.add_salary(create_salary());
-    }
-    else if(input == '2'){
+        if(input == '1'){
+            salary_service.add_salary(create_salary(), filename);
+        }
+        else if(input == '2'){
 
-    }
-    else if(input == '3'){
+            cout << "SSN: ";
+            cin >> id;
 
-    }
+            cout << salary_service.find_id(id) << endl;
+        }
+        else if(input == '3'){
 
-    else if(input == '4'){
+            cout << "SSN: ";
+            cin >> id;
+            cout << "Year: ";
+            cin >> year;
 
-    }
+            cout << endl << "----- Total salary -----" << endl;
+            cout << "----\t" << id << "  ----" << endl;
+            cout << "----\t" << year << "\t    ----" << endl;
+            cout << "---\t" << salary_service.total_salary(id, year) << "\t     ---" << endl << endl;
+
+        }
+        else if(input == '4'){
+            cout << "Year: ";
+            cin >> year;
+            cout << endl << "Highest total salary for " << year << " is: " << salary_service.top_salary(year) << endl << endl;
+        }
 
     }while(true);
 }
@@ -46,6 +66,7 @@ EmployeeSalary MainUI::create_salary(){
     string id;
     int month, year, salary;
     bool allowed = false;
+
     do{
         try{
             cout << "Name:   ";
@@ -59,7 +80,6 @@ EmployeeSalary MainUI::create_salary(){
     }while(!allowed);
 
     allowed = false;
-
     do{
         try{
             cout << "Id:     ";
@@ -68,13 +88,11 @@ EmployeeSalary MainUI::create_salary(){
 
             }
         catch (InvalidIdException){
-
             cout << "[Invalid Id! The id should contain 10 numbers]" << endl;
         }
     }while(!allowed);
 
     allowed = false;
-
     do{
         try{
             cout << "Salary: ";
@@ -87,7 +105,6 @@ EmployeeSalary MainUI::create_salary(){
     }while(!allowed);
 
     allowed = false;
-
     do{
          try{
             cout << "Month:  ";
@@ -100,7 +117,6 @@ EmployeeSalary MainUI::create_salary(){
     }while(!allowed);
 
     allowed = false;
-
     do{
         try{
             cout << "Year:   ";
@@ -113,6 +129,7 @@ EmployeeSalary MainUI::create_salary(){
     }while(!allowed);
 
     cout << endl;
+
     return EmployeeSalary(name, id, salary, month, year);
 }
 

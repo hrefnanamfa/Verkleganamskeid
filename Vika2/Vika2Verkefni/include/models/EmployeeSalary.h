@@ -19,6 +19,7 @@ class EmployeeSalary
 
         friend istream& operator >>(istream& in, EmployeeSalary salary);
         friend ostream& operator <<(ostream& out, const EmployeeSalary salary);
+
         string getName() const;
         string getId() const;
         int getSalary() const;
