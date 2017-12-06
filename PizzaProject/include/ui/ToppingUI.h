@@ -14,6 +14,7 @@ class ToppingUI
         ToppingUI();
         ~ToppingUI();
         void createToppings();
+        void listToppings();
 
 };
 

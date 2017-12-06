@@ -14,6 +14,16 @@ void ToppingService::addTopping(Topping& topping){
     toppingrepository.addTopping(topping);
 }
 
-void ToppingService::listToppings(){
+void ToppingService::getToppings(){
+    toppings = toppingrepository.getToppings();
+}
+vector <Topping> ToppingService::getToppingVector(){
+    return toppings;
+}
 
+void ToppingService::listAvailableToppings(){
+    getToppings();
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        cout << i + 1  << ". "<<toppings[i] << endl;
+    }
 }

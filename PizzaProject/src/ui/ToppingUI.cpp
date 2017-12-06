@@ -17,3 +17,6 @@ void ToppingUI::createToppings(){
 
     toppingservice.addTopping(topping);
 }
+void ToppingUI::listToppings(){
+    toppingservice.listAvailableToppings();
+}

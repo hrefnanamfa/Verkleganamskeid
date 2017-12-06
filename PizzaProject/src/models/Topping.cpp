@@ -52,9 +52,10 @@ void Topping::read(ifstream& fin){
 }
 
 ostream& operator << (ostream& out, const Topping& topping){
+
     out << topping.getName();
-    out << ",";
-    out << topping.getPrice();
+    out << ", costs ";
+    out << topping.getPrice() << " kronas";
     return out;
 }
 
@@ -69,7 +70,6 @@ istream& operator >> (istream& in, Topping& topping){
     if(topping.verbose){
         cout << "Topping price: ";
     }
-
     in >> topping.price;
 
     return in;

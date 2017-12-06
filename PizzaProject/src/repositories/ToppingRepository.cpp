@@ -15,12 +15,28 @@ void ToppingRepository::addTopping(Topping& topping){
 
     fout.open("topping.dat", ios::binary|ios::app);
 
-    fout.write((char*)(&topping), sizeof(Topping));
+    topping.write(fout);
     fout.close();
 
 }
 
-vector<Topping> ToppingRepository::addToppings(){
+vector<Topping> ToppingRepository::getToppings(){
     ifstream fin;
+    vector<Topping> toppings;
+
+    fin.open("topping.dat", ios::binary);
+    while(!fin.eof()){
+        Topping topping;
+
+        topping.read(fin);
+
+        if(fin.eof()){
+            break;
+        }
+        toppings.push_back(topping);
+    }
+
+    fin.close();
+    return toppings;
 }
 

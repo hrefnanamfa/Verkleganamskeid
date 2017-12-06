@@ -18,7 +18,7 @@ class ToppingRepository
         ~ToppingRepository();
         void addTopping(Topping& topping);
 
-        vector<Topping> addToppings();
+        vector<Topping> getToppings();
 };
 
 #endif // TOPPINGREPOSITORY_H
