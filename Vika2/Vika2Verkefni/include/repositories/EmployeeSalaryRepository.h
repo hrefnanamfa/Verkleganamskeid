@@ -7,16 +7,19 @@
 class EmployeeSalaryRepository
 {
     private:
-        string salaries;
-        vector<string> split;
+        string file;
+        vector<string> salaries;
 
     public:
         EmployeeSalaryRepository();
         virtual ~EmployeeSalaryRepository();
 
-        void add_salary(const EmployeeSalary& salary);
+        void write_file(string filename);
+        void add_salary(const EmployeeSalary& salary, string filename);
         void load_salaries(string filename);
-        void find_id(int id);
+        string find_id(string id);
+        int total_salary(string id, string year);
+        string top_salary(string year);
 };
 
 #endif // EMPLOYEESALARYREPOSITORY_H

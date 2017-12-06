@@ -19,9 +19,11 @@ class EmployeeSalaryService
         EmployeeSalaryService();
         virtual ~EmployeeSalaryService();
 
-        void add_salary(const EmployeeSalary& salary);
+        void add_salary(const EmployeeSalary& salary, string filename);
         void load_salary_file(string filename);
-        void find_id();
+        string find_id(string id);
+        int total_salary(string id, string year);
+        string top_salary(string year);
 
         bool isValidId(string id);
         bool isValidSalary(int salary);

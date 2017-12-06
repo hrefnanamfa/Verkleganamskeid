@@ -11,19 +11,24 @@ EmployeeSalaryService::~EmployeeSalaryService()
 {
     //dtor
 }
-void EmployeeSalaryService::add_salary(const EmployeeSalary& salary){
-    salary_repo.add_salary(salary);
+void EmployeeSalaryService::add_salary(const EmployeeSalary& salary, string filename){
+    salary_repo.add_salary(salary, filename);
 }
 
 void EmployeeSalaryService::load_salary_file(string filename){
     salary_repo.load_salaries(filename);
 }
 
-void EmployeeSalaryService::find_id(){
-    int id;
-    cout << "SSN: ";
-    cin >> id;
-    salary_repo.find_id(id);
+string EmployeeSalaryService::find_id(string id){
+    return salary_repo.find_id(id);
+}
+
+int EmployeeSalaryService::total_salary(string id, string year){
+    return salary_repo.total_salary(id, year);
+}
+
+string EmployeeSalaryService::top_salary(string year){
+    return salary_repo.top_salary(year);
 }
 
 bool EmployeeSalaryService::isValidId(string id){

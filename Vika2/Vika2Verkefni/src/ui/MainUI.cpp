@@ -16,9 +16,10 @@ MainUI::~MainUI()
 
 void MainUI::startUI(){
 
-    salary_service.load_salary_file(filename);
-
+    string id, year;
     char input = '\0';
+
+    salary_service.load_salary_file(filename);
 
     do{
         cout << "Hello please pick an option: " << endl << endl;
@@ -29,16 +30,32 @@ void MainUI::startUI(){
         cin >> input;
 
         if(input == '1'){
-            salary_service.add_salary(create_salary());
+            salary_service.add_salary(create_salary(), filename);
         }
         else if(input == '2'){
-            salary_service.find_id();
+
+            cout << "SSN: ";
+            cin >> id;
+
+            cout << salary_service.find_id(id) << endl;
         }
         else if(input == '3'){
 
+            cout << "SSN: ";
+            cin >> id;
+            cout << "Year: ";
+            cin >> year;
+
+            cout << endl << "----- Total salary -----" << endl;
+            cout << "----\t" << id << "  ----" << endl;
+            cout << "----\t" << year << "\t    ----" << endl;
+            cout << "---\t" << salary_service.total_salary(id, year) << "\t     ---" << endl << endl;
+
         }
         else if(input == '4'){
-
+            cout << "Year: ";
+            cin >> year;
+            cout << endl << "Highest total salary for " << year << " is: " << salary_service.top_salary(year) << endl << endl;
         }
 
     }while(true);
