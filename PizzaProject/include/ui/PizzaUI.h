@@ -11,12 +11,14 @@ class PizzaUI
     private:
         PizzaService pizzaservice;
         ToppingService toppingservice;
+        BaseService baseservice;
         ToppingUI toppingui;
         BaseUI baseui;
     public:
         PizzaUI();
         ~PizzaUI();
         void startUI();
+        void listAvailablePizzas();
 };
 
 #endif // PIZZAUI_H

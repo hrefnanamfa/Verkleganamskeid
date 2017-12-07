@@ -15,6 +15,7 @@ void MainUI::startUI(){
         cout << "2. Register toppings and price for each topping" << endl;
         cout << "3. List toppings and bases with price" << endl;
         cout << "4. Register an ordered pizza (and show price)" << endl;
+        cout << "5. List pizzas made" << endl;
         cout << "q. For quit" << endl << endl;
 
         cin >> selection;
@@ -27,15 +28,16 @@ void MainUI::startUI(){
             toppingui.createToppings();
         }
         else if(selection == '3'){
-            cout << "- Bases -" << endl;
             baseui.listBases();
-            cout << "-----------------" << endl;
-            cout << "- Toppings -" << endl;
+            cout << endl;
             toppingui.listToppings();
             cout << endl;
         }
         else if(selection == '4'){
             pizzaui.startUI();
+        }
+        else if(selection == '5'){
+            pizzaui.listAvailablePizzas();
         }
 
     }while(selection != 'q');

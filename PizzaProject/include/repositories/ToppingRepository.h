@@ -12,7 +12,6 @@ class ToppingRepository
 
     private:
 
-
     public:
         ToppingRepository();
         ~ToppingRepository();

@@ -9,6 +9,19 @@ Pizza::~Pizza()
 {
     //dtor
 }
+double Pizza::getPriceOfPizza(){
+    double priceOfBase = base.getPrice();
+    double priceOfToppings = 0;
+    double PriceOfPizza = 0;
+
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        priceOfToppings += toppings.at(i).getPrice();
+    }
+    PriceOfPizza = priceOfBase + priceOfToppings;
+
+    setPrice(PriceOfPizza);
+    return PriceOfPizza;
+}
 
 void Pizza::addTopping(Topping topping){
     toppings.push_back(topping);
@@ -22,24 +35,66 @@ void Pizza::setPrice(double price){
 }
 
 void Pizza::write(ofstream& fout) const{
+    string nameOfBase = base.getName();
+    string nameOfTopping;
+
+    int stringLengthOfBase = nameOfBase.length() + 1;
+
+    fout.write((char*)(&stringLengthOfBase), sizeof(int));
+
+    fout.write(nameOfBase.c_str(), stringLengthOfBase);
+
     int tCount = toppings.size();
+
+    fout.write((char*)(&tCount), sizeof(int));
+
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        fout.write((char*)(&toppings.at(i)), sizeof(Topping));
+    }
+
+    fout.write((char*)(&price), sizeof(double));
+
+    /*int tCount = toppings.size();
 
     fout.write((char*)(&tCount), sizeof(int));
 
     for(int i = 0; i < tCount; i++){
         fout.write((char*)(&toppings.at(i)), sizeof(Topping));
-    }
+    }*/
 }
 
 void Pizza::read(ifstream& fin){
+    int stringLengthOfBase;
+
+    fin.read((char*)(&stringLengthOfBase), sizeof(int));
+
+    char *str = new char[stringLengthOfBase];
+
+    fin.read(str, stringLengthOfBase);
+
+    base.setName(str);
+
     int tCount;
+
+    fin.read((char*)(&tCount), sizeof(int));
+
+    Topping topping;
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        fin.read((char*)(&toppings.at(i)), sizeof(Topping));
+        addTopping(topping);
+    }
+
+
+    fin.read((char*)(&price), sizeof(double));
+
+    /*int tCount;
     fin.read((char*)(&tCount), sizeof(int));
 
     Topping topping;
     for(int i = 0; i < tCount; i++){
         fin.read((char*)(&toppings.at(i)), sizeof(Topping));
         addTopping(topping);
-    }
+    }*/
 }
 
 

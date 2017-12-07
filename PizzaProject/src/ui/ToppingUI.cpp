@@ -18,5 +18,6 @@ void ToppingUI::createToppings(){
     toppingservice.addTopping(topping);
 }
 void ToppingUI::listToppings(){
+    cout << "- Toppings -" << endl;
     toppingservice.listAvailableToppings();
 }

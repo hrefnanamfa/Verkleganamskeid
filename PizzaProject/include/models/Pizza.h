@@ -17,6 +17,7 @@ class Pizza
     public:
         Pizza();
         virtual ~Pizza();
+        double getPriceOfPizza();
         void addTopping(Topping topping);
         void setBase(Base base);
         void setPrice(double price);

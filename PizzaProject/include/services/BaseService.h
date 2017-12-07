@@ -14,6 +14,7 @@ class BaseService
         BaseService();
         ~BaseService();
 
+        Base getBaseAt(int i);
         void addBase(Base& base);
         void getBases();
         void listAvailableBases();

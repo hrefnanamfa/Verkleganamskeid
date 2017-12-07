@@ -18,5 +18,6 @@ void BaseUI::createBase(){
 }
 
 void BaseUI::listBases() {
+    cout << "- Bases -" << endl;
     baseservice.listAvailableBases();
 }

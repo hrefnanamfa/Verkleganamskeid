@@ -17,6 +17,11 @@ void BaseService::addBase(Base& base){
 void BaseService::getBases(){
     bases = baserepository.getBases();
 }
+Base BaseService::getBaseAt(int i){
+    getBases();
+    return bases.at(i);
+}
+
 
 void BaseService::listAvailableBases(){
     getBases();
