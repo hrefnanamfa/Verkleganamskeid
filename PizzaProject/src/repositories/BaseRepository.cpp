@@ -1,4 +1,4 @@
-#include "BaseRepository.h"
+#include "../../include/repositories/BaseRepository.h"
 
 BaseRepository::BaseRepository()
 {
@@ -13,7 +13,14 @@ BaseRepository::~BaseRepository()
 void BaseRepository::addBase(Base& base){
     ofstream fout;
 
-    fout.open("base.txt", ios::app);
+    // ---- Binary vistun ----
+    fout.open("base.dat", ios::binary|ios::app);
+
+    base.write(fout);
+    fout.close();
+
+    // ---- TXT vistun ----
+    /*fout.open("base.txt", ios::app);
 
     base.setVerbose(false);
 
@@ -24,5 +31,25 @@ void BaseRepository::addBase(Base& base){
     else{
         cout << "file not open" << endl;
     }
-    cout << endl;
+    cout << endl;*/
+}
+
+vector<Base> BaseRepository::getBases() {
+    ifstream fin;
+    vector<Base> bases;
+
+    fin.open("base.dat", ios::binary);
+    Base base;
+
+    while(!fin.eof()){
+
+        base.read(fin);
+
+        if(fin.eof())
+            break;
+        bases.push_back(base);
+    }
+
+    fin.close();
+    return bases;
 }

@@ -1,4 +1,4 @@
-#include "ToppingRepository.h"
+#include "../../include/repositories/ToppingRepository.h"
 
 ToppingRepository::ToppingRepository()
 {
@@ -25,14 +25,14 @@ vector<Topping> ToppingRepository::getToppings(){
     vector<Topping> toppings;
 
     fin.open("topping.dat", ios::binary);
+    Topping topping;
+
     while(!fin.eof()){
-        Topping topping;
 
         topping.read(fin);
 
-        if(fin.eof()){
+        if(fin.eof())
             break;
-        }
         toppings.push_back(topping);
     }
 

@@ -1,4 +1,4 @@
-#include "ToppingService.h"
+#include "../../include/services/ToppingService.h"
 
 ToppingService::ToppingService()
 {
@@ -17,6 +17,7 @@ void ToppingService::addTopping(Topping& topping){
 void ToppingService::getToppings(){
     toppings = toppingrepository.getToppings();
 }
+
 vector <Topping> ToppingService::getToppingVector(){
     return toppings;
 }
@@ -24,6 +25,6 @@ vector <Topping> ToppingService::getToppingVector(){
 void ToppingService::listAvailableToppings(){
     getToppings();
     for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << i + 1  << ". "<<toppings[i] << endl;
+        cout << i + 1  << ". " << toppings[i] << endl;
     }
 }

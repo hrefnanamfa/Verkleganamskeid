@@ -1,4 +1,4 @@
-#include "MainUI.h"
+#include "../../include/ui/MainUI.h"
 
 MainUI::MainUI()
 {
@@ -27,6 +27,10 @@ void MainUI::startUI(){
             toppingui.createToppings();
         }
         else if(selection == '3'){
+            cout << "- Bases -" << endl;
+            baseui.listBases();
+            cout << "-----------------" << endl;
+            cout << "- Toppings -" << endl;
             toppingui.listToppings();
             cout << endl;
         }

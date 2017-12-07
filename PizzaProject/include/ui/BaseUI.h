@@ -1,7 +1,7 @@
 #ifndef BASEUI_H
 #define BASEUI_H
-#include "Base.h"
-#include "BaseService.h"
+#include "../models/Base.h"
+#include "../services/BaseService.h"
 
 class BaseUI
 {
@@ -10,6 +10,7 @@ class BaseUI
     public:
         BaseUI();
         void createBase();
+        void listBases();
 
         ~BaseUI();
 

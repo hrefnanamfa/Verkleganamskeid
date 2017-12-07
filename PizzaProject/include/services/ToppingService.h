@@ -1,7 +1,7 @@
 #ifndef TOPPINGSERVICE_H
 #define TOPPINGSERVICE_H
 #include "../models/Topping.h"
-#include "ToppingRepository.h"
+#include "../repositories/ToppingRepository.h"
 
 
 class ToppingService
@@ -14,6 +14,7 @@ class ToppingService
     public:
         ToppingService();
         ~ToppingService();
+
         void addTopping(Topping& topping);
         void getToppings();
         vector <Topping> getToppingVector();

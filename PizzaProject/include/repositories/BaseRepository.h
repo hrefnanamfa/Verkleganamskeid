@@ -1,7 +1,9 @@
 #ifndef BASEREPOSITORY_H
 #define BASEREPOSITORY_H
-#include "Base.h"
+#include "../models/Base.h"
 #include <fstream>
+#include <vector>
+#include <iostream>
 
 
 class BaseRepository
@@ -12,6 +14,8 @@ class BaseRepository
         BaseRepository();
         ~BaseRepository();
         void addBase(Base& base);
+
+        vector<Base> getBases();
 
 };
 

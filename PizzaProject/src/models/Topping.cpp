@@ -30,6 +30,7 @@ double Topping::getPrice() const{
 void Topping::setVerbose(bool setting){
     this->verbose = setting;
 }
+
 void Topping::write(ofstream& fout) const{
     int stringLength = name.length() + 1;
 
@@ -38,6 +39,7 @@ void Topping::write(ofstream& fout) const{
 
     fout.write((char*)(&price), sizeof(double));
 }
+
 void Topping::read(ifstream& fin){
     int stringLength;
 
@@ -54,8 +56,8 @@ void Topping::read(ifstream& fin){
 ostream& operator << (ostream& out, const Topping& topping){
 
     out << topping.getName();
-    out << ", costs ";
-    out << topping.getPrice() << " kronas";
+    out << "  \t ";
+    out << topping.getPrice() << " kr.";
     return out;
 }
 

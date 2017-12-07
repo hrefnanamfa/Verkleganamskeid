@@ -1,4 +1,4 @@
-#include "BaseUI.h"
+#include "../../include/ui/BaseUI.h"
 
 BaseUI::BaseUI()
 {
@@ -15,4 +15,8 @@ void BaseUI::createBase(){
     cin >> base;
 
     baseservice.addBase(base);
+}
+
+void BaseUI::listBases() {
+    baseservice.listAvailableBases();
 }

@@ -1,4 +1,4 @@
-#include "Base.h"
+#include "../../include/models/Base.h"
 
 Base::Base()
 {
@@ -31,28 +31,52 @@ void Base::setVerbose(bool setting){
     this->verbose = setting;
 }
 
+void Base::write(ofstream& fout) const{
+    int stringLength = name.length() + 1;
+
+    fout.write((char*)(&stringLength), sizeof(int));
+    fout.write(name.c_str(), stringLength);
+
+    fout.write((char*)(&price), sizeof(double));
+}
+
+void Base::read(ifstream& fin){
+    int stringLength;
+
+    fin.read((char*)(&stringLength), sizeof(int));
+    char *str = new char[stringLength];
+
+    fin.read(str, stringLength);
+
+    name = str;
+
+    fin.read((char*)(&price), sizeof(double));
+}
+
 ostream& operator << (ostream& out, const Base& base){
     out << base.getName();
-    out << ",";
-    out << base.getPrice();
+    out << "  \t ";
+    out << base.getPrice() << " kr.";
     return out;
 }
 
 istream& operator >> (istream& in, Base& base){
-    string name;
-    int price;
+    //string name;
+    //int price;
 
     if(base.verbose){
         cout << "Base name: ";
     }
-    in >> name;
-    base.setName(name);
+    in >> ws;
+    getline(in, base.name);
+    //in >> name;
+    //base.setName(name);
 
     if(base.verbose){
         cout << "Base price: ";
     }
-    in >> price;
-    base.setPrice(price);
+    in >> base.price;
+    //base.setPrice(price);
 
     return in;
 }

@@ -1,7 +1,7 @@
 #ifndef PIZZASERVICE_H
 #define PIZZASERVICE_H
-#include "Pizza.h"
-#include "PizzaRepository.h"
+#include "../models/Pizza.h"
+#include "../repositories/PizzaRepository.h"
 
 class PizzaService
 {
