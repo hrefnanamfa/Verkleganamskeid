@@ -1,7 +1,7 @@
 #ifndef PIZZASERVICE_H
 #define PIZZASERVICE_H
 #include "../models/Pizza.h"
-#include "Base.h"
+#include "../models/Base.h"
 #include "../../include/models/Topping.h"
 #include "../repositories/PizzaRepository.h"
 

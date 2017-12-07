@@ -1,7 +1,7 @@
 #ifndef PIZZAREPOSITORY_H
 #define PIZZAREPOSITORY_H
 #include <fstream>
-#include "Pizza.h"
+#include "../models/Pizza.h"
 class PizzaRepository
 {
     private:

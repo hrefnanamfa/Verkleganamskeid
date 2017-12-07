@@ -27,9 +27,9 @@ vector<Pizza> PizzaRepository::getPizzas(){
     while(!fin.eof()){
         pizza.read(fin);
 
-        if(fin.eof()){
+        /*if(fin.eof()){
             break;
-        }
+        }*/
         pizzas.push_back(pizza);
     }
     fin.close();
