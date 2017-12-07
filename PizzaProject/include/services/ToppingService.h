@@ -14,6 +14,7 @@ class ToppingService
     public:
         ToppingService();
         ~ToppingService();
+        Topping getToppingAt(int i);
 
         void addTopping(Topping& topping);
         void getToppings();

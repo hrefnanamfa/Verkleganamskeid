@@ -10,6 +10,11 @@ ToppingService::~ToppingService()
     //dtor
 }
 
+Topping ToppingService::getToppingAt(int i){
+    getToppings();
+    return toppings.at(i);
+}
+
 void ToppingService::addTopping(Topping& topping){
     toppingrepository.addTopping(topping);
 }
