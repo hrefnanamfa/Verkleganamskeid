@@ -10,17 +10,17 @@ using namespace std;
 class Pizza
 {
     private:
-        double price;
+        int price;
         Base base;
         vector<Topping> toppings;
 
     public:
         Pizza();
         virtual ~Pizza();
-        double getPriceOfPizza();
+        int getPriceOfPizza();
         void addTopping(Topping topping);
         void setBase(Base base);
-        void setPrice(double price);
+        void setPrice(int price);
         void write(ofstream& fout) const;
         void read(ifstream& fin);
         friend istream& operator >> (istream& in, Pizza& pizza);

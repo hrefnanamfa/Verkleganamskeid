@@ -9,10 +9,11 @@ Pizza::~Pizza()
 {
     //dtor
 }
-double Pizza::getPriceOfPizza(){
-    double priceOfBase = base.getPrice();
-    double priceOfToppings = 0;
-    double PriceOfPizza = 0;
+
+int Pizza::getPriceOfPizza(){
+    int priceOfBase = base.getPrice();
+    int priceOfToppings = 0;
+    int PriceOfPizza = 0;
 
     for(unsigned int i = 0; i < toppings.size(); i++){
         priceOfToppings += toppings.at(i).getPrice();
@@ -30,7 +31,8 @@ void Pizza::addTopping(Topping topping){
 void Pizza::setBase(Base base){
     this->base = base;
 }
-void Pizza::setPrice(double price){
+
+void Pizza::setPrice(int price){
     this->price = price;
 }
 

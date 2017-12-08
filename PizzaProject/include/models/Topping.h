@@ -9,16 +9,16 @@ class Topping
 {
     private:
         string name;
-        double price;
+        int price;
         bool verbose;
 
     public:
         Topping();
         void setVerbose(bool setting);
         void setName(string name);
-        void setPrice(double price);
+        void setPrice(int price);
         string getName() const;
-        double getPrice() const;
+        int getPrice() const;
         void write(ofstream& fout) const;
         void read(ifstream& fin);
         friend istream& operator >> (istream& in, Topping& topping);

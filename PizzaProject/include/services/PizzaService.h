@@ -18,7 +18,7 @@ class PizzaService
         PizzaService();
         ~PizzaService();
 
-        double getPriceOfPizza();
+        int getPriceOfPizza();
         void addBaseToPizza(Base& Base);
         void addToppingToPizza(Topping& topping);
         void addPizza(const Pizza& pizza);

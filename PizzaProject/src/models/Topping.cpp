@@ -16,14 +16,14 @@ void Topping::setName(string name){
     this->name = name;
 }
 
-void Topping::setPrice(double price){
+void Topping::setPrice(int price){
     this->price = price;
 }
 string Topping::getName() const{
     return this->name;
 }
 
-double Topping::getPrice() const{
+int Topping::getPrice() const{
     return this->price;
 }
 
@@ -37,7 +37,7 @@ void Topping::write(ofstream& fout) const{
     fout.write((char*)(&stringLength), sizeof(int));
     fout.write(name.c_str(), stringLength);
 
-    fout.write((char*)(&price), sizeof(double));
+    fout.write((char*)(&price), sizeof(int));
 }
 
 void Topping::read(ifstream& fin){
@@ -50,7 +50,7 @@ void Topping::read(ifstream& fin){
 
     name = str;
 
-    fin.read((char*)(&price), sizeof(double));
+    fin.read((char*)(&price), sizeof(int));
 }
 
 ostream& operator << (ostream& out, const Topping& topping){

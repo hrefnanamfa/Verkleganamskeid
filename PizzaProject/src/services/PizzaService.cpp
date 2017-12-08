@@ -13,7 +13,7 @@ PizzaService::~PizzaService()
 void PizzaService::addToppingToPizza(Topping& topping){
     pizza.addTopping(topping);
 }
-double PizzaService::getPriceOfPizza(){
+int PizzaService::getPriceOfPizza(){
     return pizza.getPriceOfPizza();
 }
 

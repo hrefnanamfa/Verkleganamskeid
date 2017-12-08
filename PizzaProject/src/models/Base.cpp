@@ -15,7 +15,7 @@ string Base::getName() const{
     return name;
 }
 
-double Base::getPrice() const{
+int Base::getPrice() const{
     return price;
 }
 
@@ -23,7 +23,7 @@ void Base::setName(string name){
     this->name = name;
 }
 
-void Base::setPrice(double price){
+void Base::setPrice(int price){
     this->price = price;
 }
 
@@ -37,7 +37,7 @@ void Base::write(ofstream& fout) const{
     fout.write((char*)(&stringLength), sizeof(int));
     fout.write(name.c_str(), stringLength);
 
-    fout.write((char*)(&price), sizeof(double));
+    fout.write((char*)(&price), sizeof(int));
 }
 
 void Base::read(ifstream& fin){
@@ -50,7 +50,7 @@ void Base::read(ifstream& fin){
 
     name = str;
 
-    fin.read((char*)(&price), sizeof(double));
+    fin.read((char*)(&price), sizeof(int));
 }
 
 ostream& operator << (ostream& out, const Base& base){

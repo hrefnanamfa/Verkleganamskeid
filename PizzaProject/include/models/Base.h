@@ -9,15 +9,15 @@ class Base
 {
     private:
         string name;
-        double price;
+        int price;
         bool verbose;
 
     public:
         Base();
         string getName() const;
-        double getPrice() const;
+        int getPrice() const;
         void setName(string name);
-        void setPrice(double price);
+        void setPrice(int price);
         void setVerbose(bool setting);
         void write(ofstream& fout) const;
         void read(ifstream& fin);
