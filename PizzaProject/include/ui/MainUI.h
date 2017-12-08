@@ -1,24 +1,20 @@
 #ifndef MAINUI_H
 #define MAINUI_H
 #include <iostream>
-#include "ToppingUI.h"
-#include "BaseUI.h"
-#include "PizzaUI.h"
+#include "ManagingUI.h"
+#include "SalesUI.h"
+#include "BakeryUI.h"
+#include "DeliveryUI.h"
 
 using namespace std;
 
 class MainUI
 {
-
     private:
-        ToppingUI toppingui;
-        BaseUI baseui;
-        PizzaUI pizzaui;
 
     public:
         MainUI();
         void startUI();
-
 
 };
 
