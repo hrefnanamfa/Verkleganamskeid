@@ -3,6 +3,8 @@
 #include "../models/EmployeeSalary.h"
 #include <fstream>
 #include <vector>
+#include "../exceptions/InvalidReadException.h"
+#include "../exceptions/InvalidWriteException.h"
 
 class EmployeeSalaryRepository
 {

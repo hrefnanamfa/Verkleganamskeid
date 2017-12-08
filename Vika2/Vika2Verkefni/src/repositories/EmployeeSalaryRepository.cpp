@@ -15,24 +15,27 @@ EmployeeSalaryRepository::~EmployeeSalaryRepository()
 }
 
 void EmployeeSalaryRepository::write_file(string filename){
-    ofstream fout;
+    try {
+        ofstream fout;
 
-    fout.open(filename.c_str());
+        fout.open(filename.c_str());
 
-    string filestring = "";
+        string filestring = "";
 
-    for (int i = 0; i < salaries.size(); i++) {
-        filestring += salaries[i] + ",";
+        for (int i = 0; i < salaries.size(); i++) {
+            filestring += salaries[i] + ",";
+        }
+        if(fout.is_open()){
+            fout << filestring;
+            fout.close();
+        } else {
+            throw InvalidWriteException();
+        }
     }
-
-    if(fout.is_open()){
-        fout << filestring;
-        fout.close();
+    catch (InvalidWriteException) {
+        cout << "[File write ERROR]" << endl;
+        exit(0);
     }
-    else{
-        cout << "File write error" << endl;
-    }
-
 }
 
 void EmployeeSalaryRepository::add_salary(const EmployeeSalary& salary, string filename){
@@ -73,24 +76,30 @@ void EmployeeSalaryRepository::add_salary(const EmployeeSalary& salary, string f
 }
 
 void EmployeeSalaryRepository::load_salaries(string filename){
-    ifstream fin;
-    fin.open(filename.c_str());
+    try {
+        ifstream fin;
+        fin.open(filename.c_str());
 
-    if (fin.is_open()) {
-        while (!fin.eof()){
-            fin >> file;
+        if (fin.is_open()) {
+            while (!fin.eof()){
+                fin >> file;
+            }
+            fin.close();
+        } else {
+            throw InvalidReadException();
         }
-        fin.close();
-    }
-    else{
-        cout << "File read error";
-    }
 
-    stringstream ss(file);
-    string item;
+        stringstream ss(file);
+        string item;
 
-    while(getline(ss, item, ',')){
-        salaries.push_back(item);
+        while(getline(ss, item, ',')){
+            salaries.push_back(item);
+        }
+
+    }
+    catch (InvalidReadException) {
+        cout << "[File read ERROR]" << endl;
+        exit(0);
     }
 }
 

@@ -26,7 +26,7 @@ class EmployeeSalaryService
         string top_salary(string year);
 
         bool isValidId(string id);
-        bool isValidSalary(int salary);
+        bool isValidSalary(string salarySTR, int salary);
         bool isValidName(string name);
         bool isValidMonth(int month);
         bool isValidYear(int year);

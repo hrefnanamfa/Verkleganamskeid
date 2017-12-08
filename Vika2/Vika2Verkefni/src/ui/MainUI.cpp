@@ -62,8 +62,7 @@ void MainUI::startUI(){
 }
 
 EmployeeSalary MainUI::create_salary(){
-    string name;
-    string id;
+    string name, id, salarySTR;
     int month, year, salary;
     bool allowed = false;
 
@@ -96,11 +95,12 @@ EmployeeSalary MainUI::create_salary(){
     do{
         try{
             cout << "Salary: ";
-            cin >> salary;
-            allowed = salary_service.isValidSalary(salary);
+            cin >> salarySTR;
+            salary = atoi(salarySTR.c_str());
+            allowed = salary_service.isValidSalary(salarySTR, salary);
         }
         catch (InvalidSalaryException){
-            cout << "[Invalid salary! The salary can not be less than 0]" << endl;
+            cout << "[Invalid salary! The salary can not be less than 0 and must contain only digits]" << endl;
         }
     }while(!allowed);
 

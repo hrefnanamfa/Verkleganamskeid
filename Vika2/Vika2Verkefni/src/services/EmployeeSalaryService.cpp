@@ -40,8 +40,12 @@ bool EmployeeSalaryService::isValidId(string id){
     return true;
 }
 
-bool EmployeeSalaryService::isValidSalary(int salary){
-    if(salary < 0){
+bool EmployeeSalaryService::isValidSalary(string salarySTR, int salary){
+    for (unsigned int i = 0; i < salarySTR.length(); i++) {
+        if (isalpha(salarySTR[i]))
+            throw InvalidSalaryException();
+    }
+    if(salary < 0) {
         throw InvalidSalaryException();
     }
     return true;
