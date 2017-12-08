@@ -1,6 +1,6 @@
 #ifndef SALESUI_H
 #define SALESUI_H
-
+#include "PizzaUI.h"
 
 class SalesUI
 {

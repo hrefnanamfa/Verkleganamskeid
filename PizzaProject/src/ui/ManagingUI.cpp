@@ -12,11 +12,13 @@ ManagingUI::~ManagingUI()
 void ManagingUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
-        cout << "1. Register a price for a base pizza" << endl;
-        cout << "2. Register toppings and price for each topping" << endl;
-        cout << "3. List toppings and bases with price" << endl;
-        cout << "4. Register an ordered pizza (and show price)" << endl;
-        cout << "5. List pizzas made" << endl;
+        cout << "1. Register a new base with price" << endl;
+        cout << "2. Register a new topping with price" << endl;
+        cout << "3. Register a pizza for the menu (and show price)" << endl;
+        cout << "4. Register an extra item" << endl;
+        cout << "5. List toppings and bases" << endl;
+        cout << "6. List pizza menu" << endl;
+        cout << "7. List extra items" << endl;
         cout << "q. to go back" << endl;
 
         cin >> selection;
@@ -32,20 +34,22 @@ void ManagingUI::startUI(){
             toppingui.createToppings();
         }
         else if(selection == '3'){
+            pizzaui.startUI();
+        }
+        else if(selection == '4'){
+
+        }
+        else if(selection == '5'){
             baseui.listBases();
             cout << endl;
             toppingui.listToppings();
             cout << endl;
         }
-        else if(selection == '4'){
-            pizzaui.startUI();
-        }
-        else if(selection == '5'){
+        else if(selection == '6'){
             pizzaui.listAvailablePizzas();
         }
-        else if(selection == '6'){
+        else if(selection == '7'){
 
         }
-
     }
 }

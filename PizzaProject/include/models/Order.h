@@ -11,7 +11,6 @@ class Order
         vector<Pizza> pizzas;
         bool paid;
         status currentStatus;
-
     public:
         Order();
         ~Order();

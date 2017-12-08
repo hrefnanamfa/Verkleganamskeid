@@ -15,28 +15,28 @@ void SalesUI::startUI(){
 
     while(selection != 'Q'){
 
-        cout << "Choose your appropriate option" << endl;
-        cout << "o: Create a new order" << endl;
-        cout << "a: Add pizza to order" << endl;
-        cout << "p: Print order price" << endl;
-        cout << "d: Delivery/pickup options" << endl;
-        cout << "s: Order payment status" << endl;
-        cout << "c: Add comment to order" << endl;
-        cout << "q: To go back" << endl;
+        cout << "Let's make an order!" << endl;
+        cout << "1: Add a pizza from menu" << endl;
+        cout << "2: Add your own pizza" << endl;
+        cout << "3: Add something extra" << endl;
+        cout << "4: Delivery/pickup options" << endl;
+        cout << "5: Order payment status" << endl;
+        cout << "6: Add comment to order" << endl;
+        cout << "7: To go back" << endl;
 
         cin >> selection;
         selection = toupper(selection);
 
-        if(selection == 'M') {
+        if(selection == '1') {
 
         }
-        else if(selection == 'S') {
+        else if(selection == '2') {
 
         }
-        else if(selection == 'B') {
+        else if(selection == '3') {
 
         }
-        else if(selection == 'D') {
+        else if(selection == '4') {
 
         }
     }
