@@ -2,7 +2,8 @@
 
 Order::Order()
 {
-    //ctor
+    this->paid = false;
+    currentStatus = INPROGRESS;
 }
 
 Order::~Order()
