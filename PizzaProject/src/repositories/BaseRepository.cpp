@@ -39,9 +39,9 @@ vector<Base> BaseRepository::getBases() {
     vector<Base> bases;
 
     fin.open("base.dat", ios::binary);
-    Base base;
 
     while(!fin.eof()){
+        Base base;
 
         base.read(fin);
 

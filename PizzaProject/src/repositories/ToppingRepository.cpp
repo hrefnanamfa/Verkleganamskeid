@@ -25,10 +25,10 @@ vector<Topping> ToppingRepository::getToppings(){
     vector<Topping> toppings;
 
     fin.open("topping.dat", ios::binary);
-    Topping topping;
+
 
     while(!fin.eof()){
-
+        Topping topping;
         topping.read(fin);
 
         if(fin.eof())

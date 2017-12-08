@@ -24,11 +24,16 @@ int Pizza::getPriceOfPizza(){
     return PriceOfPizza;
 }
 
-void Pizza::addTopping(Topping topping){
+void Pizza::addTopping(const Topping& topping){
     toppings.push_back(topping);
 }
 
-void Pizza::setBase(Base base){
+void Pizza::setToppings(vector<Topping> toppings){
+    this->toppings = toppings;
+}
+
+
+void Pizza::setBase(const Base& base){
     this->base = base;
 }
 

@@ -9,6 +9,9 @@ PizzaService::~PizzaService()
 {
     //dtor
 }
+void PizzaService::clearPizzas(){
+    pizzas.clear();
+}
 
 void PizzaService::addToppingToPizza(Topping& topping){
     pizza.addTopping(topping);
@@ -17,8 +20,18 @@ int PizzaService::getPriceOfPizza(){
     return pizza.getPriceOfPizza();
 }
 
-void PizzaService::addBaseToPizza(Base& base){
+void PizzaService::addBaseToPizza(const Base& base){
     pizza.setBase(base);
+}
+
+Pizza PizzaService::makePizza(const Base& base, const vector<Topping> toppings){
+    Pizza pizza;
+
+    pizza.setBase(base);
+
+    pizza.setToppings(toppings);
+
+    return pizza;
 }
 
 void PizzaService::addPizza(const Pizza& pizza){

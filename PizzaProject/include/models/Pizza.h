@@ -17,9 +17,10 @@ class Pizza
     public:
         Pizza();
         virtual ~Pizza();
+        void setToppings(vector<Topping> toppings);
         int getPriceOfPizza();
-        void addTopping(Topping topping);
-        void setBase(Base base);
+        void addTopping(const Topping& topping);
+        void setBase(const Base& base);
         void setPrice(int price);
         void write(ofstream& fout) const;
         void read(ifstream& fin);

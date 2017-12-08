@@ -18,8 +18,10 @@ class PizzaService
         PizzaService();
         ~PizzaService();
 
+        Pizza makePizza(const Base& base, vector<Topping> toppings);
+        void clearPizzas();
         int getPriceOfPizza();
-        void addBaseToPizza(Base& Base);
+        void addBaseToPizza(const Base& Base);
         void addToppingToPizza(Topping& topping);
         void addPizza(const Pizza& pizza);
         Pizza getPizza();

@@ -20,13 +20,14 @@ void PizzaRepository::addPizzaToRepo(const Pizza& pizza){
 
 vector<Pizza> PizzaRepository::getPizzas(){
     ifstream fin;
+
     vector<Pizza> pizzas;
 
     fin.open("pizza.dat", ios::binary);
 
-    Pizza pizza;
 
     while(!fin.eof()){
+        Pizza pizza;
         pizza.read(fin);
 
         if(fin.eof()){

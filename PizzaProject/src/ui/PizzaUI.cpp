@@ -16,12 +16,16 @@ void PizzaUI::startUI(){
 
     cout << "Making pizza order" << endl;
 
+    pizzaservice.clearPizzas();
+
     cout << "Pick base: " << endl;
     baseui.listBases();
     Base base;
     cin >> choiceOfBase;
+
     base = baseservice.getBaseAt(choiceOfBase - 1);
-    pizzaservice.addBaseToPizza(base);
+
+    //pizzaservice.addBaseToPizza(base);
 
     cout << endl;
 
@@ -32,17 +36,21 @@ void PizzaUI::startUI(){
 
     toppingui.listToppings();
 
+    vector<Topping> toppings;
     Topping topping;
-
     for(int i = 0; i < numberOfToppings; i++){
         cin >> choiceOfTopping;
+
         topping = toppingservice.getToppingAt(choiceOfTopping - 1);
-        pizzaservice.addToppingToPizza(topping);
+        toppings.push_back(topping);
+        //pizzaservice.addToppingToPizza(topping);
     }
 
     /*cout << "Price of pizza is: " << pizzaservice.getPriceOfPizza() << endl;*/
+
     Pizza pizza;
-    pizza = pizzaservice.getPizza();
+
+    pizza = pizzaservice.makePizza(base, toppings);
 
     pizzaservice.addPizza(pizza);
 
