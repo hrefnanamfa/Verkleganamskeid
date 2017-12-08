@@ -21,10 +21,9 @@ class PizzaService
         double getPriceOfPizza();
         void addBaseToPizza(Base& Base);
         void addToppingToPizza(Topping& topping);
-        void addPizza(Pizza& pizza);
+        void addPizza(const Pizza& pizza);
         Pizza getPizza();
         void getPizzaList();
-
         void listAvailablePizzas();
 
 };

@@ -35,7 +35,7 @@ void Pizza::setPrice(double price){
 }
 
 void Pizza::write(ofstream& fout) const{
-    fout.write((char*)(&base), sizeof(Base));
+    base.write(fout);
 
     int count_toppings = toppings.size();
     fout.write((char*)(&count_toppings), sizeof(int));
@@ -74,12 +74,11 @@ void Pizza::write(ofstream& fout) const{
 
 void Pizza::read(ifstream& fin){
     Base base;
-    fin.read((char*)(&base), sizeof(Base));
+    base.read(fin);
     setBase(base);
 
-    int count_toppings;
+    int count_toppings = 0;
     fin.read((char*)(&count_toppings), sizeof(int));
-
 
     for (int i = 0; i < count_toppings; i++)
     {
@@ -123,7 +122,6 @@ void Pizza::read(ifstream& fin){
 
 
 istream& operator >> (istream& in, Pizza& pizza){
-
     cout << "What kind of base?" << endl;
     cin >> pizza.base;
     cout << "How many toppings?" << endl;
@@ -135,15 +133,15 @@ istream& operator >> (istream& in, Pizza& pizza){
         in >> topping;
         pizza.addTopping(topping);
     }
-
     return in;
 }
 
 ostream& operator << (ostream& out, Pizza& pizza){
-    out << pizza.base << ", ";
+    out << pizza.base.getName() << " base, ";
     for(unsigned int i = 0; i < pizza.toppings.size(); i++){
-        out << pizza.toppings.at(i);
+        out << pizza.toppings.at(i).getName() << ", ";
     }
+    out << pizza.getPriceOfPizza() << "kr." << endl;
 
     return out;
 }

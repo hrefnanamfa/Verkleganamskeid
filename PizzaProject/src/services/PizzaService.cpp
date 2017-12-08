@@ -21,7 +21,7 @@ void PizzaService::addBaseToPizza(Base& base){
     pizza.setBase(base);
 }
 
-void PizzaService::addPizza(Pizza& pizza){
+void PizzaService::addPizza(const Pizza& pizza){
     cout << "Next is adding the pizza to the repo" << endl;
     pizzarepo.addPizzaToRepo(pizza);
 }

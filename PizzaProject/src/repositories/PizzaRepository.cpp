@@ -9,10 +9,12 @@ PizzaRepository::~PizzaRepository()
 {
     //dtor
 }
-void PizzaRepository::addPizzaToRepo(Pizza& pizza){
+void PizzaRepository::addPizzaToRepo(const Pizza& pizza){
     ofstream fout;
     fout.open("pizza.dat", ios::binary|ios::app);
+
     pizza.write(fout);
+
     fout.close();
 }
 
@@ -27,9 +29,9 @@ vector<Pizza> PizzaRepository::getPizzas(){
     while(!fin.eof()){
         pizza.read(fin);
 
-        /*if(fin.eof()){
+        if(fin.eof()){
             break;
-        }*/
+        }
         pizzas.push_back(pizza);
     }
     fin.close();

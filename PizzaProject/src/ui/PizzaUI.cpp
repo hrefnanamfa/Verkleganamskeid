@@ -40,14 +40,16 @@ void PizzaUI::startUI(){
         pizzaservice.addToppingToPizza(topping);
     }
 
-    cout << "Price of pizza is: " << pizzaservice.getPriceOfPizza() << endl;
+    /*cout << "Price of pizza is: " << pizzaservice.getPriceOfPizza() << endl;*/
     Pizza pizza;
     pizza = pizzaservice.getPizza();
 
     pizzaservice.addPizza(pizza);
+
+    cout << pizza;
 }
 
 void PizzaUI::listAvailablePizzas(){
-    cout << "" << endl;
+    cout << "Available pizzas: " << endl;
     pizzaservice.listAvailablePizzas();
 }
