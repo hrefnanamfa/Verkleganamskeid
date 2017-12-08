@@ -148,7 +148,7 @@ ostream& operator << (ostream& out, Pizza& pizza){
     for(unsigned int i = 0; i < pizza.toppings.size(); i++){
         out << pizza.toppings.at(i).getName() << ", ";
     }
-    out << pizza.getPriceOfPizza() << "kr." << endl;
+    out << pizza.getPriceOfPizza() << "kr.";
 
     return out;
 }

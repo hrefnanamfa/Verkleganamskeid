@@ -20,6 +20,7 @@ class PizzaService
 
         Pizza makePizza(const Base& base, vector<Topping> toppings);
         void clearPizzas();
+        Pizza getPizzaAt(int i);
         int getPriceOfPizza();
         void addBaseToPizza(const Base& Base);
         void addToppingToPizza(Topping& topping);

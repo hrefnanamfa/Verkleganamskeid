@@ -11,9 +11,14 @@ class Order
         vector<Pizza> pizzas;
         bool paid;
         status currentStatus;
+        int price;
     public:
         Order();
         ~Order();
+        void setPizzas(vector<Pizza> pizzas);
+        void setPaid(bool paid);
+        friend ostream& operator <<(ostream& out, Order& order);
+
 };
 
 #endif // ORDER_H

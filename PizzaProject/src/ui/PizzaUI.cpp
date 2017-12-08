@@ -9,12 +9,13 @@ PizzaUI::~PizzaUI()
 {
     //dtor
 }
-void PizzaUI::startUI(){
-	int numberOfToppings = 0;
+
+Pizza PizzaUI::makeAPizza(){
+    int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
 
-    cout << "Making pizza order" << endl;
+    cout << "Making pizza for menu" << endl;
 
     pizzaservice.clearPizzas();
 
@@ -24,8 +25,6 @@ void PizzaUI::startUI(){
     cin >> choiceOfBase;
 
     base = baseservice.getBaseAt(choiceOfBase - 1);
-
-    //pizzaservice.addBaseToPizza(base);
 
     cout << endl;
 
@@ -43,21 +42,27 @@ void PizzaUI::startUI(){
 
         topping = toppingservice.getToppingAt(choiceOfTopping - 1);
         toppings.push_back(topping);
-        //pizzaservice.addToppingToPizza(topping);
     }
-
-    /*cout << "Price of pizza is: " << pizzaservice.getPriceOfPizza() << endl;*/
 
     Pizza pizza;
 
     pizza = pizzaservice.makePizza(base, toppings);
 
+    return pizza;
+}
+
+void PizzaUI::startUIpizzamenu(){
+    Pizza pizza;
+
+    pizza = makeAPizza();
+
     pizzaservice.addPizza(pizza);
 
+    cout << "You just registered: " << endl;
     cout << pizza;
 }
 
 void PizzaUI::listAvailablePizzas(){
-    cout << "Available pizzas: " << endl;
+    cout << "- Available pizzas -" << endl;
     pizzaservice.listAvailablePizzas();
 }

@@ -12,6 +12,7 @@ ManagingUI::~ManagingUI()
 void ManagingUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
+        cout << "What would you like to manage?" << endl << endl;
         cout << "1. Register a new base with price" << endl;
         cout << "2. Register a new topping with price" << endl;
         cout << "3. Register a pizza for the menu (and show price)" << endl;
@@ -34,7 +35,7 @@ void ManagingUI::startUI(){
             toppingui.createToppings();
         }
         else if(selection == '3'){
-            pizzaui.startUI();
+            pizzaui.startUIpizzamenu();
         }
         else if(selection == '4'){
 
@@ -51,5 +52,6 @@ void ManagingUI::startUI(){
         else if(selection == '7'){
 
         }
+        cout << endl;
     }
 }

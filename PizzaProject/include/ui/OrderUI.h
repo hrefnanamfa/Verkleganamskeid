@@ -4,13 +4,14 @@
 
 class OrderUI
 {
-    public:
-        OrderUI();
-        virtual ~OrderUI();
-
-    protected:
 
     private:
+
+    public:
+        OrderUI();
+        ~OrderUI();
+        void makeNewPizza();
+
 };
 
 #endif // ORDERUI_H

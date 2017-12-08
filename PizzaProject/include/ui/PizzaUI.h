@@ -4,6 +4,7 @@
 #include "../services/ToppingService.h"
 #include "ToppingUI.h"
 #include "BaseUI.h"
+#include "PizzaUI.h"
 
 class PizzaUI
 {
@@ -17,7 +18,8 @@ class PizzaUI
     public:
         PizzaUI();
         ~PizzaUI();
-        void startUI();
+        Pizza makeAPizza();
+        void startUIpizzamenu();
         void listAvailablePizzas();
 };
 
