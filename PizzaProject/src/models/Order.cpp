@@ -53,11 +53,46 @@ void Order::checkCurrentStatus(){
         cout << "Delivered" << endl;
     }
 }
+void Order::addPizza(Pizza& pizza){
+    pizzas.push_back(pizza);
+}
 
+
+void Order::write(ofstream& fout) const{
+
+    int countPizza = pizzas.size();
+    fout.write((char*)(&countPizza), sizeof(int));
+
+    for (int i = 0; i < countPizza; i++)
+    {
+        pizzas.at(i).write(fout);
+    }
+    fout.write((char*)(&paid), sizeof(bool));
+    fout.write((char*)(&currentStatus), sizeof(int));
+    fout.write((char*)(&price), sizeof(int));
+}
+
+void Order::read(ifstream& fin){
+
+    int countPizza = 0;
+    fin.read((char*)(&countPizza), sizeof(int));
+
+    for (int i = 0; i < countPizza; i++)
+    {
+        Pizza pizza;
+        pizza.read(fin);
+        addPizza(pizza);
+    }
+    fin.read((char*)(&paid), sizeof(bool));
+    fin.read((char*)(&currentStatus), sizeof(int));
+    fin.read((char*)(&price), sizeof(int));
+
+}
 
 
 istream& operator >>(istream& in, Order& order){
 
+    return in;
 }
 
 ostream& operator <<(ostream& out, Order& order){

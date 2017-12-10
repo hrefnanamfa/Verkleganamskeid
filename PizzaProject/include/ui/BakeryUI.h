@@ -1,17 +1,18 @@
 #ifndef BAKERYUI_H
 #define BAKERYUI_H
-
+#include "OrderService.h"
 
 class BakeryUI
 {
+
+    private:
+        OrderService orderservice;
+
     public:
         BakeryUI();
         virtual ~BakeryUI();
         void startUI();
 
-    protected:
-
-    private:
 };
 
 #endif // BAKERYUI_H

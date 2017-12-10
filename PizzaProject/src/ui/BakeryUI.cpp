@@ -17,14 +17,9 @@ void BakeryUI::startUI(){
 
     while(selection != 'Q'){
 
-        cout << "Choose your appropriate option" << endl;
-        cout << "p: Make pizza" << endl;
-        cout << "d: Choose destination" << endl;
-        //cout << "l: List ordered pizzas for destination" << endl;
-        cout << "s: Select pizza order" << endl;
-        cout << "i: Pizza In Progress" << endl;
-        cout << "r: Pizza Ready" << endl;
-        cout << "q: To go back" << endl;
+        cout << "Please pick an order to flag" << endl;
+
+        orderservice.listOrders();//List orders in process
 
         cin >> selection;
         selection = toupper(selection);

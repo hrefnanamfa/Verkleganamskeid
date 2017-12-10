@@ -108,6 +108,9 @@ void SalesUI::startUI(){
             order = orderservice.makeOrder(pizzasInOrder, paidfor);
             cout << "-Your order-" << endl;
             cout << order;
+
+            orderservice.addOrder(order);
+
         }
     }
     cout << endl;

@@ -8,6 +8,7 @@ class OrderService
 
     private:
         OrderRepository orderrepo;
+        vector<Order> orders;
 
 
     public:
@@ -16,6 +17,9 @@ class OrderService
 
         int getPriceOfOrder(Order& order);
         Order makeOrder(vector<Pizza> pizzas, const bool& paid);
+        void addOrder(const Order& order);
+        void getOrderList();
+        void listOrders();
 };
 
 #endif // ORDERSERVICE_H
