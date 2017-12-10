@@ -15,9 +15,14 @@ class Order
     public:
         Order();
         ~Order();
+        void setPrice();
+        int getPrice();
         void setPizzas(vector<Pizza> pizzas);
         void setPaid(bool paid);
+        void checkPaid();
+        void checkCurrentStatus();
         friend ostream& operator <<(ostream& out, Order& order);
+        friend istream& operator >>(istream& in, Order& order);
 
 };
 

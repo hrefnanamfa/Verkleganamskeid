@@ -16,3 +16,7 @@ Order OrderService::makeOrder(vector<Pizza> pizzas, const bool& paid){
     order.setPaid(paid);
     return order;
 }
+
+int OrderService::getPriceOfOrder(Order& order){
+    return order.getPrice();
+}

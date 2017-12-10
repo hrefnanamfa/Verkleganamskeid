@@ -35,6 +35,8 @@ void ManagingUI::startUI(){
             toppingui.createToppings();
         }
         else if(selection == '3'){
+            cout << "Making pizza for menu" << endl;
+
             pizzaui.startUIpizzamenu();
         }
         else if(selection == '4'){

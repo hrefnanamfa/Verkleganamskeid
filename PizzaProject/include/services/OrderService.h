@@ -14,6 +14,7 @@ class OrderService
         OrderService();
         ~OrderService();
 
+        int getPriceOfOrder(Order& order);
         Order makeOrder(vector<Pizza> pizzas, const bool& paid);
 };
 

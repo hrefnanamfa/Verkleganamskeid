@@ -15,8 +15,6 @@ Pizza PizzaUI::makeAPizza(){
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
 
-    cout << "Making pizza for menu" << endl;
-
     pizzaservice.clearPizzas();
 
     cout << "Pick base: " << endl;
@@ -65,4 +63,5 @@ void PizzaUI::startUIpizzamenu(){
 void PizzaUI::listAvailablePizzas(){
     cout << "- Available pizzas -" << endl;
     pizzaservice.listAvailablePizzas();
+    cout << endl;
 }
