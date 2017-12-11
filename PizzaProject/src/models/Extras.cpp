@@ -64,7 +64,7 @@ void Extras::read(ifstream& fin){
 ostream& operator << (ostream& out, const Extras& extras){
 
     out << extras.getName();
-    out << "  \t ";
+    out << ", ";
     out << extras.getPrice() << " kr.";
     return out;
 }

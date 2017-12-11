@@ -17,16 +17,14 @@ void DeliveryUI::startUI(){
 
     Workplaces workplace = workplacesui.selectWorkplace();
 
-/*
-    while(selection != 'Q'){
+    string work = workplace.getName();
 
-        cout << "d: Choose delivery destination" << endl;
-        cout << "l: List orders for destination" << endl;
-        cout << "r: List ready orders for destination" << endl;
-        cout << "o: Select order" << endl;
-        cout << "1: Mark order as paid" << endl;
-        cout << "2: Mark order as delivered" << endl;
-        cout << "q: To go back" << endl;
+
+    while(selection != 'Q'){
+        cout << "-- " << work << " --" << endl;
+
+
+        cout << "Q: Go back" << endl;
 
         cin >> selection;
         selection = toupper(selection);
@@ -43,5 +41,5 @@ void DeliveryUI::startUI(){
         else if(selection == 'D') {
 
         }
-    }*/
+    }
 }

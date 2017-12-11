@@ -30,6 +30,11 @@ vector <Extras> ExtrasService::getExtrasVector(){
 void ExtrasService::listAvailableExtras(){
     getExtras();
     for(unsigned int i = 0; i < extras.size(); i++){
-        cout << i + 1  << ". " << extras[i] << endl;
+        cout << i + 1  << ". " << extras[i].getName();
+        if (extras[i].getName().length() > 10)
+            cout << "\t\t";
+        else
+            cout << "  \t\t";
+        cout << extras[i].getPrice() << " kr." << endl;
     }
 }

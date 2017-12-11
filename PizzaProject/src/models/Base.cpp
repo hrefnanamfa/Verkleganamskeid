@@ -55,7 +55,10 @@ void Base::read(ifstream& fin){
 
 ostream& operator << (ostream& out, const Base& base){
     out << base.getName();
-    out << "  \t ";
+    if (base.getName().length() > 10)
+        out << "\t";
+    else
+        out << "  \t\t";
     out << base.getPrice() << " kr.";
     return out;
 }

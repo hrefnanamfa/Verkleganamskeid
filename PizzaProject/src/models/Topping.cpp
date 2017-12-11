@@ -56,7 +56,10 @@ void Topping::read(ifstream& fin){
 ostream& operator << (ostream& out, const Topping& topping){
 
     out << topping.getName();
-    out << "  \t ";
+    if (topping.getName().length() > 10)
+        out << "\t";
+    else
+        out << "  \t\t";
     out << topping.getPrice() << " kr.";
     return out;
 }
