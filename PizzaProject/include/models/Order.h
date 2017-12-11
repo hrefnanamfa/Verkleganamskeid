@@ -26,6 +26,7 @@ class Order
         void addExtras(Extras& extra);
         void setPizzas(vector<Pizza> pizzas);
         void setExtras(vector<Extras> extras);
+        void setCurrentStatus(status _status);
         void setPaid(bool paid);
         void setPickup(Workplaces workplaces);
         string getPickup();

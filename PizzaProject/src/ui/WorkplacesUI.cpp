@@ -21,7 +21,7 @@ void WorkplacesUI::addWorkplace(){
 }
 
 void WorkplacesUI::listWorkplaces(){
-    cout << "- Workplaces -" << endl;
+
     workplacesservice.listAvailableWorkplaces();
 }
 

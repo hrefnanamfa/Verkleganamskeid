@@ -70,9 +70,9 @@ void ManagingUI::startUI(){
             extrasui.listExtras();
         }
         else if(selection == '9'){
+            cout << "- Workplaces -" << endl;
             workplacesui.listWorkplaces();
         }
-
         cout << endl;
     }
 }

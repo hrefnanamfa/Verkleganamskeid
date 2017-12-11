@@ -23,6 +23,9 @@ void Order::setExtras(vector<Extras> extras){
 void Order::setPaid(bool paid){
     this->paid = paid;
 }
+void Order::setCurrentStatus(status _status){
+    this->currentStatus = _status;
+}
 
 void Order::setPrice(){
     int currentPrice = 0;
@@ -58,6 +61,7 @@ void Order::checkPaid(){
         cout << "No" << endl;
     }
 }
+
 void Order::checkCurrentStatus(){
     if(this->currentStatus == 1){
         cout << "On hold" << endl;
