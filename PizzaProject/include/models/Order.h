@@ -4,7 +4,7 @@
 #include "Extras.h"
 #include "Workplaces.h"
 
-enum status { INPROGRESS = 1, READY, DELIVERED};
+enum status { ONHOLD = 1, INPROGRESS, READY, DELIVERED};
 
 
 class Order

@@ -3,7 +3,7 @@
 Order::Order()
 {
     this->paid = false;
-    this->currentStatus = INPROGRESS;
+    this->currentStatus = ONHOLD;
     this->price = 0;
 }
 
@@ -116,6 +116,11 @@ ostream& operator <<(ostream& out, Order& order){
 
     for(unsigned int i = 0; i < order.pizzas.size(); i++){
         out << (i + 1) << ". " << order.pizzas.at(i) << endl;
+    }
+
+    out << "Extras: " << endl;
+    for(unsigned int i = 0; i < order.extras.size(); i++){
+        out << (i + 1) << ". " << order.extras.at(i) << endl;
     }
     out << "Status: ";
     order.checkCurrentStatus();

@@ -14,18 +14,20 @@ SalesUI::~SalesUI()
 }
 void SalesUI::startUI(){
     char selection = '\0';
-    cout << "Let's make an order!" << endl;
+    cout << "Sales" << endl;
+    Workplaces workplace;
+
+    workplace = workplacesui.selectWorkplace();
 
     while(selection != 'Q'){
 
-        cout << "1: Add a pizza from menu" << endl;
-        cout << "2: Add your own pizza" << endl;
-        cout << "3: Add something extra" << endl;
+        cout << "1. Add pizza from menu" << endl;
+        cout << "2. Add your own pizza" << endl;
+        cout << "3. Add something extra" << endl;
+        cout << "-----------------------" << endl;
         cout << "4. Show current price" << endl;
-        cout << "5: Delivery/pickup options" << endl;
-        cout << "6: Add comment to order" << endl;
-        cout << "7: Save order" << endl;
-        cout << "q: To go back" << endl;
+        cout << "5. Save order" << endl << endl;
+        cout << "q. to go back" << endl;
 
         cin >> selection;
         selection = toupper(selection);
@@ -61,10 +63,24 @@ void SalesUI::startUI(){
 
                 cout << endl;
                 cout << pizza << " was added to the order" << endl;
-
-                cout << "Do you want to add another pizza? (press Y for yes)" << endl;
-                cin >> answer;
-                answer = toupper(answer);
+                bool check = false, flag = true;
+                do{
+                    try{
+                        cout << "Do you want to add another pizza? (y/n)" << endl;
+                        cin >> answer;
+                        check = checkAnswer(answer);
+                    }
+                    catch(InvalidAnswerException){
+                        cout << "Invalid answer!" << endl;
+                    }
+                    answer = toupper(answer);
+                    if(answer == 'Y' || answer == 'N'){
+                        flag = true;
+                    }
+                    else{
+                        flag = false;
+                    }
+                }while(!flag);
 
 
             }while(answer == 'Y');
@@ -95,22 +111,6 @@ void SalesUI::startUI(){
 
         }
         else if(selection == '5'){
-            int selection = 0;
-
-            workplacesui.listWorkplaces();
-            cout << "Where would you like to pick up your order?" << endl;
-            cin >> selection;
-            cout << endl;
-
-            workplaces = workplacesservice.getWorkplaceAt(selection - 1);
-
-            cout << "Your order has been sent to " << workplaces << endl;
-            cout << endl;
-        }
-        else if(selection == '6'){
-
-        }
-        else if(selection == '7'){
             bool paidfor = true;
             char answer = '0';
             do{
@@ -130,7 +130,6 @@ void SalesUI::startUI(){
             cout << order;
 
             orderservice.addOrder(order);
-
         }
     }
     cout << endl;
@@ -147,4 +146,5 @@ bool SalesUI::checkAnswer(char answer){
         throw InvalidAnswerException();
     }
 }
+
 

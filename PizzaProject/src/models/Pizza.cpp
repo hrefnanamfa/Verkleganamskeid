@@ -51,32 +51,7 @@ void Pizza::write(ofstream& fout) const{
     {
         toppings[i].write(fout);
     }
-    /*string nameOfBase = base.getName();
-    string nameOfTopping;
 
-    int stringLengthOfBase = nameOfBase.length() + 1;
-
-    fout.write((char*)(&stringLengthOfBase), sizeof(int));
-
-    fout.write(nameOfBase.c_str(), stringLengthOfBase);
-
-    int tCount = toppings.size();
-
-    fout.write((char*)(&tCount), sizeof(int));
-
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        fout.write((char*)(&toppings.at(i)), sizeof(Topping));
-    }
-
-    fout.write((char*)(&price), sizeof(double));
-    */
-    /*int tCount = toppings.size();
-
-    fout.write((char*)(&tCount), sizeof(int));
-
-    for(int i = 0; i < tCount; i++){
-        fout.write((char*)(&toppings.at(i)), sizeof(Topping));
-    }*/
 }
 
 void Pizza::read(ifstream& fin){
@@ -93,38 +68,6 @@ void Pizza::read(ifstream& fin){
         topping.read(fin);
         addTopping(topping);
     }
-
-    /*int stringLengthOfBase;
-
-    fin.read((char*)(&stringLengthOfBase), sizeof(int));
-
-    char *str = new char[stringLengthOfBase];
-
-    fin.read(str, stringLengthOfBase);
-
-    base.setName(str);
-
-    int tCount;
-
-    fin.read((char*)(&tCount), sizeof(int));
-
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        Topping topping;
-        fin.read((char*)(&toppings.at(i)), sizeof(Topping));
-        addTopping(topping);
-    }
-
-
-    fin.read((char*)(&price), sizeof(double)); */
-
-    /*int tCount;
-    fin.read((char*)(&tCount), sizeof(int));
-
-    Topping topping;
-    for(int i = 0; i < tCount; i++){
-        fin.read((char*)(&toppings.at(i)), sizeof(Topping));
-        addTopping(topping);
-    }*/
 }
 
 
