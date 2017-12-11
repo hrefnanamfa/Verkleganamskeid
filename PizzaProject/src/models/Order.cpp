@@ -72,10 +72,10 @@ void Order::checkCurrentStatus(){
         cout << "Delivered" << endl;
     }
 }
+
 void Order::addPizza(Pizza& pizza){
     pizzas.push_back(pizza);
 }
-
 
 void Order::write(ofstream& fout) const{
 

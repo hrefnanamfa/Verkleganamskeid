@@ -45,8 +45,8 @@ void SalesUI::startUI(){
 
             pizza = pizzaservice.getPizzaAt(select - 1);
 
-            cout << pizza << " was added to the order" << endl;
-            cout << endl;
+            cout << pizza << " was added to the order" << endl << endl;
+
             pizzasInOrder.push_back(pizza);
         }
         else if(selection == '2') {
@@ -54,7 +54,7 @@ void SalesUI::startUI(){
             do{
                 Pizza pizza;
 
-                cout << "Making a new pizza for order" << endl;
+                cout << "Making a new pizza for order" << endl << endl;
 
                 pizza = pizzaui.makeAPizza();
 
@@ -62,7 +62,9 @@ void SalesUI::startUI(){
 
                 cout << endl;
                 cout << pizza << " was added to the order" << endl;
-                bool  flag = true;
+
+                bool flag = true;
+
                 do{
                     try{
                         cout << "Do you want to add another pizza? (y/n)" << endl;
@@ -79,8 +81,8 @@ void SalesUI::startUI(){
                     else{
                         flag = false;
                     }
-                }while(!flag);
 
+                }while(!flag);
 
             }while(answer == 'Y');
 
@@ -88,7 +90,9 @@ void SalesUI::startUI(){
         else if(selection == '3') {
             do{
                 int select = 0;
-                cout << "Pick an item to add to your order:" << endl;
+
+                cout << "Pick an item to add to your order:" << endl << endl;
+
                 extrasui.listExtras();
 
                 cin >> select;
@@ -97,17 +101,14 @@ void SalesUI::startUI(){
                 Extras extras;
                 extras = extrasservice.getExtrasAt(select - 1);
 
-            cout << extras << " was added to the order" << endl;
-            cout << endl;
+            cout << extras << " was added to the order" << endl << endl;
             extrasInOrder.push_back(extras);
             }while(selection == 'Y' || selection == 'y');
         }
         else if(selection == '4') {
             cout << "The current price of order is: ";
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplaces);
-            cout << orderservice.getPriceOfOrder(order) << "kr." << endl;
-            cout << endl;
-
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplace);
+            cout << orderservice.getPriceOfOrder(order) << "kr." << endl << endl;
         }
         else if(selection == '5'){
             bool paidfor = true;

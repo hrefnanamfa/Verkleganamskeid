@@ -27,12 +27,14 @@ void OrderService::addOrder(Order& order){
     orderrepo.addOrderToRepo(order);
 }
 
-void OrderService::getOrderList(){
-    orders = orderrepo.getOrders();
+void OrderService::getOrderList(string work){
+    orders = orderrepo.getOrders(work);
 }
 
-void OrderService::listOrders(){
-    getOrderList();
+//void OrderService::
+
+void OrderService::listOrders(string work){
+    getOrderList(work);
     for(unsigned int i = 0; i < orders.size(); i++){
         cout << i + 1 << ". " << orders.at(i) << endl;
     }

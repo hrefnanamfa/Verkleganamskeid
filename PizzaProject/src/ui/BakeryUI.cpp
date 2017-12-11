@@ -19,7 +19,7 @@ void BakeryUI::startUI(){
 
         cout << "Please pick an order to flag" << endl;
 
-        orderservice.listOrders();//List orders in process
+        //orderservice.listOrders();//List orders in process
 
         cin >> selection;
         selection = toupper(selection);

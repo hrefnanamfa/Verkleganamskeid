@@ -19,10 +19,10 @@ void OrderRepository::addOrderToRepo(Order& order){
     fout.close();
 }
 
-vector<Order> OrderRepository::getOrders(){
+vector<Order> OrderRepository::getOrders(string work){
     ifstream fin;
-    string filename = workplaces.getName() + ".dat";
     vector<Order> orders;
+    string filename = work + ".dat";
 
     fin.open(filename.c_str(), ios::binary);
 

@@ -13,7 +13,7 @@ class OrderRepository
     public:
         OrderRepository();
         ~OrderRepository();
-        vector<Order> getOrders();
+        vector<Order> getOrders(string work);
         void addOrderToRepo(Order& order);
 
 };

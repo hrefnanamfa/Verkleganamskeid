@@ -19,8 +19,8 @@ class OrderService
         int getPriceOfOrder(Order& order);
         Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces);
         void addOrder(Order& order);
-        void getOrderList();
-        void listOrders();
+        void getOrderList(string work);
+        void listOrders(string work);
 };
 
 #endif // ORDERSERVICE_H
