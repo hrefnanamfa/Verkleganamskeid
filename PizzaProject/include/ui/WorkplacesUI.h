@@ -8,17 +8,15 @@ using namespace std;
 
 class WorkplacesUI
 {
+    private:
+        WorkplacesService workplacesservice;
+
     public:
         WorkplacesUI();
         virtual ~WorkplacesUI();
         void addWorkplace();
         void listWorkplaces();
         Workplaces selectWorkplace();
-
-    protected:
-
-    private:
-        WorkplacesService workplacesservice;
 };
 
 #endif // WORKPLACESUI_H
