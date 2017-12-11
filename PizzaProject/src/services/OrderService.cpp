@@ -10,11 +10,12 @@ OrderService::~OrderService()
     //dtor
 }
 
-Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid){
+Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces){
     Order order;
     order.setPizzas(pizzas);
     order.setExtras(extras);
     order.setPaid(paid);
+    order.setPickup(workplaces);
     return order;
 }
 
@@ -22,7 +23,7 @@ int OrderService::getPriceOfOrder(Order& order){
     return order.getPrice();
 }
 
-void OrderService::addOrder(const Order& order){
+void OrderService::addOrder(Order& order){
     orderrepo.addOrderToRepo(order);
 }
 

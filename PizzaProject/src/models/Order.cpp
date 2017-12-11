@@ -38,6 +38,14 @@ void Order::setPrice(){
     this->price = currentPrice;
 }
 
+void Order::setPickup(Workplaces workplaces){
+    this->workplaces = workplaces;
+}
+
+string Order::getPickup(){
+    return workplaces.getName();
+}
+
 int Order::getPrice() {
     setPrice();
     return this->price;

@@ -16,10 +16,6 @@ void SalesUI::startUI(){
     char selection = '\0';
     cout << "Let's make an order!" << endl;
 
-    Order order;
-    vector<Pizza> pizzasInOrder;
-    vector<Extras> extrasInOrder;
-
     while(selection != 'Q'){
 
         cout << "1: Add a pizza from menu" << endl;
@@ -50,7 +46,6 @@ void SalesUI::startUI(){
             cout << pizza << " was added to the order" << endl;
             cout << endl;
             pizzasInOrder.push_back(pizza);
-
         }
         else if(selection == '2') {
             char answer = 'Y';
@@ -94,13 +89,23 @@ void SalesUI::startUI(){
         }
         else if(selection == '4') {
             cout << "The current price of order is: ";
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplaces);
             cout << orderservice.getPriceOfOrder(order) << "kr." << endl;
             cout << endl;
 
         }
         else if(selection == '5'){
+            int selection = 0;
 
+            workplacesui.listWorkplaces();
+            cout << "Where would you like to pick up your order?" << endl;
+            cin >> selection;
+            cout << endl;
+
+            workplaces = workplacesservice.getWorkplaceAt(selection - 1);
+
+            cout << "Your order has been sent to " << workplaces << endl;
+            cout << endl;
         }
         else if(selection == '6'){
 
@@ -120,7 +125,7 @@ void SalesUI::startUI(){
                 }
             }while(!answer);
 
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplaces);
             cout << "-Your order-" << endl;
             cout << order;
 

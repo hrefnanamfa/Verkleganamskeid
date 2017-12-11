@@ -9,9 +9,10 @@ OrderRepository::~OrderRepository()
 {
     //dtor
 }
-void OrderRepository::addOrderToRepo(const Order& order){
+void OrderRepository::addOrderToRepo(Order& order){
     ofstream fout;
-    fout.open("orders.dat", ios::binary|ios::app);
+    string filename = order.getPickup() + ".dat";
+    fout.open(filename.c_str(), ios::binary|ios::app);
 
     order.write(fout);
 
@@ -20,10 +21,10 @@ void OrderRepository::addOrderToRepo(const Order& order){
 
 vector<Order> OrderRepository::getOrders(){
     ifstream fin;
-
+    string filename = workplaces.getName() + ".dat";
     vector<Order> orders;
 
-    fin.open("orders.dat", ios::binary);
+    fin.open(filename.c_str(), ios::binary);
 
 
     while(!fin.eof()){

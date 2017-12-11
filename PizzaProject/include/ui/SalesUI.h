@@ -6,22 +6,29 @@
 #include "PizzaUI.h"
 #include "Extrasui.h"
 #include "../services/ExtrasService.h"
+#include "WorkplacesUI.h"
+#include "../services/WorkplacesService.h"
 
 class SalesUI
 {
     private:
         OrderService orderservice;
         PizzaService pizzaservice;
+        ExtrasService extrasservice;
+        WorkplacesService workplacesservice;
         PizzaUI pizzaui;
         ExtrasUI extrasui;
-        ExtrasService extrasservice;
+        WorkplacesUI workplacesui;
+        Order order;
+        Workplaces workplaces;
+        vector<Pizza> pizzasInOrder;
+        vector<Extras> extrasInOrder;
 
     public:
         SalesUI();
         virtual ~SalesUI();
         void startUI();
         bool checkAnswer(char answer);
-
 };
 
 #endif // SALESUI_H

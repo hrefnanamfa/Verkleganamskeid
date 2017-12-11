@@ -1,17 +1,20 @@
 #ifndef ORDERREPOSITORY_H
 #define ORDERREPOSITORY_H
 #include "../models/Order.h"
+#include "../models/Workplaces.h"
 
 
 class OrderRepository
 {
 
     private:
+        Workplaces workplaces;
+
     public:
         OrderRepository();
         ~OrderRepository();
         vector<Order> getOrders();
-        void addOrderToRepo(const Order& order);
+        void addOrderToRepo(Order& order);
 
 };
 
