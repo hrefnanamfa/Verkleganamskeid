@@ -60,9 +60,12 @@ void Order::checkPaid(){
 }
 void Order::checkCurrentStatus(){
     if(this->currentStatus == 1){
-        cout << "In progress" << endl;
+        cout << "On hold" << endl;
     }
     else if(this->currentStatus == 2){
+        cout << "In progress" << endl;
+    }
+    else if (this->currentStatus == 3){
         cout << "Ready" << endl;
     }
     else{
@@ -104,7 +107,6 @@ void Order::read(ifstream& fin){
     fin.read((char*)(&price), sizeof(int));
 
 }
-
 
 istream& operator >>(istream& in, Order& order){
 

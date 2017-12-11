@@ -18,6 +18,7 @@ void SalesUI::startUI(){
     Workplaces workplace;
 
     workplace = workplacesui.selectWorkplace();
+    cout << endl;
 
     while(selection != 'Q'){
 
@@ -35,9 +36,8 @@ void SalesUI::startUI(){
 
         if(selection == '1') {
             int select = 0;
-
-            pizzaui.listAvailablePizzas();
             cout << "Pick a pizza to add to the order" << endl;
+            pizzaui.listAvailablePizzas();
             cin >> select;
             cout << endl;
 
@@ -55,7 +55,6 @@ void SalesUI::startUI(){
                 Pizza pizza;
 
                 cout << "Making a new pizza for order" << endl;
-                cout << endl;
 
                 pizza = pizzaui.makeAPizza();
 
@@ -63,12 +62,12 @@ void SalesUI::startUI(){
 
                 cout << endl;
                 cout << pizza << " was added to the order" << endl;
-                bool check = false, flag = true;
+                bool  flag = true;
                 do{
                     try{
                         cout << "Do you want to add another pizza? (y/n)" << endl;
                         cin >> answer;
-                        check = checkAnswer(answer);
+                        checkAnswer(answer);
                     }
                     catch(InvalidAnswerException){
                         cout << "Invalid answer!" << endl;
@@ -88,15 +87,15 @@ void SalesUI::startUI(){
         }
         else if(selection == '3') {
             do{
-                int selection = 0;
-                cout << "Pick an item to add to your order:" << endl << endl;
+                int select = 0;
+                cout << "Pick an item to add to your order:" << endl;
                 extrasui.listExtras();
 
-                cin >> selection;
+                cin >> select;
                 cout << endl;
 
                 Extras extras;
-                extras = extrasservice.getExtrasAt(selection - 1);
+                extras = extrasservice.getExtrasAt(select - 1);
 
             cout << extras << " was added to the order" << endl;
             cout << endl;
@@ -126,7 +125,7 @@ void SalesUI::startUI(){
             }while(!answer);
 
             order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplaces);
-            cout << "-Your order-" << endl;
+            cout << "- Your order -" << endl;
             cout << order;
 
             orderservice.addOrder(order);
