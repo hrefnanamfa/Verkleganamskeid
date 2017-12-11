@@ -27,7 +27,9 @@ void ManagingUI::startUI(){
         cout << "8. Extras" << endl;
         cout << "9. Workplaces" << endl << endl;
 
-        cout << "q. Go back" << endl;
+
+        cout << "q. to go back" << endl;
+
 
         cin >> selection;
 
@@ -52,7 +54,8 @@ void ManagingUI::startUI(){
             extrasui.createExtras();
         }
         else if(selection == '5'){
-            workplacesui.addWorkplace();
+            workplacesui.addWorkplace();//Skra afhendingarstad
+
         }
         else if(selection == '6'){
             baseui.listBases();
@@ -69,6 +72,7 @@ void ManagingUI::startUI(){
         else if(selection == '9'){
             workplacesui.listWorkplaces();
         }
+
         cout << endl;
     }
 }

@@ -12,7 +12,7 @@ ToppingUI::~ToppingUI()
 
 void ToppingUI::createToppings(){
     Topping topping;
-    cout << "Making topping" << endl;
+
     cin >> topping;
 
     toppingservice.addTopping(topping);

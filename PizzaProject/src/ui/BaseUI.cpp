@@ -12,7 +12,6 @@ BaseUI::~BaseUI()
 
 void BaseUI::createBase(){
     Base base;
-    cout << "Creating base" << endl;
     cin >> base;
 
     baseservice.addBase(base);
