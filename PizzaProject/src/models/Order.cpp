@@ -45,7 +45,7 @@ void Order::setPickup(Workplaces workplaces){
     this->workplaces = workplaces;
 }
 
-string Order::getPickup(){
+string Order::getLocation(){
     return workplaces.getName();
 }
 

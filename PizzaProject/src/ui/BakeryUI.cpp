@@ -37,11 +37,11 @@ void BakeryUI::startUI(){
             orderservice.listOrders(work);
             cout << "Select an order to flag";
             cin >> select;
-
+            cout << select;
             Order order;
-            order = orderservice.getOrderAt(select - 1);
-            cout << endl << order.getPickup() << endl << endl;
-            cout << order.getPrice();
+            order = orderservice.getOrderAt(select - 1, work);
+
+            cout << order;
 
         }
         else if(selection == '2'){

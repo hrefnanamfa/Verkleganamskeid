@@ -31,8 +31,8 @@ void OrderService::getOrderList(string work){
     orders = orderrepo.getOrders(work);
 }
 
-Order OrderService::getOrderAt(int i){
-    getOrderList(orders.at(i).getPickup());
+Order OrderService::getOrderAt(int i, string work){
+    getOrderList(work);
     return orders.at(i);
 }
 

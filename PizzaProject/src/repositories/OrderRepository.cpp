@@ -11,7 +11,7 @@ OrderRepository::~OrderRepository()
 }
 void OrderRepository::addOrderToRepo(Order& order){
     ofstream fout;
-    string filename = order.getPickup() + ".dat";
+    string filename = order.getLocation() + ".dat";
     fout.open(filename.c_str(), ios::binary|ios::app);
 
     order.write(fout);

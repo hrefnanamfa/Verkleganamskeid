@@ -29,7 +29,7 @@ class Order
         void setCurrentStatus(status _status);
         void setPaid(bool paid);
         void setPickup(Workplaces workplaces);
-        string getPickup();
+        string getLocation();
         void checkPaid();
         void checkCurrentStatus();
         friend ostream& operator <<(ostream& out, Order& order);
