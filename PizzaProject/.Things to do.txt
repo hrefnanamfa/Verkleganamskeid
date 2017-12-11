@@ -1,0 +1,9 @@
+Vallisti				x
+Verð á grunnpizzu			x
+Áleggstegundir og verð			x
+Skrá pantaða pizzu og fá heildarverð	
+Merkja pizzu greidda			
+Fá upp pantaða pizzu			
+Merkja í vinnslu			
+Merkja tilbúna				
+Merkja afhenta				

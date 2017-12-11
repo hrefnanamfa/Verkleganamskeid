@@ -1,4 +1,4 @@
-#include "Order.h"
+#include "../../include/models/Order.h"
 
 Order::Order()
 {
@@ -16,6 +16,10 @@ void Order::setPizzas(vector<Pizza> pizzas){
     this->pizzas = pizzas;
 }
 
+void Order::setExtras(vector<Extras> extras){
+    this->extras = extras;
+}
+
 void Order::setPaid(bool paid){
     this->paid = paid;
 }
@@ -25,6 +29,10 @@ void Order::setPrice(){
 
     for(unsigned int i = 0; i < pizzas.size(); i++){
         currentPrice += pizzas.at(i).getPriceOfPizza();
+    }
+
+    for(unsigned int i = 0; i < extras.size(); i++){
+        currentPrice += extras.at(i).getPriceOfExtras();
     }
 
     this->price = currentPrice;

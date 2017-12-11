@@ -1,4 +1,4 @@
-#include "OrderService.h"
+#include "../../include/services/OrderService.h"
 
 OrderService::OrderService()
 {
@@ -10,9 +10,10 @@ OrderService::~OrderService()
     //dtor
 }
 
-Order OrderService::makeOrder(vector<Pizza> pizzas, const bool& paid){
+Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid){
     Order order;
     order.setPizzas(pizzas);
+    order.setExtras(extras);
     order.setPaid(paid);
     return order;
 }

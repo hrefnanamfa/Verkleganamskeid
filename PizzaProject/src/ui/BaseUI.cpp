@@ -9,6 +9,7 @@ BaseUI::~BaseUI()
 {
     //dtor
 }
+
 void BaseUI::createBase(){
     Base base;
     cout << "Creating base" << endl;

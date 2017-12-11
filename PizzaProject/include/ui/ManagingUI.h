@@ -3,6 +3,8 @@
 #include "ToppingUI.h"
 #include "BaseUI.h"
 #include "PizzaUI.h"
+#include "Extrasui.h"
+#include "WorkplacesUI.h"
 
 class ManagingUI
 {
@@ -17,6 +19,8 @@ class ManagingUI
         ToppingUI toppingui;
         BaseUI baseui;
         PizzaUI pizzaui;
+        ExtrasUI extrasui;
+        WorkplacesUI workplacesui;
 };
 
 #endif // MANAGINGUI_H

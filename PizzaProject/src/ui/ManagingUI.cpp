@@ -1,4 +1,4 @@
-#include "ManagingUI.h"
+#include "../../include/ui/ManagingUI.h"
 
 ManagingUI::ManagingUI()
 {
@@ -20,6 +20,8 @@ void ManagingUI::startUI(){
         cout << "5. List toppings and bases" << endl;
         cout << "6. List pizza menu" << endl;
         cout << "7. List extra items" << endl;
+        cout << "8. Add a workplace" << endl;
+        cout << "9. List all workplaces" << endl;
         cout << "q. to go back" << endl;
 
         cin >> selection;
@@ -40,7 +42,7 @@ void ManagingUI::startUI(){
             pizzaui.startUIpizzamenu();
         }
         else if(selection == '4'){
-
+            extrasui.createExtras();
         }
         else if(selection == '5'){
             baseui.listBases();
@@ -52,7 +54,13 @@ void ManagingUI::startUI(){
             pizzaui.listAvailablePizzas();
         }
         else if(selection == '7'){
-
+            extrasui.listExtras();
+        }
+        else if(selection == '8'){
+            workplacesui.addWorkplace();//Skra afhendingarstad
+        }
+        else if(selection == '9'){
+            workplacesui.listWorkplaces();
         }
         cout << endl;
     }

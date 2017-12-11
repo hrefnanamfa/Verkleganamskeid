@@ -1,6 +1,7 @@
 #ifndef ORDER_H
 #define ORDER_H
 #include "Pizza.h"
+#include "Extras.h"
 
 enum status { INPROGRESS = 1, READY, DELIVERED};
 
@@ -9,6 +10,7 @@ class Order
 {
     private:
         vector<Pizza> pizzas;
+        vector<Extras> extras;
         bool paid;
         status currentStatus;
         int price;
@@ -19,6 +21,7 @@ class Order
         int getPrice();
         void addPizza(Pizza& pizza);
         void setPizzas(vector<Pizza> pizzas);
+        void setExtras(vector<Extras> extras);
         void setPaid(bool paid);
         void checkPaid();
         void checkCurrentStatus();

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PizzaProject" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/PizzaProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/PizzaProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/ExtrasService.h" />
+		<Unit filename="include/Extrasui.h" />
+		<Unit filename="include/models/Base.h" />
+		<Unit filename="include/models/Extras.h" />
+		<Unit filename="include/models/Pizza.h" />
+		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/repositories/BaseRepository.h" />
+		<Unit filename="include/repositories/ExtrasRepository.h" />
+		<Unit filename="include/repositories/PizzaRepository.h" />
+		<Unit filename="include/repositories/ToppingRepository.h" />
+		<Unit filename="include/services/BaseService.h" />
+		<Unit filename="include/services/ExtrasService.h" />
+		<Unit filename="include/services/OrderService.h" />
+		<Unit filename="include/services/PizzaService.h" />
+		<Unit filename="include/services/ToppingService.h" />
+		<Unit filename="include/ui/BaseUI.h" />
+		<Unit filename="include/ui/Extrasui.h" />
+		<Unit filename="include/ui/MainUI.h" />
+		<Unit filename="include/ui/ManagingUI.h" />
+		<Unit filename="include/ui/PizzaUI.h" />
+		<Unit filename="include/ui/SalesUI.h" />
+		<Unit filename="include/ui/ToppingUI.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/InvalidAnswerException.cpp" />
+		<Unit filename="src/models/Base.cpp" />
+		<Unit filename="src/models/Extras.cpp" />
+		<Unit filename="src/models/Order.cpp" />
+		<Unit filename="src/models/Pizza.cpp" />
+		<Unit filename="src/models/Topping.cpp" />
+		<Unit filename="src/repositories/BaseRepository.cpp" />
+		<Unit filename="src/repositories/ExtrasRepository.cpp" />
+		<Unit filename="src/repositories/OrderRepository.cpp" />
+		<Unit filename="src/repositories/PizzaRepository.cpp" />
+		<Unit filename="src/repositories/ToppingRepository.cpp" />
+		<Unit filename="src/services/BaseService.cpp" />
+		<Unit filename="src/services/ExtrasService.cpp" />
+		<Unit filename="src/services/OrderService.cpp" />
+		<Unit filename="src/services/PizzaService.cpp" />
+		<Unit filename="src/services/ToppingService.cpp" />
+		<Unit filename="src/ui/BakeryUI.cpp" />
+		<Unit filename="src/ui/BaseUI.cpp" />
+		<Unit filename="src/ui/DeliveryUI.cpp" />
+		<Unit filename="src/ui/Extrasui.cpp" />
+		<Unit filename="src/ui/MainUI.cpp" />
+		<Unit filename="src/ui/ManagingUI.cpp" />
+		<Unit filename="src/ui/PizzaUI.cpp" />
+		<Unit filename="src/ui/SalesUI.cpp" />
+		<Unit filename="src/ui/ToppingUI.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

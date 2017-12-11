@@ -1,4 +1,4 @@
-#include "SalesUI.h"
+#include "../../include/ui/SalesUI.h"
 #include <iostream>
 #include "InvalidAnswerException.h"
 using namespace std;
@@ -18,6 +18,7 @@ void SalesUI::startUI(){
 
     Order order;
     vector<Pizza> pizzasInOrder;
+    vector<Extras> extrasInOrder;
 
     while(selection != 'Q'){
 
@@ -75,11 +76,25 @@ void SalesUI::startUI(){
 
         }
         else if(selection == '3') {
+            do{
+                int selection = 0;
+                cout << "Pick an item to add to your order:" << endl << endl;
+                extrasui.listExtras();
 
+                cin >> selection;
+                cout << endl;
+
+                Extras extras;
+                extras = extrasservice.getExtrasAt(selection - 1);
+
+            cout << extras << " was added to the order" << endl;
+            cout << endl;
+            extrasInOrder.push_back(extras);
+            }while(selection == 'Y' || selection == 'y');
         }
         else if(selection == '4') {
             cout << "The current price of order is: ";
-            order = orderservice.makeOrder(pizzasInOrder, false);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false);
             cout << orderservice.getPriceOfOrder(order) << "kr." << endl;
             cout << endl;
 
@@ -105,7 +120,7 @@ void SalesUI::startUI(){
                 }
             }while(!answer);
 
-            order = orderservice.makeOrder(pizzasInOrder, paidfor);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor);
             cout << "-Your order-" << endl;
             cout << order;
 

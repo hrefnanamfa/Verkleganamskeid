@@ -1,9 +1,11 @@
 #ifndef SALESUI_H
 #define SALESUI_H
 
-#include "PizzaService.h"
-#include "OrderService.h"
+#include "../services/PizzaService.h"
+#include "../services/OrderService.h"
 #include "PizzaUI.h"
+#include "Extrasui.h"
+#include "../services/ExtrasService.h"
 
 class SalesUI
 {
@@ -11,6 +13,8 @@ class SalesUI
         OrderService orderservice;
         PizzaService pizzaservice;
         PizzaUI pizzaui;
+        ExtrasUI extrasui;
+        ExtrasService extrasservice;
 
     public:
         SalesUI();
