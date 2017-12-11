@@ -2,6 +2,7 @@
 #define DELIVERYUI_H
 #include "WorkplacesUI.h"
 #include "../services/WorkplacesService.h"
+#include "../services/OrderService.h"
 
 
 class DeliveryUI
@@ -14,6 +15,7 @@ class DeliveryUI
     private:
         WorkplacesUI workplacesui;
         WorkplacesService workplacesservice;
+        OrderService orderservice;
 };
 
 #endif // DELIVERYUI_H

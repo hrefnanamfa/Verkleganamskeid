@@ -22,23 +22,19 @@ void DeliveryUI::startUI(){
 
     while(selection != 'Q'){
         cout << "-- " << work << " --" << endl;
-
+        cout << "-- View Orders:" << endl;
+        cout << "1. On hold & in progress" << endl;
+        cout << "2. Ready" << endl << endl;
 
         cout << "Q: Go back" << endl;
 
         cin >> selection;
         selection = toupper(selection);
 
-        if(selection == 'M') {
-
+        if(selection == '1'){
+            orderservice.listOrders(work);
         }
-        else if(selection == 'S') {
-
-        }
-        else if(selection == 'B') {
-
-        }
-        else if(selection == 'D') {
+        else if(selection == '2'){
 
         }
     }
