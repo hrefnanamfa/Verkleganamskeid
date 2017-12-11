@@ -4,8 +4,6 @@
 #include "Extras.h"
 #include "Workplaces.h"
 
-enum status { ONHOLD = 1, INPROGRESS, READY, DELIVERED};
-
 
 class Order
 {
@@ -13,7 +11,7 @@ class Order
         vector<Pizza> pizzas;
         vector<Extras> extras;
         bool paid;
-        status currentStatus;
+        int currentStatus;
         int price;
         Workplaces workplaces;
 
@@ -26,7 +24,7 @@ class Order
         void addExtras(Extras& extra);
         void setPizzas(vector<Pizza> pizzas);
         void setExtras(vector<Extras> extras);
-        void setCurrentStatus(status _status);
+        void setCurrentStatus(int status);
         void setPaid(bool paid);
         void setPickup(Workplaces workplaces);
         string getLocation();

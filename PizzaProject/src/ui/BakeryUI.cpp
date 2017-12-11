@@ -33,7 +33,7 @@ void BakeryUI::startUI(){
 
         if(selection == '1'){
             int select = 0;
-            cout << "-Orders on hold-" << endl;
+            cout << "- Orders on hold -" << endl;
             orderservice.listOrders(work);
             cout << "Select an order to flag";
             cin >> select;
@@ -41,7 +41,13 @@ void BakeryUI::startUI(){
             Order order;
             order = orderservice.getOrderAt(select - 1, work);
 
-            cout << order;
+            cout << "Select:" << endl;
+            cout << "1. to flag as in process" << endl;
+            cout << "2. to flag as ready" << endl;
+            cin >> select;
+            order.setCurrentStatus(select + 1);
+            cout << "Order was flagged as ";
+            order.checkCurrentStatus();
 
         }
         else if(selection == '2'){

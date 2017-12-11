@@ -3,7 +3,7 @@
 Order::Order()
 {
     this->paid = false;
-    this->currentStatus = ONHOLD;
+    this->currentStatus = 1;
     this->price = 0;
 }
 
@@ -23,8 +23,8 @@ void Order::setExtras(vector<Extras> extras){
 void Order::setPaid(bool paid){
     this->paid = paid;
 }
-void Order::setCurrentStatus(status _status){
-    this->currentStatus = _status;
+void Order::setCurrentStatus(int status){
+    this->currentStatus = status;
 }
 
 void Order::setPrice(){
@@ -53,6 +53,7 @@ int Order::getPrice() {
     setPrice();
     return this->price;
 }
+
 void Order::checkPaid(){
     if(this->paid == true){
         cout << "Yes" << endl;
