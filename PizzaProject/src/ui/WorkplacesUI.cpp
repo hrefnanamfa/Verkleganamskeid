@@ -1,4 +1,6 @@
-#include "WorkplacesUI.h"
+#include "../../include/ui/WorkplacesUI.h"
+#include "InvalidAnswerException.h"
+#include <cstdlib>
 
 WorkplacesUI::WorkplacesUI()
 {
@@ -21,4 +23,35 @@ void WorkplacesUI::addWorkplace(){
 void WorkplacesUI::listWorkplaces(){
     cout << "- Workplaces -" << endl;
     workplacesservice.listAvailableWorkplaces();
+}
+
+Workplaces WorkplacesUI::selectWorkplace(){
+    Workplaces workplace;
+    string workChoice = "";
+    int workMax, workChoiceInt;
+    bool flag = true;
+
+    workMax = workplacesservice.workplacesAmount();
+
+    cout << "Choose your workplace" << endl;
+    listWorkplaces();
+
+    do{
+        try{
+            cin >> workChoice;
+            workChoiceInt = atoi(workChoice.c_str());
+            if (workChoiceInt < 1 || workChoiceInt > workMax)
+                throw InvalidAnswerException();
+            flag = true;
+        }
+        catch(InvalidAnswerException){
+            flag = false;
+            cout << "Invalid workplace!" << endl;
+        }
+
+    }while(!flag);
+
+    workplace = workplacesservice.getWorkplaceAt(workChoiceInt - 1);
+
+    return workplace;
 }

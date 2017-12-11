@@ -1,5 +1,7 @@
 #ifndef DELIVERYUI_H
 #define DELIVERYUI_H
+#include "WorkplacesUI.h"
+#include "../services/WorkplacesService.h"
 
 
 class DeliveryUI
@@ -9,9 +11,9 @@ class DeliveryUI
         virtual ~DeliveryUI();
         void startUI();
 
-    protected:
-
     private:
+        WorkplacesUI workplacesui;
+        WorkplacesService workplacesservice;
 };
 
 #endif // DELIVERYUI_H

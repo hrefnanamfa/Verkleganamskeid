@@ -1,4 +1,4 @@
-#include "WorkplacesService.h"
+#include "../../include/services/WorkplacesService.h"
 
 WorkplacesService::WorkplacesService()
 {
@@ -17,6 +17,7 @@ void WorkplacesService::addWorkplace(Workplaces& workplaces){
 void WorkplacesService::getWorkplaces(){
     workplaces = workplacesrepository.getWorkplaces();
 }
+
 Workplaces WorkplacesService::getWorkplaceAt(int i){
     getWorkplaces();
     return workplaces.at(i);
@@ -27,4 +28,9 @@ void WorkplacesService::listAvailableWorkplaces(){
     for(unsigned int i = 0; i < workplaces.size(); i++){
         cout << i + 1 << ". " << workplaces[i] << endl;
     }
+}
+
+int WorkplacesService::workplacesAmount(){
+    getWorkplaces();
+    return workplaces.size();
 }

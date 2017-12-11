@@ -1,4 +1,4 @@
-#include "Workplaces.h"
+#include "../../include/models/Workplaces.h"
 
 Workplaces::Workplaces(){
     name = "";

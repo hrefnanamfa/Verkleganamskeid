@@ -17,5 +17,6 @@ class WorkplacesService
         void addWorkplace(Workplaces& workplaces);
         void getWorkplaces();
         void listAvailableWorkplaces();
+        int workplacesAmount();
 };
 #endif // WORKPLACESSERVICE_H

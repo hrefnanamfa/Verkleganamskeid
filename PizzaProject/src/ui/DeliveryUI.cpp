@@ -15,9 +15,11 @@ DeliveryUI::~DeliveryUI()
 void DeliveryUI::startUI(){
     char selection = '\0';
 
+    Workplaces workplace = workplacesui.selectWorkplace();
+
+/*
     while(selection != 'Q'){
 
-        cout << "Choose your appropriate option" << endl;
         cout << "d: Choose delivery destination" << endl;
         cout << "l: List orders for destination" << endl;
         cout << "r: List ready orders for destination" << endl;
@@ -41,5 +43,5 @@ void DeliveryUI::startUI(){
         else if(selection == 'D') {
 
         }
-    }
+    }*/
 }

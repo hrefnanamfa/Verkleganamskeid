@@ -1,4 +1,4 @@
-#include "WorkplacesRepository.h"
+#include "../../include/repositories/WorkplacesRepository.h"
 
 WorkplacesRepository::WorkplacesRepository()
 {

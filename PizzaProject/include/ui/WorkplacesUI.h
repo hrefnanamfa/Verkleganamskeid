@@ -13,6 +13,7 @@ class WorkplacesUI
         virtual ~WorkplacesUI();
         void addWorkplace();
         void listWorkplaces();
+        Workplaces selectWorkplace();
 
     protected:
 
