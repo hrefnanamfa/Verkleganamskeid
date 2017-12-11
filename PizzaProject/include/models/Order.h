@@ -23,6 +23,7 @@ class Order
         void setPrice();
         int getPrice();
         void addPizza(Pizza& pizza);
+        void addExtras(Extras& extra);
         void setPizzas(vector<Pizza> pizzas);
         void setExtras(vector<Extras> extras);
         void setPaid(bool paid);

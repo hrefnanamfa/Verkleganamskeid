@@ -125,7 +125,7 @@ void SalesUI::startUI(){
                 }
             }while(!answer);
 
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplaces);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace);
             cout << "- Your order -" << endl;
             cout << order;
 
