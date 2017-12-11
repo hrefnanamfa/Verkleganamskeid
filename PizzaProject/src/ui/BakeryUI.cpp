@@ -15,6 +15,45 @@ BakeryUI::~BakeryUI()
 void BakeryUI::startUI(){
     char selection = '\0';
 
+    Workplaces workplace = workplacesui.selectWorkplace();
+
+    string work = workplace.getName();
+
+
+    while(selection != 'Q'){
+        cout << "-- " << work << " --" << endl;
+        cout << "-- View Orders:" << endl;
+        cout << "1. On hold" << endl;
+        cout << "2. In progress" << endl << endl;
+
+        cout << "Q: Go back" << endl;
+
+        cin >> selection;
+        selection = toupper(selection);
+
+        if(selection == '1'){
+            int select = 0;
+            cout << "-Orders on hold-" << endl;
+            orderservice.listOrders(work);
+            cout << "Select an order to flag";
+            cin >> select;
+
+            Order order;
+            order = orderservice.getOrderAt(select - 1);
+            cout << endl << order.getPickup() << endl << endl;
+            cout << order.getPrice();
+
+        }
+        else if(selection == '2'){
+            char select = '\0';
+            cout << "-Orders in progress-" << endl;
+            orderservice.listOrders(work);
+            cout << "Select an order to flag";
+            cin >> select;
+        }
+    }
+    /*char selection = '\0';
+
     while(selection != 'Q'){
 
         cout << "Please pick an order to flag" << endl;
@@ -36,5 +75,5 @@ void BakeryUI::startUI(){
         else if(selection == 'D') {
 
         }
-    }
+    }*/
 }

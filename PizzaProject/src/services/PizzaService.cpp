@@ -58,7 +58,7 @@ void PizzaService::getPizzaList(){
 
 void PizzaService::listAvailablePizzas(){
     getPizzaList();
-    for(unsigned int i= 0; i < pizzas.size(); i++){
+    for(unsigned int i = 0; i < pizzas.size(); i++){
         cout << i + 1 << ". " << pizzas[i] << endl;
     }
 }

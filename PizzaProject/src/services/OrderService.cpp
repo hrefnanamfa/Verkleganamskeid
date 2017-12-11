@@ -31,7 +31,10 @@ void OrderService::getOrderList(string work){
     orders = orderrepo.getOrders(work);
 }
 
-//void OrderService::
+Order OrderService::getOrderAt(int i){
+    getOrderList(orders.at(i).getPickup());
+    return orders.at(i);
+}
 
 void OrderService::listOrders(string work){
     getOrderList(work);

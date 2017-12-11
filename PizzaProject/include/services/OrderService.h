@@ -20,6 +20,7 @@ class OrderService
         Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces);
         void addOrder(Order& order);
         void getOrderList(string work);
+        Order getOrderAt(int i);
         void listOrders(string work);
 };
 
