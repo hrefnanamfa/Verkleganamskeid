@@ -12,16 +12,21 @@ ManagingUI::~ManagingUI()
 void ManagingUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
-        cout << "What would you like to manage?" << endl << endl;
-        cout << "1. Register a new base with price" << endl;
-        cout << "2. Register a new topping with price" << endl;
-        cout << "3. Register a pizza for the menu (and show price)" << endl;
-        cout << "4. Register an extra item" << endl;
-        cout << "5. List toppings and bases" << endl;
-        cout << "6. List pizza menu" << endl;
-        cout << "7. List extra items" << endl;
-        cout << "8. Add a workplace" << endl;
-        cout << "9. List all workplaces" << endl;
+        cout << "Manager" << endl << endl;
+
+        cout << "-Registries-" << endl;
+        cout << "1. Add a base" << endl;
+        cout << "2. Add a topping" << endl;
+        cout << "3. Add a pizza to menu" << endl;
+        cout << "4. Add an extra item" << endl;
+        cout << "5. Add a workplace" << endl << endl;
+
+        cout << "-View-" << endl;
+        cout << "6. Toppings & bases" << endl;
+        cout << "7. Pizza menu" << endl;
+        cout << "8. Extras" << endl;
+        cout << "9. Workplaces" << endl << endl;
+
         cout << "q. to go back" << endl;
 
         cin >> selection;
@@ -31,9 +36,11 @@ void ManagingUI::startUI(){
         PizzaUI pizzaui;
 
         if(selection == '1'){
+            cout << "Making base" << endl;
             baseui.createBase();
         }
         else if(selection == '2'){
+            cout << "Making topping" << endl;
             toppingui.createToppings();
         }
         else if(selection == '3'){
@@ -42,26 +49,28 @@ void ManagingUI::startUI(){
             pizzaui.startUIpizzamenu();
         }
         else if(selection == '4'){
+            cout << "Making item" << endl;
             extrasui.createExtras();
         }
         else if(selection == '5'){
+            workplacesui.addWorkplace();//Skra afhendingarstad
+        }
+        else if(selection == '6'){
             baseui.listBases();
             cout << endl;
             toppingui.listToppings();
             cout << endl;
         }
-        else if(selection == '6'){
+        else if(selection == '7'){
             pizzaui.listAvailablePizzas();
         }
-        else if(selection == '7'){
-            extrasui.listExtras();
-        }
         else if(selection == '8'){
-            workplacesui.addWorkplace();//Skra afhendingarstad
+            extrasui.listExtras();
         }
         else if(selection == '9'){
             workplacesui.listWorkplaces();
         }
+
         cout << endl;
     }
 }

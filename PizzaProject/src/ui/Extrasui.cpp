@@ -12,7 +12,6 @@ ExtrasUI::~ExtrasUI()
 
 void ExtrasUI::createExtras(){
     Extras extras;
-    cout << "Making item" << endl;
     cin >> extras;
 
     extrasservice.addExtras(extras);
