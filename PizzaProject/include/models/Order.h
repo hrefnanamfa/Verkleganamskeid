@@ -29,7 +29,7 @@ class Order
         void setPaid(bool paid);
         void setPickup(Workplaces workplaces);
         string getLocation();
-        void checkPaid();
+        bool checkPaid();
         void checkCurrentStatus();
         friend ostream& operator <<(ostream& out, Order& order);
         friend istream& operator >>(istream& in, Order& order);

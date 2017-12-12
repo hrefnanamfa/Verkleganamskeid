@@ -42,7 +42,7 @@ void BakeryUI::startUI(){
                     cout << endl;
                     continue;
                 }
-                cout << "Select an order to flag" << endl;
+                cout << "Select an order to flag as in making" << endl;
                 cin >> select;
                 cout << endl;
                 Order order;
@@ -51,7 +51,6 @@ void BakeryUI::startUI(){
                 int selection = 0;
                 cout << "Press:" << endl;
                 cout << "2. to flag as in making" << endl;
-                cout << "3. to flag as ready" << endl;
                 cin >> selection;
                 order.setCurrentStatus(selection);//hérna breytist flaggið
                 orderservice.replaceAndSaveOrderAt(select - 1, order, work);//hérna save-ast breytingin;
@@ -72,7 +71,7 @@ void BakeryUI::startUI(){
                 continue;
             }
 
-            cout << "Select an order to flag" << endl;
+            cout << "Select an order to flag as ready" << endl;
             cin >> select;
             cout << endl;
             Order order;
@@ -80,7 +79,6 @@ void BakeryUI::startUI(){
 
             int selection = 0;
             cout << "Press:" << endl;
-            cout << "1. to flag on hold" << endl;
             cout << "3. to flag as ready" << endl;
             cin >> selection;
             order.setCurrentStatus(selection);//hérna breytist flaggið
