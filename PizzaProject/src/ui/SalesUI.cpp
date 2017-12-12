@@ -85,7 +85,6 @@ void SalesUI::startUI(){
                 }while(!flag);
 
             }while(answer == 'Y');
-
         }
         else if(selection == '3') {
             do{
@@ -134,6 +133,7 @@ void SalesUI::startUI(){
     }
     cout << endl;
 }
+
 bool SalesUI::checkAnswer(char answer){
     answer = toupper(answer);
     if(answer == 'Y'){
@@ -146,5 +146,4 @@ bool SalesUI::checkAnswer(char answer){
         throw InvalidAnswerException();
     }
 }
-
 

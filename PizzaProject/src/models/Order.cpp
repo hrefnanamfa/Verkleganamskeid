@@ -57,14 +57,8 @@ int Order::getStatus(){
     return this->currentStatus;
 }
 
-
-void Order::checkPaid(){
-    if(this->paid == true){
-        cout << "Yes" << endl;
-    }
-    else{
-        cout << "No" << endl;
-    }
+bool Order::checkPaid(){
+    return paid;
 }
 
 void Order::checkCurrentStatus(){
@@ -156,7 +150,10 @@ ostream& operator <<(ostream& out, Order& order){
     order.checkCurrentStatus();
 
     out << "Paid for? ";
-    order.checkPaid();
+    if(order.checkPaid())
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
 
     out << "Cost: " << order.getPrice() << "kr." << endl;
     out << endl;
