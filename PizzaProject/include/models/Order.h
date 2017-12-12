@@ -20,6 +20,7 @@ class Order
         ~Order();
         void setPrice();
         int getPrice();
+        int getStatus();
         void addPizza(Pizza& pizza);
         void addExtras(Extras& extra);
         void setPizzas(vector<Pizza> pizzas);

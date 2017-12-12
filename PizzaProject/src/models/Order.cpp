@@ -53,6 +53,10 @@ int Order::getPrice() {
     setPrice();
     return this->price;
 }
+int Order::getStatus(){
+    return this->currentStatus;
+}
+
 
 void Order::checkPaid(){
     if(this->paid == true){
@@ -68,7 +72,7 @@ void Order::checkCurrentStatus(){
         cout << "On hold" << endl;
     }
     else if(this->currentStatus == 2){
-        cout << "In progress" << endl;
+        cout << "In making" << endl;
     }
     else if (this->currentStatus == 3){
         cout << "Ready" << endl;

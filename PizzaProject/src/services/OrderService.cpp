@@ -22,6 +22,10 @@ Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const
 int OrderService::getPriceOfOrder(Order& order){
     return order.getPrice();
 }
+int OrderService::getSizeOfOrders(){
+    return orders.size();
+}
+
 
 void OrderService::addOrder(Order& order){
     orderrepo.addOrderToRepo(order);
@@ -36,9 +40,21 @@ Order OrderService::getOrderAt(int i, string work){
     return orders.at(i);
 }
 
+vector<Order> OrderService::getOrders(string work){
+    getOrderList(work);
+    return orders;
+}
+
+void OrderService::replaceAndSaveOrderAt(int i, Order& order, string work){
+    getOrderList(work);//fyllir vectorinn af orders ur skjalinu
+    orders.at(i) = order;//breytir order á ákveðnum staði
+    orderrepo.replaceOrdersInRepo(this->orders, work);//save-ar nýja vektorinn
+}
+
 void OrderService::listOrders(string work){
     getOrderList(work);
     for(unsigned int i = 0; i < orders.size(); i++){
-        cout << i + 1 << ". " << orders.at(i) << endl;
+        cout << "#" << i + 1 << endl;
+        cout << orders.at(i) << endl;
     }
 }

@@ -3,7 +3,7 @@
 #include "WorkplacesUI.h"
 #include "../services/WorkplacesService.h"
 #include "../services/OrderService.h"
-
+#include "OrderUI.h"
 class BakeryUI
 {
 
@@ -11,6 +11,7 @@ class BakeryUI
         WorkplacesUI workplacesui;
         WorkplacesService workplacesservice;
         OrderService orderservice;
+        OrderUI orderui;
 
     public:
         BakeryUI();

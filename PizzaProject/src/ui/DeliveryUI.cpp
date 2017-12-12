@@ -22,7 +22,7 @@ void DeliveryUI::startUI(){
 
 
     while(selection != 'Q'){
-        cout << "   View Orders:" << endl;
+        cout << "View Orders:" << endl;
         cout << "1. On hold & in progress" << endl;
         cout << "2. Ready" << endl << endl;
 

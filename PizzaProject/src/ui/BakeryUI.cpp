@@ -22,37 +22,44 @@ void BakeryUI::startUI(){
 
 
     while(selection != 'Q'){
-        cout << "   View Orders:" << endl;
+        cout << "View Orders:" << endl;
         cout << "1. On hold" << endl;
-        cout << "2. In progress" << endl << endl;
+        cout << "2. In making" << endl << endl;
 
         cout << "q: to go back" << endl;
 
         cin >> selection;
         selection = toupper(selection);
+        cout << endl;
+
 
         if(selection == '1'){
             int select = 0;
             cout << "- Orders on hold -" << endl;
+            orderui.listOrdersByStatus(work, 1);
+            cout << "- All orders -" << endl;
             orderservice.listOrders(work);
-            cout << "Select an order to flag";
+            cout << "Select an order to flag" << endl;
             cin >> select;
-            cout << select;
+            cout << endl;
             Order order;
             order = orderservice.getOrderAt(select - 1, work);
-
+            int selection = 0;
             cout << "Select:" << endl;
-            cout << "1. to flag as in process" << endl;
-            cout << "2. to flag as ready" << endl;
-            cin >> select;
-            order.setCurrentStatus(select + 1);
+            cout << "2. to flag as in making" << endl;
+            cout << "3. to flag as ready" << endl;
+            cin >> selection;
+            order.setCurrentStatus(selection);//hérna breytist flaggið
+
+            orderservice.replaceAndSaveOrderAt(select - 1, order, work);
+
             cout << "Order was flagged as ";
             order.checkCurrentStatus();
-
+            cout << endl << endl;
         }
         else if(selection == '2'){
             char select = '\0';
-            cout << "-Orders in progress-" << endl;
+            cout << "-Orders in making-" << endl;
             orderservice.listOrders(work);
             cout << "Select an order to flag";
             cin >> select;

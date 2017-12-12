@@ -15,12 +15,14 @@ class OrderService
     public:
         OrderService();
         ~OrderService();
-
+        int getSizeOfOrders();
         int getPriceOfOrder(Order& order);
         Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces);
+        void replaceAndSaveOrderAt(int i, Order& order, string work);
         void addOrder(Order& order);
         void getOrderList(string work);
         Order getOrderAt(int i, string work);
+        vector<Order> getOrders(string work);
         void listOrders(string work);
 };
 

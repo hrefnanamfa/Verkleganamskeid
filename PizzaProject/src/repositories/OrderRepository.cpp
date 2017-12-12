@@ -19,6 +19,19 @@ void OrderRepository::addOrderToRepo(Order& order){
     fout.close();
 }
 
+void OrderRepository::replaceOrdersInRepo(vector<Order> orders, string workplace){
+    ofstream fout;
+    string filename = workplace + ".dat";
+
+    fout.open(filename.c_str(), ios::binary);
+
+    for(unsigned int i = 0; i < orders.size(); i++){
+        orders.at(i).write(fout);
+    }
+
+    fout.close();
+}
+
 vector<Order> OrderRepository::getOrders(string work){
     ifstream fin;
     vector<Order> orders;
