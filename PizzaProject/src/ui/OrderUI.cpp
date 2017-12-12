@@ -2,7 +2,7 @@
 
 OrderUI::OrderUI()
 {
-    //ctor
+    isempty = false;
 }
 
 OrderUI::~OrderUI()
@@ -11,25 +11,24 @@ OrderUI::~OrderUI()
 }
 
 void OrderUI::listOrdersByStatus(string work, int status){
+    int counter = 0;
     orders = orderservice.getOrders(work);
+
     for(unsigned int i = 0; i < orders.size(); i++){
         if(orders.at(i).getStatus() == status){
+            cout << "#" << i + 1<< endl;
             cout << orders.at(i) << endl;
+            counter ++;
         }
     }
 
-    if(orders.size() == 0){
-        cout << "There are no orders: ";
-        checkStatus(status);
-        return;
+    if (counter == 0){
+        isempty = true;
     }
-    for(unsigned int i = 0; i < orders.size(); i++){
-        if(orders.at(i).getStatus() == status){
-            cout << orders.at(i) << endl;
+}
+bool OrderUI::getisempty(){
 
-        }
-    }
-
+    return this->isempty;
 }
 void OrderUI::checkStatus(int i){
     if(i == 1){
