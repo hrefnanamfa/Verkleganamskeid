@@ -55,7 +55,7 @@ void DeliveryUI::startUI(){
             order.setPaid(paidfor);
 
             if(!order.checkPaid()){
-                cout << "The order hasn't been paid for!";
+                cout << "The order hasn't been paid for!" << endl;
                 continue;
             }
             int choice = 0;
