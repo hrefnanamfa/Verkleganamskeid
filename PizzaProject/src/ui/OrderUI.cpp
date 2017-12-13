@@ -13,6 +13,7 @@ OrderUI::~OrderUI()
 void OrderUI::listOrdersByStatus(string work, int status){
     int counter = 0;
     orders = orderservice.getOrders(work);
+    isempty = false;
 
     for(unsigned int i = 0; i < orders.size(); i++){
         if(orders.at(i).getStatus() == status){
@@ -27,21 +28,20 @@ void OrderUI::listOrdersByStatus(string work, int status){
     }
 }
 bool OrderUI::getisempty(){
-
     return this->isempty;
 }
 void OrderUI::checkStatus(int i){
     if(i == 1){
-        cout << "On hold" << endl;
+        cout << "On hold";
     }
     else if(i == 2){
-        cout << "In making" << endl;
+        cout << "In making";
     }
     else if(i == 3){
-        cout << "Ready" << endl;
+        cout << "Ready";
     }
     else if(i == 4){
-        cout << "Delivered" << endl;
+        cout << "Delivered";
     }
 }
 

@@ -29,6 +29,11 @@ class SalesUI
         virtual ~SalesUI();
         void startUI();
         bool checkAnswer(char answer);
+        void addPizzaFromMenu();
+        void addExtras();
+        void addPizza();
+        string getComment();
+        void saveOrder(Workplaces workplace, string comment);
 };
 
 #endif // SALESUI_H

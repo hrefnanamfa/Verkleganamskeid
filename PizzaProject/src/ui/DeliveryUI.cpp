@@ -35,12 +35,30 @@ void DeliveryUI::startUI(){
         if(selection == '1'){
             cout << "- Orders on hold & in making -" << endl << endl;
             orderui.listOrdersByStatus(work, 1);
+            if (orderui.getisempty()){
+                cout << "There are no orders: ";
+                orderui.checkStatus(1);
+                cout << endl;
+
+            }
             orderui.listOrdersByStatus(work, 2);
+            if (orderui.getisempty()){
+                cout << "There are no orders: ";
+                orderui.checkStatus(2);
+                cout << endl << endl;
+                continue;
+            }
         }
         else if(selection == '2'){
             int select = 0;
             cout << "- Ready orders -" << endl;
             orderui.listOrdersByStatus(work, 3);
+            if (orderui.getisempty()){
+                    cout << "There are no orders: ";
+                    orderui.checkStatus(3);
+                    cout << endl << endl;
+                    continue;
+            }
             cout << "Select and order to flag" << endl;
             cin >> select;
             cout << endl;

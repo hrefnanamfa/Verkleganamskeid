@@ -39,7 +39,7 @@ void BakeryUI::startUI(){
                 if (orderui.getisempty()){
                     cout << "There are no orders: ";
                     orderui.checkStatus(1);
-                    cout << endl;
+                    cout << endl << endl;
                     continue;
                 }
                 cout << "Select an order to flag as in making" << endl;
@@ -54,7 +54,7 @@ void BakeryUI::startUI(){
                 cin >> selection;
                 order.setCurrentStatus(selection);//hérna breytist flaggið
                 orderservice.replaceAndSaveOrderAt(select - 1, order, work);//hérna save-ast breytingin;
-                cout << "Order was flagged as ";
+                cout << "Order was flagged as: ";
                 order.checkCurrentStatus();
                 cout << endl << endl;
 
@@ -67,7 +67,7 @@ void BakeryUI::startUI(){
             if (orderui.getisempty()){
                 cout << "There are no orders: ";
                 orderui.checkStatus(2);
-                cout << endl;
+                cout << endl << endl;
                 continue;
             }
 
@@ -83,7 +83,7 @@ void BakeryUI::startUI(){
             cin >> selection;
             order.setCurrentStatus(selection);//hérna breytist flaggið
             orderservice.replaceAndSaveOrderAt(select - 1, order, work);
-            cout << "Order was flagged as ";
+            cout << "Order was flagged as: ";
             order.checkCurrentStatus();
             cout << endl << endl;
 

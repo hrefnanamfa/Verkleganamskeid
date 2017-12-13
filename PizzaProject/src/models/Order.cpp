@@ -175,7 +175,7 @@ ostream& operator <<(ostream& out, Order& order){
 
     out << "Cost: " << order.getPrice() << "kr." << endl;
 
-    out << "Comment: " << order.getComment() << endl << endl;
+    out << "Comment: " << order.getComment() << endl;
 
     return out;
 }
