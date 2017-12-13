@@ -10,12 +10,13 @@ OrderService::~OrderService()
     //dtor
 }
 
-Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces){
+Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment){
     Order order;
     order.setPizzas(pizzas);
     order.setExtras(extras);
     order.setPaid(paid);
     order.setPickup(workplaces);
+    order.setComment(comment);
     return order;
 }
 
@@ -46,9 +47,9 @@ vector<Order> OrderService::getOrders(string work){
 }
 
 void OrderService::replaceAndSaveOrderAt(int i, Order& order, string work){
-    getOrderList(work);//fyllir vectorinn af orders ur skjalinu
-    orders.at(i) = order;//breytir order á ákveðnum staði
-    orderrepo.replaceOrdersInRepo(this->orders, work);//save-ar nýja vektorinn
+    getOrderList(work);                                     //fyllir vectorinn af orders ur skjalinu
+    orders.at(i) = order;                                   //breytir order á ákveðnum staði
+    orderrepo.replaceOrdersInRepo(this->orders, work);      //save-ar nýja vektorinn
 }
 
 void OrderService::listOrders(string work){

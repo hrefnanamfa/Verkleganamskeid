@@ -16,6 +16,7 @@ class OrderRepository
         vector<Order> getOrders(string work);
         void addOrderToRepo(Order& order);
         void replaceOrdersInRepo(vector<Order> orders, string workplace);
+        void addComment(string comment);
 
 };
 

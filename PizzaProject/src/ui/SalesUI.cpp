@@ -1,6 +1,7 @@
 #include "../../include/ui/SalesUI.h"
 #include <iostream>
 #include "InvalidAnswerException.h"
+
 using namespace std;
 
 SalesUI::SalesUI()
@@ -15,6 +16,7 @@ SalesUI::~SalesUI()
 void SalesUI::startUI(){
     char selection = '\0';
     cout << "Sales" << endl;
+    string comment = "";
     Workplaces workplace;
 
     workplace = workplacesui.selectWorkplace();
@@ -27,7 +29,8 @@ void SalesUI::startUI(){
         cout << "3. Add something extra" << endl;
         cout << "-----------------------" << endl;
         cout << "4. Show current price" << endl;
-        cout << "5. Save order" << endl << endl;
+        cout << "5. Save order" << endl;
+        cout << "6. Add comment" << endl << endl;
         cout << "q. to go back" << endl;
 
         cin >> selection;
@@ -106,7 +109,7 @@ void SalesUI::startUI(){
         }
         else if(selection == '4') {
             cout << "The current price of order is: ";
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplace);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplace, comment);
             cout << orderservice.getPriceOfOrder(order) << "kr." << endl << endl;
         }
         else if(selection == '5'){
@@ -124,11 +127,27 @@ void SalesUI::startUI(){
                 }
             }while(!answer);
 
-            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace);
+            order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace, comment);
             cout << "- Your order -" << endl;
             cout << order;
 
             orderservice.addOrder(order);
+        }
+        else if(selection == '6'){
+            bool valid = true;
+            do{
+                cout << "Add your comment (max 50 characters): ";
+                cin.ignore();
+                getline(cin, comment);
+
+                if (comment.length() > 50){
+                    valid = false;
+                    cout << "Comments can only have a maximum of 50 characters" << endl;
+                }
+                else{
+                    valid = true;
+                }
+            }while(!valid);
         }
     }
     cout << endl;

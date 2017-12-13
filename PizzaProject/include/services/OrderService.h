@@ -17,7 +17,7 @@ class OrderService
         ~OrderService();
         int getSizeOfOrders();
         int getPriceOfOrder(Order& order);
-        Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces);
+        Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment);
         void replaceAndSaveOrderAt(int i, Order& order, string work);
         void addOrder(Order& order);
         void getOrderList(string work);

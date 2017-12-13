@@ -5,6 +5,7 @@ Order::Order()
     this->paid = false;
     this->currentStatus = 1;
     this->price = 0;
+    this->comment = "";
 }
 
 Order::~Order()
@@ -45,6 +46,10 @@ void Order::setPickup(Workplaces workplaces){
     this->workplaces = workplaces;
 }
 
+void Order::setComment(string comment){
+    this->comment = comment;
+}
+
 string Order::getLocation(){
     return workplaces.getName();
 }
@@ -55,6 +60,10 @@ int Order::getPrice() {
 }
 int Order::getStatus(){
     return this->currentStatus;
+}
+
+string Order::getComment(){
+    return this->comment;
 }
 
 bool Order::checkPaid(){
@@ -102,6 +111,10 @@ void Order::write(ofstream& fout) const{
     fout.write((char*)(&paid), sizeof(bool));
     fout.write((char*)(&currentStatus), sizeof(int));
     fout.write((char*)(&price), sizeof(int));
+
+    int commentLength = comment.length() + 1;
+    fout.write((char*)(&commentLength), sizeof(int));
+    fout.write(comment.c_str(), commentLength);
 }
 
 void Order::read(ifstream& fin){
@@ -128,6 +141,11 @@ void Order::read(ifstream& fin){
     fin.read((char*)(&currentStatus), sizeof(int));
     fin.read((char*)(&price), sizeof(int));
 
+    int commentLength;
+    fin.read((char*)(&commentLength), sizeof(int));
+    char *str = new char[commentLength];
+    fin.read(str, commentLength);
+    comment = str;
 }
 
 istream& operator >>(istream& in, Order& order){
@@ -156,7 +174,8 @@ ostream& operator <<(ostream& out, Order& order){
         cout << "No" << endl;
 
     out << "Cost: " << order.getPrice() << "kr." << endl;
-    out << endl;
+
+    out << "Comment: " << order.getComment() << endl << endl;
 
     return out;
 }

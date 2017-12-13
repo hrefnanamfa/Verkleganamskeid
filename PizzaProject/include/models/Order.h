@@ -14,6 +14,7 @@ class Order
         int currentStatus;
         int price;
         Workplaces workplaces;
+        string comment;
 
     public:
         Order();
@@ -28,6 +29,7 @@ class Order
         void setCurrentStatus(int status);
         void setPaid(bool paid);
         void setPickup(Workplaces workplaces);
+        void setComment(string comment);
         string getLocation();
         bool checkPaid();
         void checkCurrentStatus();
@@ -35,6 +37,7 @@ class Order
         friend istream& operator >>(istream& in, Order& order);
         void write(ofstream& fout) const;
         void read(ifstream& fin);
+        string getComment();
 
 };
 
