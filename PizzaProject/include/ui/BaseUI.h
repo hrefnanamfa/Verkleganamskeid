@@ -9,6 +9,7 @@ class BaseUI
         BaseService baseservice;
     public:
         BaseUI();
+        void startUI();
         void createBase();
         void listBases();
 

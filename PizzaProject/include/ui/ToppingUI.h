@@ -16,8 +16,9 @@ class ToppingUI
     public:
         ToppingUI();
         ~ToppingUI();
-        void createToppings();
+        void createTopping();
         void listToppings();
+        void startUI();
 
 };
 

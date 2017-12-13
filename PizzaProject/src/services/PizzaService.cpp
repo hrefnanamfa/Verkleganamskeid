@@ -58,6 +58,5 @@ void PizzaService::getPizzaList(){
 
 vector<Pizza> PizzaService::listAvailablePizzas(){
     getPizzaList();
-
     return pizzas;
 }

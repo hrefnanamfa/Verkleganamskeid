@@ -18,7 +18,7 @@ class ToppingService
         void addTopping(Topping& topping);
         void getToppings();
         vector <Topping> getToppingVector();
-        void listAvailableToppings();
+        vector <Topping> listAvailableToppings();
 };
 
 #endif // TOPPINGSERVICE_H

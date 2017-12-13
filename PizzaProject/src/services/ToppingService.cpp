@@ -27,9 +27,7 @@ vector <Topping> ToppingService::getToppingVector(){
     return toppings;
 }
 
-void ToppingService::listAvailableToppings(){
+vector<Topping> ToppingService::listAvailableToppings(){
     getToppings();
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << i + 1  << ". " << toppings[i] << endl;
-    }
+    return toppings;
 }

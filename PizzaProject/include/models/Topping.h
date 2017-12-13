@@ -12,6 +12,7 @@ class Topping
         int price;
         bool verbose;
 
+
     public:
         Topping();
         void setVerbose(bool setting);
