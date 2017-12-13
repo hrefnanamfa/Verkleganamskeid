@@ -22,10 +22,17 @@ Base BaseService::getBaseAt(int i){
     return bases.at(i);
 }
 
-
-void BaseService::listAvailableBases(){
+vector<Base> BaseService::listAvailableBases(){
     getBases();
-    for(unsigned int i = 0; i < bases.size(); i++){
-        cout << i + 1 << ". " << bases[i] << endl;
-    }
+    return bases;
+}
+void BaseService::replaceAndSaveBaseAt(int i, Base& base){
+    getBases();
+    bases.at(i) = base;
+    baserepository.replaceBasesInRepo(bases);
+}
+void BaseService::deleteBaseAtAndSave(int i){
+    getBases();
+    bases.erase(bases.begin() + i);
+    baserepository.replaceBasesInRepo(bases);
 }

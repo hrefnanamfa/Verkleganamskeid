@@ -16,6 +16,7 @@ class BaseRepository
         void addBase(Base& base);
 
         vector<Base> getBases();
+        void replaceBasesInRepo(vector<Base> bases);
 
 };
 

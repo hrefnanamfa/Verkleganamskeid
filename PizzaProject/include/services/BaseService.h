@@ -17,7 +17,9 @@ class BaseService
         Base getBaseAt(int i);
         void addBase(Base& base);
         void getBases();
-        void listAvailableBases();
+        vector<Base> listAvailableBases();
+        void replaceAndSaveBaseAt(int i, Base& base);
+        void deleteBaseAtAndSave(int i);
 };
 
 #endif // BASESERVICE_H

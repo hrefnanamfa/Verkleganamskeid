@@ -9,6 +9,16 @@ BaseRepository::~BaseRepository()
 {
     //dtor
 }
+void BaseRepository::replaceBasesInRepo(vector<Base> bases){
+    ofstream fout;
+
+    fout.open("base.dat", ios::binary);
+
+    for(unsigned int i = 0; i < bases.size(); i++){
+        bases.at(i).write(fout);
+    }
+    fout.close();
+}
 
 void BaseRepository::addBase(Base& base){
     ofstream fout;
