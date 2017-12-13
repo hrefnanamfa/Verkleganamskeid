@@ -17,6 +17,7 @@ class ToppingRepository
         ~ToppingRepository();
         void addTopping(Topping& topping);
 
+        void replaceToppingsInRepo(vector<Topping> toppings);
         vector<Topping> getToppings();
 };
 

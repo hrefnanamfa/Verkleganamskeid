@@ -19,6 +19,8 @@ class ToppingService
         void getToppings();
         vector <Topping> getToppingVector();
         vector <Topping> listAvailableToppings();
+        void replaceAndSaveToppingAt(int i, Topping& topping);
+        void deleteToppingAtAndSave(int i);
 };
 
 #endif // TOPPINGSERVICE_H

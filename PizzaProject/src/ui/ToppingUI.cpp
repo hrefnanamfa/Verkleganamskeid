@@ -28,13 +28,16 @@ void ToppingUI::startUI(){
             listToppings();
             cout << "Select a topping to edit" << endl;
             cin >> select;
-
+            Topping topping;
+            cin >> topping;
+            toppingservice.replaceAndSaveToppingAt(select - 1, topping);
         }
         else if (selection == '3'){
             int select = 0;
             listToppings();
             cout << "Select a topping to delete" << endl;
             cin >> select;
+            toppingservice.deleteToppingAtAndSave(select - 1);
         }
         else if (selection == '4'){
             listToppings();
