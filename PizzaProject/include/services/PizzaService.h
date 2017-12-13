@@ -27,7 +27,7 @@ class PizzaService
         void addPizza(const Pizza& pizza);
         Pizza getPizza();
         void getPizzaList();
-        void listAvailablePizzas();
+        vector<Pizza> listAvailablePizzas();
 
 };
 

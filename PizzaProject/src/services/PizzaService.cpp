@@ -56,9 +56,8 @@ void PizzaService::getPizzaList(){
     pizzas = pizzarepo.getPizzas();
 }
 
-void PizzaService::listAvailablePizzas(){
+vector<Pizza> PizzaService::listAvailablePizzas(){
     getPizzaList();
-    for(unsigned int i = 0; i < pizzas.size(); i++){
-        cout << i + 1 << ". " << pizzas[i] << endl;
-    }
+
+    return pizzas;
 }

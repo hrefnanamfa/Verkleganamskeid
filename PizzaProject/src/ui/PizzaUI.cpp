@@ -62,6 +62,12 @@ void PizzaUI::startUIpizzamenu(){
 
 void PizzaUI::listAvailablePizzas(){
     cout << "- Available pizzas -" << endl;
-    pizzaservice.listAvailablePizzas();
+
+    vector<Pizza> pizzas = pizzaservice.listAvailablePizzas();
+
+    for(unsigned int i = 0; i < pizzas.size(); i++){
+        cout << i + 1 << ". " << pizzas[i] << endl;
+    }
+
     cout << endl;
 }
