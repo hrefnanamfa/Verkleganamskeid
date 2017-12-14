@@ -1,5 +1,4 @@
 #include "../../include/ui/SalesUI.h"
-#include "InvalidAnswerException.h"
 
 using namespace std;
 
