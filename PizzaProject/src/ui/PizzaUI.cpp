@@ -55,44 +55,68 @@ Pizza PizzaUI::makeAPizza(){
     int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
+    Base base;
+    Topping topping;
+    vector<Topping> toppings;
+    Pizza pizza;
 
     pizzaservice.clearPizzas();
 
-    cout << "Pick base: " << endl;
-    baseui.listBases();
-    Base base;
-    cin >> choiceOfBase;
+    if(!baseui.isBaseVectorEmpty()){
+        if(!toppingui.isToppingVectorEmpty()){
 
-    base = baseservice.getBaseAt(choiceOfBase - 1);
-    cout << endl;
+            baseui.listBases();
+            cout << "Pick base: " << endl;
+            cin >> choiceOfBase;
 
-    cout << "How many toppings?" << endl;
-    cin >> numberOfToppings;
-    cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
+            base = baseservice.getBaseAt(choiceOfBase - 1);
+            cout << endl;
 
-    toppingui.listToppings();
-    vector<Topping> toppings;
-    Topping topping;
-    for(int i = 0; i < numberOfToppings; i++){
-        cin >> choiceOfTopping;
+            cout << "How many toppings?" << endl;
+            cin >> numberOfToppings;
+            cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
+            toppingui.listToppings();
 
-        topping = toppingservice.getToppingAt(choiceOfTopping - 1);
-        toppings.push_back(topping);
+            for(int i = 0; i < numberOfToppings; i++){
+                cin >> choiceOfTopping;
+                topping = toppingservice.getToppingAt(choiceOfTopping - 1);
+                toppings.push_back(topping);
+            }
+            pizza = pizzaservice.makePizza(base, toppings);
+        }
+        else{
+            toppingui.listToppings();
+            throw InvalidPizzaException();
+        }
+    }
+    else{
+        baseui.listBases();
+        throw InvalidPizzaException();
     }
 
-    Pizza pizza;
-    pizza = pizzaservice.makePizza(base, toppings);
-
     return pizza;
+}
+bool PizzaUI::isPizzaVectorEmpty(){
+    if(pizzas.empty()){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 void PizzaUI::startUIpizzamenu(){
     Pizza pizza;
-    pizza = makeAPizza();
-    pizzaservice.addPizza(pizza);
+    try{
+        pizza = makeAPizza();
+        pizzaservice.addPizza(pizza);
 
-    cout << "You just registered: " << endl;
-    cout << pizza << endl;
+        cout << "You just registered: " << endl;
+        cout << pizza << endl;
+    }
+    catch(InvalidPizzaException){
+        cout << "Not possible to make pizza!" << endl;
+    }
 }
 void PizzaUI::listAvailablePizzas(){
     pizzas = pizzaservice.listAvailablePizzas();

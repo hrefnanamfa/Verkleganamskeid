@@ -56,16 +56,11 @@ void SalesUI::startUI(){
             bool flag;
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
-<<<<<<< HEAD
-            bool flag = createNewOrder(&order);
+
+            flag = createNewOrder(&order);
             if (flag == false){
                 break;
             }
-=======
-            flag = createNewOrder(&order);
-            if(flag == false)
-                break;
->>>>>>> a2ba01c4f55063d946161b5ae47320f4b4809e26
         }
     }
     cout << endl;
@@ -155,33 +150,41 @@ void SalesUI::addExtras(){
 void SalesUI::addPizza(){
     char answer = 'Y';
     do{
-        Pizza pizza;
-        cout << "Making a new pizza for order" << endl << endl;
-        pizza = pizzaui.makeAPizza();
-        pizzasInOrder.push_back(pizza);
-        cout << endl;
-        cout << pizza << " was added to the order" << endl;
+        try{
+            Pizza pizza;
+            cout << "Making a new pizza for order" << endl << endl;
+            pizza = pizzaui.makeAPizza();
 
-        bool flag = true;
-        do{
-            try{
-                cout << "Do you want to add another pizza? (y/n)" << endl;
-                cin >> answer;
-                checkAnswer(answer);
-            }
-            catch(InvalidAnswerException){
-                cout << "Invalid answer!" << endl;
-            }
-            answer = toupper(answer);
-            if(answer == 'Y' || answer == 'N'){
-                flag = true;
-            }
-            else{
-                flag = false;
-            }
-        }while(!flag);
+            pizzasInOrder.push_back(pizza);
+            cout << endl;
+            cout << pizza << " was added to the order" << endl;
 
+            bool flag = true;
+            do{
+                try{
+                    cout << "Do you want to add another pizza? (y/n)" << endl;
+                    cin >> answer;
+                    checkAnswer(answer);
+                }
+                catch(InvalidAnswerException){
+                    cout << "Invalid answer!" << endl;
+                }
+                answer = toupper(answer);
+                if(answer == 'Y' || answer == 'N'){
+                    flag = true;
+                }
+                else{
+                    flag = false;
+                }
+            }while(!flag);
+        }
+        catch(InvalidPizzaException){
+            cout << "Not possible to make pizza!" << endl;
+            cout << endl;
+            return;
+        }
     }while(answer == 'Y');
+
 }
 
 void SalesUI::saveOrder(Workplaces workplace, string comment){

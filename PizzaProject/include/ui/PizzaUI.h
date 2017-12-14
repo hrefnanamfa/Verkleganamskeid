@@ -5,6 +5,7 @@
 #include "ToppingUI.h"
 #include "BaseUI.h"
 #include "PizzaUI.h"
+#include "InvalidPizzaException.h"
 
 class PizzaUI
 {
@@ -20,6 +21,7 @@ class PizzaUI
         PizzaUI();
         ~PizzaUI();
         Pizza makeAPizza();
+        bool isPizzaVectorEmpty();
         void startUI();
         void startUIpizzamenu();
         void listAvailablePizzas();

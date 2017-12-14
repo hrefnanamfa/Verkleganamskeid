@@ -56,6 +56,15 @@ void BaseUI::createBase(){
     cin >> base;
     baseservice.addBase(base);
 }
+bool BaseUI::isBaseVectorEmpty(){
+    bases = baseservice.listAvailableBases();
+    if(bases.empty()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 void BaseUI::listBases() {
     cout << "- Bases -" << endl;
