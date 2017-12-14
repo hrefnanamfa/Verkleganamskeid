@@ -3,9 +3,8 @@
 #include "../models/Extras.h"
 #include "InvalidReadException.h"
 #include "InvalidWriteException.h"
+
 #include <vector>
-#include <fstream>
-#include <iostream>
 
 using namespace std;
 

@@ -3,10 +3,8 @@
 #include "../models/Base.h"
 #include "InvalidReadException.h"
 #include "InvalidWriteException.h"
-#include <fstream>
-#include <vector>
-#include <iostream>
 
+#include <vector>
 
 class BaseRepository
 {

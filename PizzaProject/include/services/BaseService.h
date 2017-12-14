@@ -1,6 +1,5 @@
 #ifndef BASESERVICE_H
 #define BASESERVICE_H
-#include "../models/Base.h"
 #include "../repositories/BaseRepository.h"
 
 class BaseService

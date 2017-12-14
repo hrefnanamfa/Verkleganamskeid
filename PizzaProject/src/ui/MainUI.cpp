@@ -1,6 +1,4 @@
 #include "../../include/ui/MainUI.h"
-#include "InvalidReadException.h"
-#include "InvalidWriteException.h"
 
 MainUI::MainUI()
 {

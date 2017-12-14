@@ -35,8 +35,8 @@ void BaseUI::startUI(){
             }
         }
         else if (selection == '3'){
-                int select = 0;
-                listBases();
+            int select = 0;
+            listBases();
             if(!bases.empty()){
                 cout << "Select a base to delete" << endl;
                 cin >> select;

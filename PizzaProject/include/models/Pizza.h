@@ -1,8 +1,8 @@
 #ifndef PIZZA_H
 #define PIZZA_H
-#include <iostream>
 #include "Topping.h"
 #include "Base.h"
+#include <iostream>
 #include <vector>
 
 using namespace std;

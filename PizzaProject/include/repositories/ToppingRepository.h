@@ -1,11 +1,10 @@
 #ifndef TOPPINGREPOSITORY_H
 #define TOPPINGREPOSITORY_H
-#include <vector>
 #include "../models/Topping.h"
-#include <fstream>
-#include <iostream>
 #include "InvalidReadException.h"
 #include "InvalidWriteException.h"
+
+#include <vector>
 
 using namespace std;
 

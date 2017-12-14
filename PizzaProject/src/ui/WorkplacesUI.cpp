@@ -1,6 +1,4 @@
 #include "../../include/ui/WorkplacesUI.h"
-#include "InvalidAnswerException.h"
-#include <cstdlib>
 
 WorkplacesUI::WorkplacesUI()
 {

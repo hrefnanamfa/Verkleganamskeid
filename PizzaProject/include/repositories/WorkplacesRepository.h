@@ -1,11 +1,10 @@
 #ifndef WORKPLACESREPOSITORY_H
 #define WORKPLACESREPOSITORY_H
 #include "../models/Workplaces.h"
-#include <fstream>
-#include <vector>
-#include <iostream>
 #include "InvalidReadException.h"
 #include "InvalidWriteException.h"
+
+#include <vector>
 
 class WorkplacesRepository
 {
