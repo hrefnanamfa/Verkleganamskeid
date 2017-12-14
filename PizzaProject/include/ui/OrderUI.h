@@ -3,6 +3,7 @@
 #include "../services/OrderService.h"
 #include "EmptyOrderListException.h"
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class OrderUI
         bool getisempty();
         void listOrdersByStatus(string work, int status);
         void checkStatus(int i);
+        int inputSanitize(string input, int maxSize);
 
 };
 

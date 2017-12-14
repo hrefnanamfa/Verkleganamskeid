@@ -3,7 +3,7 @@
 #include "../models/Topping.h"
 #include "../services/ToppingService.h"
 
-
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -21,6 +21,7 @@ class ToppingUI
         void createTopping();
         void listToppings();
         void startUI();
+        int inputSanitize(string input, int maxSize);
 
 };
 

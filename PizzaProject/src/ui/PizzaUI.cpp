@@ -52,6 +52,7 @@ void PizzaUI::startUI(){
 }
 
 Pizza PizzaUI::makeAPizza(){
+    string input;
     int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
@@ -67,20 +68,28 @@ Pizza PizzaUI::makeAPizza(){
 
             baseui.listBases();
             cout << "Pick base: " << endl;
-            cin >> choiceOfBase;
-
-            base = baseservice.getBaseAt(choiceOfBase - 1);
+            cin >> input;
+            choiceOfBase = baseui.inputSanitize(input, (int)baseui.getBaseVectorSize() + 1);
+            if (choiceOfBase != 0) {
+                base = baseservice.getBaseAt(choiceOfBase - 1);
+            }
             cout << endl;
 
             cout << "How many toppings?" << endl;
-            cin >> numberOfToppings;
-            cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
-            toppingui.listToppings();
+            cin >> input;
+            numberOfToppings = baseui.inputSanitize(input, (int)toppings.size() + 1);
+            if (numberOfToppings != 0) {
+                cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
+                toppingui.listToppings();
 
-            for(int i = 0; i < numberOfToppings; i++){
-                cin >> choiceOfTopping;
-                topping = toppingservice.getToppingAt(choiceOfTopping - 1);
-                toppings.push_back(topping);
+                for(int i = 0; i < numberOfToppings; i++){
+                    cin >> input;
+                    choiceOfTopping = baseui.inputSanitize(input, (int)toppings.size() + 1);
+                    if (choiceOfTopping != 0) {
+                        topping = toppingservice.getToppingAt(choiceOfTopping - 1);
+                        toppings.push_back(topping);
+                    }
+                }
             }
             pizza = pizzaservice.makePizza(base, toppings);
         }
@@ -131,4 +140,8 @@ void PizzaUI::listAvailablePizzas(){
         cout << "There are no pizzas registered!" << endl;
     }
 
+}
+
+int PizzaUI::getPizzaMenuSize(){
+    return this->pizzas.size();
 }

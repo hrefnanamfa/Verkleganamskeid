@@ -2,7 +2,7 @@
 #define SALESUI_H
 
 #include "../services/PizzaService.h"
-#include "../services/OrderService.h"
+#include "OrderUI.h"
 #include "PizzaUI.h"
 #include "Extrasui.h"
 #include "../services/ExtrasService.h"
@@ -22,6 +22,7 @@ class SalesUI
         ExtrasUI extrasui;
         WorkplacesUI workplacesui;
         Order order;
+        OrderUI orderui;
         Workplaces workplaces;
         vector<Pizza> pizzasInOrder;
         vector<Extras> extrasInOrder;

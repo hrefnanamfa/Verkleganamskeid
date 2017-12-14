@@ -25,6 +25,7 @@ class PizzaUI
         void startUI();
         void startUIpizzamenu();
         void listAvailablePizzas();
+        int getPizzaMenuSize();
 };
 
 #endif // PIZZAUI_H

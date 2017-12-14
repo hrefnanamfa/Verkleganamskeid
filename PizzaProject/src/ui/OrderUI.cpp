@@ -27,9 +27,11 @@ void OrderUI::listOrdersByStatus(string work, int status){
         isempty = true;
     }
 }
+
 bool OrderUI::getisempty(){
     return this->isempty;
 }
+
 void OrderUI::checkStatus(int i){
     if(i == 1){
         cout << "On hold";
@@ -42,5 +44,23 @@ void OrderUI::checkStatus(int i){
     }
     else if(i == 4){
         cout << "Delivered";
+    }
+}
+
+int OrderUI::inputSanitize(string input, int maxSize) {
+    int select;
+    if (isdigit(input[0])){
+        select = atoi(input.c_str());
+        if (select >  0 && select < maxSize) {
+            return select;
+        }
+        else {
+            cout << "Selection does not exist" << endl << endl;
+            return 0;
+        }
+    }
+    else {
+        cout << "Invalid input" << endl;
+        return 0;
     }
 }

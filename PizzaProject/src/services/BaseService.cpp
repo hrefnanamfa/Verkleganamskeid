@@ -26,11 +26,13 @@ vector<Base> BaseService::listAvailableBases(){
     getBases();
     return bases;
 }
+
 void BaseService::replaceAndSaveBaseAt(int i, Base& base){
     getBases();
     bases.at(i) = base;
     baserepository.replaceBasesInRepo(bases);
 }
+
 void BaseService::deleteBaseAtAndSave(int i){
     getBases();
     bases.erase(bases.begin() + i);

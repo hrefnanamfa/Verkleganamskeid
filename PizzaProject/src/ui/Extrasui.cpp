@@ -25,23 +25,32 @@ void ExtrasUI::startUI(){
             createExtras();
         }
         else if (selection == '2'){
-            int select = 0;
+            string input;
+
             listExtras();
             if(!extras.empty()){
                 cout << "Select an item to edit" << endl;
-                cin >> select;
-                Extras extra;
-                cin >> extra;
-                extrasservice.replaceAndSaveExtraAt(select - 1, extra);
+                cin >> input;
+                int select = inputSanitize(input, (int)extras.size() + 1);
+                if (select != 0) {
+                    Extras extra;
+                    cin >> extra;
+                    extrasservice.replaceAndSaveExtraAt(select - 1, extra);
+                }
             }
         }
         else if (selection == '3'){
-            int select = 0;
+            string input;
+
             listExtras();
             if(!extras.empty()){
                 cout << "Select an item to delete" << endl;
-                cin >> select;
-                extrasservice.deleteExtraAndSaveAt(select - 1);
+                cin >> input;
+
+                int select = inputSanitize(input, (int)extras.size() + 1);
+                if (select != 0){
+                    extrasservice.deleteExtraAndSaveAt(select - 1);
+                }
             }
         }
         else if (selection == '4'){
@@ -81,6 +90,28 @@ void ExtrasUI::listExtras(){
         }
     }
     else if(extras.empty()){
-        cout << "There are no extra items regestired!" << endl;
+        cout << "There are no extra items registered!" << endl;
     }
+}
+
+int ExtrasUI::inputSanitize(string input, int maxSize) {
+    int select;
+    if (isdigit(input[0])){
+        select = atoi(input.c_str());
+        if (select >  0 && select < maxSize) {
+            return select;
+        }
+        else {
+            cout << "Selection does not exist" << endl << endl;
+            return 0;
+        }
+    }
+    else {
+        cout << "Invalid input" << endl;
+        return 0;
+    }
+}
+
+int ExtrasUI::getExtrasVectorSize() {
+    return this->extras.size();
 }

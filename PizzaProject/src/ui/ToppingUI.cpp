@@ -24,23 +24,29 @@ void ToppingUI::startUI(){
             createTopping();
         }
         else if (selection == '2'){
-            int select = 0;
+            string input;
             listToppings();
             if(!toppings.empty()){
                 cout << "Select a topping to edit" << endl;
-                cin >> select;
-                Topping topping;
-                cin >> topping;
-                toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+                cin >> input;
+                int select = inputSanitize(input, (int)toppings.size() + 1);
+                if (select != 0){
+                    Topping topping;
+                    cin >> topping;
+                    toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+                }
             }
         }
         else if (selection == '3'){
-            int select = 0;
+            string input;
             listToppings();
             if(!toppings.empty()){
                 cout << "Select a topping to delete" << endl;
-                cin >> select;
-                toppingservice.deleteToppingAtAndSave(select - 1);
+                cin >> input;
+                int select = inputSanitize(input, (int)toppings.size() + 1);
+                if (select != 0) {
+                     toppingservice.deleteToppingAtAndSave(select - 1);
+                }
             }
         }
         else if (selection == '4'){
@@ -64,7 +70,6 @@ bool ToppingUI::isToppingVectorEmpty(){
     }
 }
 
-
 void ToppingUI::listToppings(){
     toppings = toppingservice.listAvailableToppings();
 
@@ -76,5 +81,23 @@ void ToppingUI::listToppings(){
     }
     else if(toppings.empty()){
         cout << "There are no toppings registered!" << endl;
+    }
+}
+
+int ToppingUI::inputSanitize(string input, int maxSize) {
+    int select;
+    if (isdigit(input[0])){
+        select = atoi(input.c_str());
+        if (select >  0 && select < maxSize) {
+            return select;
+        }
+        else {
+            cout << "Selection does not exist" << endl << endl;
+            return 0;
+        }
+    }
+    else {
+        cout << "Invalid input" << endl;
+        return 0;
     }
 }

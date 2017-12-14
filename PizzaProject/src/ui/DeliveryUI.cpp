@@ -51,22 +51,22 @@ void DeliveryUI::startUI(){
             }
         }
         else if(selection == '2'){
-            int select = 0;
+            string input;
+
             cout << "- Ready orders -" << endl;
             orderui.listOrdersByStatus(work, 3);
             if (orderui.getisempty()){
-                    cout << "There are no orders: ";
-                    orderui.checkStatus(3);
-                    cout << endl << endl;
-                    continue;
+                cout << "There are no orders: ";
+                orderui.checkStatus(3);
+                cout << endl << endl;
+                continue;
             }
             cout << "Select an order to flag delivered" << endl;
-            cin >> select;
+            cin >> input;
             cout << endl;
-            if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                cout << "That order does not exist!" << endl;
-            }
-            else{
+
+            int select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
+            if (select != 0) {
                 Order order;
                 order = orderservice.getOrderAt(select - 1, work);
                 if(order.getCurrentStatus() == 3){

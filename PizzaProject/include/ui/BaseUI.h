@@ -3,6 +3,8 @@
 #include "../models/Base.h"
 #include "../services/BaseService.h"
 
+#include <cstdlib>
+
 class BaseUI
 {
     private:
@@ -14,6 +16,8 @@ class BaseUI
         void createBase();
         void listBases();
         bool isBaseVectorEmpty();
+        int getBaseVectorSize();
+        int inputSanitize(string input, int maxSize);
 
         ~BaseUI();
 

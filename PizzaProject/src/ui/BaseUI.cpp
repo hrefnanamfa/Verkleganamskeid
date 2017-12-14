@@ -24,23 +24,33 @@ void BaseUI::startUI(){
             createBase();
         }
         else if (selection == '2'){
-            int select = 0;
+            string input;
+
             listBases();
             if(!bases.empty()){
                 cout << "Select a base to edit" << endl;
-                cin >> select;
-                Base base;
-                cin >> base;
-                baseservice.replaceAndSaveBaseAt(select - 1, base);
+                cin >> input;
+
+                int select = inputSanitize(input, (int)bases.size() + 1);
+                if (select != 0) {
+                    Base base;
+                    cin >> base;
+                    baseservice.replaceAndSaveBaseAt(select - 1, base);
+                }
             }
         }
         else if (selection == '3'){
-            int select = 0;
+            string input;
+
             listBases();
             if(!bases.empty()){
                 cout << "Select a base to delete" << endl;
-                cin >> select;
-                baseservice.deleteBaseAtAndSave(select);
+                cin >> input;
+
+                int select = inputSanitize(input, (int)bases.size() + 1);
+                if (select != 0){
+                    baseservice.deleteBaseAtAndSave(select);
+                }
             }
 
         }
@@ -56,6 +66,7 @@ void BaseUI::createBase(){
     cin >> base;
     baseservice.addBase(base);
 }
+
 bool BaseUI::isBaseVectorEmpty(){
     bases = baseservice.listAvailableBases();
     if(bases.empty()){
@@ -64,6 +75,10 @@ bool BaseUI::isBaseVectorEmpty(){
     else{
         return false;
     }
+}
+
+int BaseUI::getBaseVectorSize(){
+    return this->bases.size();
 }
 
 void BaseUI::listBases() {
@@ -77,5 +92,24 @@ void BaseUI::listBases() {
     }
     else if(bases.empty()){
         cout << "There are no bases registered!" << endl;
+    }
+}
+
+
+int BaseUI::inputSanitize(string input, int maxSize) {
+    int select;
+    if (isdigit(input[0])){
+        select = atoi(input.c_str());
+        if (select >  0 && select < maxSize) {
+            return select;
+        }
+        else {
+            cout << "Selection does not exist" << endl << endl;
+            return 0;
+        }
+    }
+    else {
+        cout << "Invalid input" << endl;
+        return 0;
     }
 }

@@ -43,4 +43,4 @@ void MainUI::startUI(){
 
     }while(selection != 'Q');
 
-    }
+}

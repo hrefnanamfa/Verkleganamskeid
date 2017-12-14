@@ -31,7 +31,8 @@ void BakeryUI::startUI(){
         cout << endl;
 
         if(selection == '1'){
-            int select = 0;
+            string input;
+
             cout << "- Orders on hold -" << endl;
             orderui.listOrdersByStatus(work, 1);
             if (orderui.getisempty()){
@@ -41,32 +42,27 @@ void BakeryUI::startUI(){
                 continue;
             }
             cout << "Select an order to flag as in making" << endl;
-            cin >> select;
+            cin >> input;
             cout << endl;
             Order order;
-            if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                cout << "That order does not exist" << endl << endl;
-            }
-            else{
+
+            int select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
+            if (select != 0) {
                 order = orderservice.getOrderAt(select - 1, work);
                 if(order.getCurrentStatus() == 1){
-                        //int selection = 0;
-                        //cout << "Press:" << endl;
-                        //cout << "2. to flag as in making" << endl;
-                        //cin >> selection;
                     order.setCurrentStatus(2);//hérna breytist flaggið
                     orderservice.replaceAndSaveOrderAt(select - 1, order, work);//hérna save-ast breytingin;
                     cout << "Order was flagged as: ";
                     orderui.checkStatus(order.getCurrentStatus());
                     cout << endl << endl;
                 }
-                else{
-                    cout << "Invalid input!" << endl;
+                else {
+                    cout << "That order does not exist" << endl << endl;
                 }
             }
         }
         else if(selection == '2'){
-            int select = 0;
+            string input;
 
             cout << "- Orders in making -" << endl;
             orderui.listOrdersByStatus(work, 2);
@@ -78,19 +74,14 @@ void BakeryUI::startUI(){
             }
 
             cout << "Select an order to flag as ready" << endl;
-            cin >> select;
+            cin >> input;
             cout << endl;
-            if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                cout << "That order does not exist!" << endl << endl;
-            }
-            else{
+
+            int select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
+            if (select != 0) {
                 Order order;
                 order = orderservice.getOrderAt(select - 1, work);
                 if(order.getCurrentStatus() == 2){
-                    //int selection = 0;
-                    //cout << "Press:" << endl;
-                    //cout << "3. to flag as ready" << endl;
-                    //cin >> selection;
                     order.setCurrentStatus(3);//hérna breytist flaggið
                     orderservice.replaceAndSaveOrderAt(select - 1, order, work);
                     cout << "Order was flagged as: ";

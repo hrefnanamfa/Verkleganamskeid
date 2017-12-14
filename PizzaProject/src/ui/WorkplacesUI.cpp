@@ -25,24 +25,29 @@ void WorkplacesUI::startUI(){
             addWorkplace();
         }
         else if (selection == '2'){
-            int select = 0;
+            string input;
             listWorkplaces();
             if (!workplaces.empty()){
                 cout << "Select a workplace to edit" << endl;
-                cin >> select;
-                Workplaces workplace;
-                cin >> workplace;
-                workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
+                cin >> input;
+                int select = inputSanitize(input, (int)workplaces.size() + 1);
+                if (select != 0) {
+                    Workplaces workplace;
+                    cin >> workplace;
+                    workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
+                }
             }
-
         }
         else if (selection == '3'){
-            int select = 0;
+            string input;
             listWorkplaces();
             if(!workplaces.empty()){
                 cout << "Select a workplace to delete" << endl;
-                cin >> select;
-                workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+                cin >> input;
+                int select = inputSanitize(input, (int)workplaces.size() + 1);
+                if (select != 0) {
+                    workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+                }
             }
 
         }
@@ -110,4 +115,24 @@ Workplaces WorkplacesUI::selectWorkplace(){
     workplace = workplacesservice.getWorkplaceAt(workChoiceInt - 1);
 
     return workplace;
+}
+
+
+
+int WorkplacesUI::inputSanitize(string input, int maxSize) {
+    int select;
+    if (isdigit(input[0])){
+        select = atoi(input.c_str());
+        if (select >  0 && select < maxSize) {
+            return select;
+        }
+        else {
+            cout << "Selection does not exist" << endl << endl;
+            return 0;
+        }
+    }
+    else {
+        cout << "Invalid input" << endl;
+        return 0;
+    }
 }

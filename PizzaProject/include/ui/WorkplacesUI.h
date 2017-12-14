@@ -22,6 +22,7 @@ class WorkplacesUI
         void addWorkplace();
         void listWorkplaces();
         Workplaces selectWorkplace();
+        int inputSanitize(string input, int maxSize);
 };
 
 #endif // WORKPLACESUI_H
