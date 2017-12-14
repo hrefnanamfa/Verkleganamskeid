@@ -54,15 +54,18 @@ void SalesUI::startUI(){
             comment = getComment();
         }
         else if(selection == '6'){
+            bool flag;
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
-            order = createNewOrder(&order);
+            flag = createNewOrder(&order);
+            if(flag == false)
+                break;
         }
     }
     cout << endl;
 }
 
-Order SalesUI::createNewOrder(Order *order){
+bool SalesUI::createNewOrder(Order *order){
     char select = '\0';
     Order newOrder;
     cout << "Would you like to create a new order?(y/n)" << endl;
@@ -72,17 +75,16 @@ Order SalesUI::createNewOrder(Order *order){
     if(select == 'Y'){
         pizzasInOrder.clear();
         extrasInOrder.clear();
-        return newOrder;
+        return true;
     }
     else if(select == 'N'){
-        return *order;
+        return false;
     }
     else{
         cout << "Invalid input!" << endl;
         createNewOrder(&newOrder);
-        return newOrder;
     }
-
+    return true;
 }
 
 void SalesUI::setPickupOrDelivery(){

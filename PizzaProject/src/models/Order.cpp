@@ -103,6 +103,10 @@ void Order::checkCurrentStatus(){
     }
 }
 
+int Order::getCurrentStatus(){
+    return currentStatus;
+}
+
 void Order::addPizza(Pizza& pizza){
     pizzas.push_back(pizza);
 }
