@@ -31,39 +31,39 @@ void BakeryUI::startUI(){
         cout << endl;
 
         if(selection == '1'){
-                int select = 0;
-                cout << "- Orders on hold -" << endl;
-                orderui.listOrdersByStatus(work, 1);
-                if (orderui.getisempty()){
-                    cout << "There are no orders: ";
-                    orderui.checkStatus(1);
-                    cout << endl << endl;
-                    continue;
-                }
-                cout << "Select an order to flag as in making" << endl;
-                cin >> select;
-                cout << endl;
-                Order order;
-                if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                    cout << "That order does not exist" << endl << endl;
-                }
-                else{
-                    order = orderservice.getOrderAt(select - 1, work);
-                    if(order.getCurrentStatus() == 1){
+            int select = 0;
+            cout << "- Orders on hold -" << endl;
+            orderui.listOrdersByStatus(work, 1);
+            if (orderui.getisempty()){
+                cout << "There are no orders: ";
+                orderui.checkStatus(1);
+                cout << endl << endl;
+                continue;
+            }
+            cout << "Select an order to flag as in making" << endl;
+            cin >> select;
+            cout << endl;
+            Order order;
+            if(select > orderservice.getOrderVectorSize(work) || select < 0){
+                cout << "That order does not exist" << endl << endl;
+            }
+            else{
+                order = orderservice.getOrderAt(select - 1, work);
+                if(order.getCurrentStatus() == 1){
                         //int selection = 0;
                         //cout << "Press:" << endl;
                         //cout << "2. to flag as in making" << endl;
                         //cin >> selection;
-                        order.setCurrentStatus(2);//hérna breytist flaggið
-                        orderservice.replaceAndSaveOrderAt(select - 1, order, work);//hérna save-ast breytingin;
-                        cout << "Order was flagged as: ";
-                        order.checkCurrentStatus();
-                        cout << endl << endl;
-                    }
-                    else{
-                        cout << "Invalid input!" << endl;
-                    }
+                    order.setCurrentStatus(2);//hérna breytist flaggið
+                    orderservice.replaceAndSaveOrderAt(select - 1, order, work);//hérna save-ast breytingin;
+                    cout << "Order was flagged as: ";
+                    orderui.checkStatus(order.getCurrentStatus());
+                    cout << endl << endl;
                 }
+                else{
+                    cout << "Invalid input!" << endl;
+                }
+            }
         }
         else if(selection == '2'){
             int select = 0;
@@ -94,7 +94,7 @@ void BakeryUI::startUI(){
                     order.setCurrentStatus(3);//hérna breytist flaggið
                     orderservice.replaceAndSaveOrderAt(select - 1, order, work);
                     cout << "Order was flagged as: ";
-                    order.checkCurrentStatus();
+                    orderui.checkStatus(order.getCurrentStatus());
                     cout << endl << endl;
                 }
                 else{

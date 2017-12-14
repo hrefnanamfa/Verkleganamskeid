@@ -85,7 +85,7 @@ void DeliveryUI::startUI(){
                     order.setCurrentStatus(4);
                     orderservice.replaceAndSaveOrderAt(select - 1, order, work);
                     cout << "Order was flagged as: ";
-                    order.checkCurrentStatus();
+                    orderui.checkStatus(order.getCurrentStatus());
                     cout << endl;
                 }
                 else{
