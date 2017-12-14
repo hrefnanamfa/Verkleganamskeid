@@ -51,6 +51,14 @@ void ExtrasUI::startUI(){
     }
 }
 
+bool ExtrasUI::isExtrasVectorEmpty(){
+    if(extras.empty()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 void ExtrasUI::createExtras(){
     Extras extras;

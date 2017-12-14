@@ -17,6 +17,7 @@ class WorkplacesUI
     public:
         WorkplacesUI();
         virtual ~WorkplacesUI();
+        bool isWorkplacesVectorEmpty();
         void startUI();
         void addWorkplace();
         void listWorkplaces();

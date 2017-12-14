@@ -16,6 +16,7 @@ class ExtrasUI
     public:
         ExtrasUI();
         ~ExtrasUI();
+        bool isExtrasVectorEmpty();
         void createExtras();
         void listExtras();
         void startUI();

@@ -52,12 +52,18 @@ void SalesUI::startUI(){
         }
         else if(selection == '6'){
             bool flag;
-            setPickupOrDelivery();
-            saveOrder(workplaces, comment);
+            if(!workplacesui.isWorkplacesVectorEmpty()){
+                setPickupOrDelivery();
 
-            flag = createNewOrder(&order);
-            if (flag == false){
-                break;
+                saveOrder(workplaces, comment);
+
+                flag = createNewOrder(&order);
+                if (flag == false){
+                    break;
+                }
+            }
+            else{
+                cout << "Can not save order!" << endl << endl;
             }
         }
     }
@@ -132,18 +138,19 @@ void SalesUI::addPizzaFromMenu(){
 }
 void SalesUI::addExtras(){
     int select = 0;
-    cout << "Pick an item to add to your order:" << endl << endl;
-
     extrasui.listExtras();
+    if(extrasui.isExtrasVectorEmpty()){
+        cout << "Pick an item to add to your order:" << endl << endl;
 
-    cin >> select;
-    cout << endl;
+        cin >> select;
+        cout << endl;
 
-    Extras extras;
-    extras = extrasservice.getExtrasAt(select - 1);
+        Extras extras;
+        extras = extrasservice.getExtrasAt(select - 1);
 
-    cout << extras << " was added to the order" << endl << endl;
-    extrasInOrder.push_back(extras);
+        cout << extras << " was added to the order" << endl << endl;
+        extrasInOrder.push_back(extras);
+    }
 }
 void SalesUI::addPizza(){
     char answer = 'Y';

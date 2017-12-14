@@ -52,7 +52,15 @@ void WorkplacesUI::startUI(){
         cout << endl;
     }
 }
-
+bool WorkplacesUI::isWorkplacesVectorEmpty(){
+    listWorkplaces();
+    if(workplaces.empty()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 void WorkplacesUI::addWorkplace(){
     Workplaces workplaces;
     cout << "Adding a workplace" << endl;
@@ -69,7 +77,8 @@ void WorkplacesUI::listWorkplaces(){
         }
     }
     else{
-        cout << "There are no workplaces registered" << endl;
+        cout << "There are no workplaces registered!" << endl;
+
     }
 }
 
