@@ -9,6 +9,8 @@
 #include "WorkplacesUI.h"
 #include "../services/WorkplacesService.h"
 
+#include "InvalidAnswerException.h"
+
 class SalesUI
 {
     private:
