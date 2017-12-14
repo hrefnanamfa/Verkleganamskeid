@@ -1,6 +1,8 @@
 #ifndef BASEREPOSITORY_H
 #define BASEREPOSITORY_H
 #include "../models/Base.h"
+#include "InvalidReadException.h"
+#include "InvalidWriteException.h"
 #include <fstream>
 #include <vector>
 #include <iostream>

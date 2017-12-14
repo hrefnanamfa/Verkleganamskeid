@@ -10,7 +10,7 @@ class WorkplacesUI
 {
     private:
         WorkplacesService workplacesservice;
-
+        vector<Workplaces> workplaces;
     public:
         WorkplacesUI();
         virtual ~WorkplacesUI();

@@ -2,6 +2,8 @@
 #define ORDERREPOSITORY_H
 #include "../models/Order.h"
 #include "../models/Workplaces.h"
+#include "InvalidReadException.h"
+#include "InvalidWriteException.h"
 
 
 class OrderRepository

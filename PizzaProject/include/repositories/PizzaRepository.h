@@ -2,6 +2,9 @@
 #define PIZZAREPOSITORY_H
 #include <fstream>
 #include "../models/Pizza.h"
+#include "InvalidReadException.h"
+#include "InvalidWriteException.h"
+
 class PizzaRepository
 {
     private:

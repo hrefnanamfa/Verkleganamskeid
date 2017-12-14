@@ -1,6 +1,8 @@
 #ifndef EXTRASREPOSITORY_H
 #define EXTRASREPOSITORY_H
 #include "../models/Extras.h"
+#include "InvalidReadException.h"
+#include "InvalidWriteException.h"
 #include <vector>
 #include <fstream>
 #include <iostream>

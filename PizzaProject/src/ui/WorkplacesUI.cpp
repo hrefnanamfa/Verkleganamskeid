@@ -29,18 +29,24 @@ void WorkplacesUI::startUI(){
         else if (selection == '2'){
             int select = 0;
             listWorkplaces();
-            cout << "Select a workplace to edit" << endl;
-            cin >> select;
-            Workplaces workplace;
-            cin >> workplace;
-            workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
+            if (!workplaces.empty()){
+                cout << "Select a workplace to edit" << endl;
+                cin >> select;
+                Workplaces workplace;
+                cin >> workplace;
+                workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
+            }
+
         }
         else if (selection == '3'){
             int select = 0;
             listWorkplaces();
-            cout << "Select a workplace to delete" << endl;
-            cin >> select;
-            workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+            if(!workplaces.empty()){
+                cout << "Select a workplace to delete" << endl;
+                cin >> select;
+                workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+            }
+
         }
         else if (selection == '4'){
             listWorkplaces();
@@ -57,10 +63,15 @@ void WorkplacesUI::addWorkplace(){
 }
 
 void WorkplacesUI::listWorkplaces(){
-    vector<Workplaces> workplaces = workplacesservice.listAvailableWorkplaces();
-    cout << "- Workplaces -" << endl;
-    for(unsigned int i = 0; i < workplaces.size(); i++){
-        cout << i + 1 << ". " << workplaces[i] << endl;
+    workplaces = workplacesservice.listAvailableWorkplaces();
+    if(!workplaces.empty()){
+        cout << "- Workplaces -" << endl;
+        for(unsigned int i = 0; i < workplaces.size(); i++){
+            cout << i + 1 << ". " << workplaces[i] << endl;
+        }
+    }
+    else{
+        cout << "There are no workplaces registered" << endl;
     }
 }
 

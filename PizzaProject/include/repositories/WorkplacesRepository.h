@@ -4,6 +4,8 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include "InvalidReadException.h"
+#include "InvalidWriteException.h"
 
 class WorkplacesRepository
 {
