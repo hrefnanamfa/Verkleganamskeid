@@ -1,15 +1,13 @@
 #include "../../include/models/Order.h"
 
-Order::Order()
-{
+Order::Order(){
     this->paid = false;
     this->currentStatus = 1;
     this->price = 0;
     this->comment = "";
 }
 
-Order::~Order()
-{
+Order::~Order(){
     //dtor
 }
 
@@ -217,6 +215,7 @@ ostream& operator <<(ostream& out, Order& order){
         out << "Pickup" << endl;
     else{
         out << "Delivery" << endl;
+        out << "Address: ";
         out << order.getAddress();
         if(order.getAddressNumber() != 0)
             out <<" " << order.getAddressNumber();

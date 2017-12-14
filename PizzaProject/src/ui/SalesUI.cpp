@@ -23,10 +23,11 @@ void SalesUI::startUI(){
         cout << "1. Add pizza from menu" << endl;
         cout << "2. Add your own pizza" << endl;
         cout << "3. Add something extra" << endl;
+        cout << "4. Pickup or delivery" << endl;
         cout << "-----------------------" << endl;
-        cout << "4. Show current order" << endl;
-        cout << "5. Add comment" << endl;
-        cout << "6. Save order" << endl << endl;
+        cout << "5. Show current order" << endl;
+        cout << "6. Add comment" << endl;
+        cout << "7. Save order" << endl << endl;
 
         cout << "q. to go back and cancel order" << endl;
 
@@ -43,55 +44,51 @@ void SalesUI::startUI(){
         else if(selection == '3') {
             addExtras();
         }
-
-        else if(selection == '4') {
+        else if(selection == '4'){
+            setPickupOrDelivery();
+        }
+        else if(selection == '5') {
             order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplaces, comment, pickup, address, addressNumber);
             cout << "- Your order -" << endl;
             cout << order << endl;
         }
-        else if(selection == '5'){
+
+        else if(selection == '6'){
             comment = getComment();
         }
-        else if(selection == '6'){
-            setPickupOrDelivery();
+        else if(selection == '7'){
             saveOrder(workplaces, comment);
         }
     }
     cout << endl;
 }
+
 void SalesUI::setPickupOrDelivery(){
     int select = 0;
-    do{
-        cout << "Choose whether to pick up or deliver your order:" << endl;
-        cout << "1. Pickup" << endl;
-        cout << "2. Deliver" << endl;
-        cin >> select;
-        if(select == 1){
-            pickup = true;
-            cout << "Where to pick up?" << endl;
+    cout << "1. Pickup" << endl;
+    cout << "2. Delivery" << endl;
+    cin >> select;
+    if(select == 1){
+        pickup = true;
+        cout << "Where to pick up?" << endl;
 
-            workplaces = workplacesui.selectWorkplace();
-            order.setWorkplace(workplaces);
-            cout << endl;
-        }
-        else if(select == 2){
-            pickup = false;
-            cout << "Please enter street name and then your house number "
-                 << "(0 if no house number)" << endl;
-            cin >> address;
-            cin >> addressNumber;
-            cout << "Which store should make the delivery?" << endl;
-            workplaces = workplacesui.selectWorkplace();
-            order.setWorkplace(workplaces);
-        }
-        else{
-            cout << "That is not an option!" << endl;
-            select = 3;
+        workplaces = workplacesui.selectWorkplace();
+        order.setWorkplace(workplaces);
+        cout << endl;
+    }
+    else if(select == 2){
+        pickup = false;
+        cout << "Please enter street name and house number "
+             << "(0 if no house number)" << endl;
+        cin >> address;
+        cin >> addressNumber;
 
-        }
-    }while(select == 3);
+
+        cout << "Which store should make the delivery?" << endl;
+        workplaces = workplacesui.selectWorkplace();
+        order.setWorkplace(workplaces);
+    }
 }
-
 void SalesUI::addPizzaFromMenu(){
     int select = 0;
     cout << "Pick a pizza to add to the order" << endl;
@@ -170,9 +167,9 @@ void SalesUI::saveOrder(Workplaces workplace, string comment){
     }while(!answer);
 
     order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace, comment, pickup, address, addressNumber);
-    cout << " ~ Your order ~ " << endl;
+    cout << "Your order" << endl;
     cout << order;
-    cout << " ~ Has been made ~ " << endl << endl;
+    cout << "Has been made" << endl << endl;
     orderservice.addOrder(order);
 }
 

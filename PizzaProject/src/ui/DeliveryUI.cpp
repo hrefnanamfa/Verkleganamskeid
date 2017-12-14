@@ -66,12 +66,14 @@ void DeliveryUI::startUI(){
             Order order;
             order = orderservice.getOrderAt(select - 1, work);
 
-            char answer = 0;
-            cout << "Has the order been paid for? (y/n)" << endl;
-            cin >> answer;
-            bool paidfor = salesui.checkAnswer(answer);
+            if(!order.checkPaid()){
+                char answer = 0;
+                cout << "Has the order been paid for? (y/n)" << endl;
+                cin >> answer;
+                bool paidfor = salesui.checkAnswer(answer);
 
-            order.setPaid(paidfor);
+                order.setPaid(paidfor);
+            }
 
             if(!order.checkPaid()){
                 cout << "The order hasn't been paid for!" << endl;
