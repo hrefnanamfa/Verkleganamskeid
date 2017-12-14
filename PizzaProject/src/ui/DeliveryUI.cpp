@@ -23,9 +23,8 @@ void DeliveryUI::startUI(){
 
 
     while(selection != 'Q'){
-        cout << "View Orders:" << endl;
-        cout << "1. On hold & in making" << endl;
-        cout << "2. Ready" << endl << endl;
+        cout << "1. View Orders: On hold & in making" << endl;
+        cout << "2. Deliver orders that are ready" << endl << endl;
 
         cout << "q: to go back" << endl;
 
@@ -60,7 +59,7 @@ void DeliveryUI::startUI(){
                     cout << endl << endl;
                     continue;
             }
-            cout << "Select and order to flag" << endl;
+            cout << "Select and order to flag delivered" << endl;
             cin >> select;
             cout << endl;
             Order order;
@@ -76,14 +75,14 @@ void DeliveryUI::startUI(){
             }
 
             if(!order.checkPaid()){
-                cout << "The order hasn't been paid for!" << endl;
+                cout << "You can't deliver an order that hasn't been paid for!" << endl;
                 continue;
             }
-            int choice = 0;
-            cout << "Press:" << endl;
-            cout << "4. to flag as delivered" << endl;
-            cin >> choice;
-            order.setCurrentStatus(choice);
+            //int choice = 0;
+            //cout << "Press:" << endl;
+            //cout << "4. to flag as delivered" << endl;
+            //cin >> choice;
+            order.setCurrentStatus(4);
             orderservice.replaceAndSaveOrderAt(select - 1, order, work);
 
             if(order.getStatus() == 4){

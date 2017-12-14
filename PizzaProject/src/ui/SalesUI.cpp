@@ -64,7 +64,7 @@ void SalesUI::startUI(){
 void SalesUI::setPickupOrDelivery(){
     int select = 0;
     cout << "Choose whether the order should be picked up or delivered" << endl;
-    cout << "1. Pickup" << endl;
+    cout << "1. Picked up" << endl;
     cout << "2. Delivered" << endl;
     cin >> select;
     if(select == 1){
@@ -164,9 +164,9 @@ void SalesUI::saveOrder(Workplaces workplace, string comment){
     }while(!answer);
 
     order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace, comment, pickup, address, addressNumber);
-    cout << "Your order" << endl;
+    cout << " ~ Your order ~ " << endl;
     cout << order;
-    cout << "Has been made" << endl << endl;
+    cout << " ~ Has been made ~ " << endl << endl;
     orderservice.addOrder(order);
 }
 
