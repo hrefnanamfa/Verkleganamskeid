@@ -15,6 +15,9 @@ class Order
         int price;
         Workplaces workplaces;
         string comment;
+        bool pickup;
+        string address;
+        int addressNumber;
 
     public:
         Order();
@@ -22,16 +25,21 @@ class Order
         void setPrice();
         int getPrice();
         int getStatus();
+        string getAddress();
+        int getAddressNumber();
         void addPizza(Pizza& pizza);
         void addExtras(Extras& extra);
         void setPizzas(vector<Pizza> pizzas);
         void setExtras(vector<Extras> extras);
         void setCurrentStatus(int status);
         void setPaid(bool paid);
-        void setPickup(Workplaces workplaces);
+        void setWorkplace(Workplaces workplaces);
         void setComment(string comment);
+        void setPickup(bool pickup);
+        void setAddress(string address, int addressNumber);
         string getLocation();
         bool checkPaid();
+        bool checkIfPickup();
         void checkCurrentStatus();
         friend ostream& operator <<(ostream& out, Order& order);
         friend istream& operator >>(istream& in, Order& order);

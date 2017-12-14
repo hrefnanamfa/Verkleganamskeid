@@ -10,13 +10,15 @@ OrderService::~OrderService()
     //dtor
 }
 
-Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment){
+Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment, bool pickup, string address, int addressNumber){
     Order order;
     order.setPizzas(pizzas);
     order.setExtras(extras);
     order.setPaid(paid);
-    order.setPickup(workplaces);
+    order.setWorkplace(workplaces);
     order.setComment(comment);
+    order.setPickup(pickup);
+    order.setAddress(address, addressNumber);
     return order;
 }
 

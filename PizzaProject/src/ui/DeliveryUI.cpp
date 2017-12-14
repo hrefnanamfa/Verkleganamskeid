@@ -15,6 +15,7 @@ DeliveryUI::~DeliveryUI()
 void DeliveryUI::startUI(){
     char selection = '\0';
     cout << "Delivery" << endl;
+    cout << "Choose your workplace" << endl;
 
     Workplaces workplace = workplacesui.selectWorkplace();
 

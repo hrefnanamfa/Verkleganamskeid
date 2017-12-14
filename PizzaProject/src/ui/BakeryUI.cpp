@@ -15,7 +15,7 @@ BakeryUI::~BakeryUI()
 void BakeryUI::startUI(){
     char selection = '\0';
     cout << "Bakery" << endl;
-
+    cout << "Choose your workplace" << endl;
     Workplaces workplace = workplacesui.selectWorkplace();
 
     string work = workplace.getName();

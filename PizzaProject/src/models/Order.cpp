@@ -41,13 +41,21 @@ void Order::setPrice(){
 
     this->price = currentPrice;
 }
-
-void Order::setPickup(Workplaces workplaces){
+void Order::setWorkplace(Workplaces workplaces){
     this->workplaces = workplaces;
 }
 
+void Order::setAddress(string address, int addressNumber){
+    this->address = address;
+    this->addressNumber = addressNumber;
+}
 void Order::setComment(string comment){
     this->comment = comment;
+}
+
+
+void Order::setPickup(bool pickup){
+    this->pickup = pickup;
 }
 
 string Order::getLocation(){
@@ -66,8 +74,20 @@ string Order::getComment(){
     return this->comment;
 }
 
+string Order::getAddress(){
+    return address;
+}
+
+int Order::getAddressNumber(){
+    return addressNumber;
+}
+
 bool Order::checkPaid(){
     return paid;
+}
+
+bool Order::checkIfPickup(){
+    return this->pickup;
 }
 
 void Order::checkCurrentStatus(){
@@ -112,6 +132,13 @@ void Order::write(ofstream& fout) const{
     fout.write((char*)(&currentStatus), sizeof(int));
     fout.write((char*)(&price), sizeof(int));
 
+    int addressLength = address.length() + 1;
+    fout.write((char*)(&addressLength), sizeof(int));
+    fout.write(address.c_str(), addressLength);
+
+    fout.write((char*)(&pickup), sizeof(bool));
+    fout.write((char*)(&addressNumber), sizeof(int));
+
     int commentLength = comment.length() + 1;
     fout.write((char*)(&commentLength), sizeof(int));
     fout.write(comment.c_str(), commentLength);
@@ -140,6 +167,15 @@ void Order::read(ifstream& fin){
     fin.read((char*)(&paid), sizeof(bool));
     fin.read((char*)(&currentStatus), sizeof(int));
     fin.read((char*)(&price), sizeof(int));
+
+    int addressLength;
+    fin.read((char*)(&addressLength), sizeof(int));
+    char* str1 = new char[addressLength];
+    fin.read(str1, addressLength);
+    address = str1;
+
+    fin.read((char*)(&pickup), sizeof(bool));
+    fin.read((char*)(&addressNumber), sizeof(int));
 
     int commentLength;
     fin.read((char*)(&commentLength), sizeof(int));
@@ -176,6 +212,16 @@ ostream& operator <<(ostream& out, Order& order){
     else
         cout << "No" << endl;
 
+    out << "Pickup or Delivery: ";
+    if(order.checkIfPickup())
+        out << "Pickup" << endl;
+    else{
+        out << "Delivery" << endl;
+        out << order.getAddress();
+        if(order.getAddressNumber() != 0)
+            out <<" " << order.getAddressNumber();
+        out << endl;
+    }
 
     if(order.getComment() != ""){
     out << "Comment: " << order.getComment() << endl;

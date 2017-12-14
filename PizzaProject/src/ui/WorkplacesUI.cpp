@@ -72,7 +72,6 @@ Workplaces WorkplacesUI::selectWorkplace(){
 
     workMax = workplacesservice.workplacesAmount();
 
-    cout << "Choose your workplace" << endl;
     listWorkplaces();
 
     do{

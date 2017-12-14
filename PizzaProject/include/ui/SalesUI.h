@@ -23,6 +23,9 @@ class SalesUI
         Workplaces workplaces;
         vector<Pizza> pizzasInOrder;
         vector<Extras> extrasInOrder;
+        bool pickup;
+        string address;
+        int addressNumber;
 
     public:
         SalesUI();
@@ -30,6 +33,7 @@ class SalesUI
         void startUI();
         bool checkAnswer(char answer);
         void addPizzaFromMenu();
+        void setPickupOrDelivery();
         void addExtras();
         void addPizza();
         string getComment();
