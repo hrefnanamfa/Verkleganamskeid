@@ -7,6 +7,7 @@ MainUI::MainUI()
 
 void MainUI::startUI(){
     char selection;
+    WorkplacesUI workplacesui;
     do{
         cout << "Please choose your position:" << endl;
         cout << "m: Managing" << endl;
@@ -29,11 +30,15 @@ void MainUI::startUI(){
         }
         else if(selection == 'B') {
             BakeryUI bakeryui;
-            bakeryui.startUI();
+            if (!workplacesui.isWorkplacesVectorEmpty()){
+                bakeryui.startUI();
+            }
         }
         else if(selection == 'D') {
             DeliveryUI deliveryUI;
-            deliveryUI.startUI();
+            if (!workplacesui.isWorkplacesVectorEmpty()){
+                deliveryUI.startUI();
+            }
         }
 
     }while(selection != 'Q');
