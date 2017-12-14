@@ -64,16 +64,9 @@ void DeliveryUI::startUI(){
             cout << "Select an order to flag delivered" << endl;
             cin >> input;
             cout << endl;
-<<<<<<< HEAD
 
             int select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
             if (select != 0) {
-=======
-            if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                cout << "That order does not exist!" << endl << endl;
-            }
-            else{
->>>>>>> 74f0213d20e458bc90773fbdc5b03a0df6d9f440
                 Order order;
                 order = orderservice.getOrderAt(select - 1, work);
                 if(order.getCurrentStatus() == 3){

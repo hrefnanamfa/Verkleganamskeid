@@ -53,11 +53,8 @@ void PizzaUI::startUI(){
 }
 
 Pizza PizzaUI::makeAPizza(){
-<<<<<<< HEAD
     string input;
-=======
     string name;
->>>>>>> 74f0213d20e458bc90773fbdc5b03a0df6d9f440
     int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
@@ -153,15 +150,14 @@ void PizzaUI::listAvailablePizzas(){
 
 }
 
-<<<<<<< HEAD
 int PizzaUI::getPizzaMenuSize(){
     return this->pizzas.size();
-=======
+}
+
 void PizzaUI::setVerbose(bool verbose){
     this->verbose = verbose;
 }
 
 bool PizzaUI::isVerbose(){
     return verbose;
->>>>>>> 74f0213d20e458bc90773fbdc5b03a0df6d9f440
 }
