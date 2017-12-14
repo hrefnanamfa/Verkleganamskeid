@@ -17,6 +17,7 @@ class PizzaUI
         ToppingUI toppingui;
         BaseUI baseui;
         vector<Pizza> pizzas;
+        bool verbose;
     public:
         PizzaUI();
         ~PizzaUI();
@@ -25,6 +26,8 @@ class PizzaUI
         void startUI();
         void startUIpizzamenu();
         void listAvailablePizzas();
+        void setVerbose(bool verbose);
+        bool isVerbose();
 };
 
 #endif // PIZZAUI_H

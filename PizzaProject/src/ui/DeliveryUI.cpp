@@ -64,7 +64,7 @@ void DeliveryUI::startUI(){
             cin >> select;
             cout << endl;
             if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                cout << "That order does not exist!" << endl;
+                cout << "That order does not exist!" << endl << endl;
             }
             else{
                 Order order;

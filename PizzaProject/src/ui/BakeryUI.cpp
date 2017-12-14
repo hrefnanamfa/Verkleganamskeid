@@ -45,7 +45,7 @@ void BakeryUI::startUI(){
                 cout << endl;
                 Order order;
                 if(select > orderservice.getOrderVectorSize(work) || select < 0){
-                    cout << "That order does not exist" << endl << endl;
+                    cout << "That order does not exist!" << endl << endl;
                 }
                 else{
                     order = orderservice.getOrderAt(select - 1, work);

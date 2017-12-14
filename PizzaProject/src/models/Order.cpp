@@ -184,6 +184,7 @@ void Order::read(ifstream& fin){
     char *str = new char[commentLength];
     fin.read(str, commentLength);
     comment = str;
+    delete[] str;
 }
 
 istream& operator >>(istream& in, Order& order){

@@ -36,6 +36,7 @@ void SalesUI::startUI(){
             addPizzaFromMenu();
         }
         else if(selection == '2') {
+            pizzaui.setVerbose(false);
             addPizza();
         }
         else if(selection == '3') {

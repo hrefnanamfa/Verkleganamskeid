@@ -21,6 +21,7 @@ void PizzaUI::startUI(){
         cin >> selection;
         selection = toupper(selection);
         if (selection == '1'){
+            verbose = true;
             startUIpizzamenu();
         }
         else if (selection == '2'){
@@ -52,6 +53,7 @@ void PizzaUI::startUI(){
 }
 
 Pizza PizzaUI::makeAPizza(){
+    string name;
     int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
@@ -64,6 +66,12 @@ Pizza PizzaUI::makeAPizza(){
 
     if(!baseui.isBaseVectorEmpty()){
         if(!toppingui.isToppingVectorEmpty()){
+            if(isVerbose()){
+                cout << "What is the name of the pizza?" << endl;
+                cin.ignore();
+                getline(cin, name);
+                pizza.setName(name);
+            }
 
             baseui.listBases();
             cout << "Pick base: " << endl;
@@ -82,7 +90,7 @@ Pizza PizzaUI::makeAPizza(){
                 topping = toppingservice.getToppingAt(choiceOfTopping - 1);
                 toppings.push_back(topping);
             }
-            pizza = pizzaservice.makePizza(base, toppings);
+            pizza = pizzaservice.makePizza(name, base, toppings);
         }
         else{
             toppingui.listToppings();
@@ -131,4 +139,12 @@ void PizzaUI::listAvailablePizzas(){
         cout << "There are no pizzas registered!" << endl;
     }
 
+}
+
+void PizzaUI::setVerbose(bool verbose){
+    this->verbose = verbose;
+}
+
+bool PizzaUI::isVerbose(){
+    return verbose;
 }
