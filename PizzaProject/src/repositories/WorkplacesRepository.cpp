@@ -9,6 +9,15 @@ WorkplacesRepository::~WorkplacesRepository()
 {
     //dtor
 }
+void WorkplacesRepository::replaceWorkplacesInRepo(vector<Workplaces> workplaces){
+    ofstream fout;
+    fout.open("workplaces.dat", ios::binary);
+
+    for(unsigned int i = 0; i < workplaces.size(); i++){
+        workplaces.at(i).write(fout);
+    }
+    fout.close();
+}
 
 void WorkplacesRepository::addWorkplace(Workplaces& workplaces){
     ofstream fout;

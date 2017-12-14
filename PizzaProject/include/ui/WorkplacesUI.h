@@ -14,6 +14,7 @@ class WorkplacesUI
     public:
         WorkplacesUI();
         virtual ~WorkplacesUI();
+        void startUI();
         void addWorkplace();
         void listWorkplaces();
         Workplaces selectWorkplace();

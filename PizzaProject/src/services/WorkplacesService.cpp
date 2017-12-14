@@ -23,14 +23,22 @@ Workplaces WorkplacesService::getWorkplaceAt(int i){
     return workplaces.at(i);
 }
 
-void WorkplacesService::listAvailableWorkplaces(){
+vector<Workplaces> WorkplacesService::listAvailableWorkplaces(){
     getWorkplaces();
-    for(unsigned int i = 0; i < workplaces.size(); i++){
-        cout << i + 1 << ". " << workplaces[i] << endl;
-    }
+    return workplaces;
 }
 
 int WorkplacesService::workplacesAmount(){
     getWorkplaces();
     return workplaces.size();
+}
+void WorkplacesService::replaceAndSaveWorkplaceAt(int i, Workplaces& workplace){
+    getWorkplaces();
+    workplaces.at(i) = workplace;
+    workplacesrepository.replaceWorkplacesInRepo(this->workplaces);
+}
+void WorkplacesService::deleteWorkplaceAtAndSave(int i){
+    getWorkplaces();
+    workplaces.erase(workplaces.begin() + i);
+    workplacesrepository.replaceWorkplacesInRepo(this->workplaces);
 }

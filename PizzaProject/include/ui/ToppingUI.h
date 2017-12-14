@@ -12,6 +12,7 @@ class ToppingUI
 {
     private:
         ToppingService toppingservice;
+        vector<Topping> toppings;
 
     public:
         ToppingUI();

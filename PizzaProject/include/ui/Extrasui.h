@@ -11,12 +11,15 @@ class ExtrasUI
 {
     private:
         ExtrasService extrasservice;
+        vector<Extras> extras;
 
     public:
         ExtrasUI();
         ~ExtrasUI();
         void createExtras();
         void listExtras();
+        void startUI();
+
 
 };
 

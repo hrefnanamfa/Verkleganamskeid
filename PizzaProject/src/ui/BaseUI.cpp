@@ -26,23 +26,28 @@ void BaseUI::startUI(){
         else if (selection == '2'){
             int select = 0;
             listBases();
-            cout << "Select a base to edit" << endl;
-            cin >> select;
-            Base base;
-            cin >> base;
-            baseservice.replaceAndSaveBaseAt(select - 1, base);
+            if(!bases.empty()){
+                cout << "Select a base to edit" << endl;
+                cin >> select;
+                Base base;
+                cin >> base;
+                baseservice.replaceAndSaveBaseAt(select - 1, base);
+            }
         }
         else if (selection == '3'){
-            int select = 0;
-            listBases();
-            cout << "Select a base to delete" << endl;
-            cin >> select;
-            baseservice.deleteBaseAtAndSave(select);
+                int select = 0;
+                listBases();
+            if(!bases.empty()){
+                cout << "Select a base to delete" << endl;
+                cin >> select;
+                baseservice.deleteBaseAtAndSave(select);
+            }
 
         }
         else if (selection == '4'){
             listBases();
         }
+        cout << endl;
     }
 }
 
@@ -54,11 +59,14 @@ void BaseUI::createBase(){
 
 void BaseUI::listBases() {
     cout << "- Bases -" << endl;
-    vector<Base> bases = baseservice.listAvailableBases();
+    bases = baseservice.listAvailableBases();
 
-    for(unsigned int i = 0; i < bases.size(); i++){
-        cout << i + 1 << ". " << bases[i] << endl;
+    if(!bases.empty()){
+        for(unsigned int i = 0; i < bases.size(); i++){
+            cout << i + 1 << ". " << bases[i] << endl;
+        }
     }
-    cout << endl;
-
+    else if(bases.empty()){
+        cout << "There are no bases registered!" << endl;
+    }
 }

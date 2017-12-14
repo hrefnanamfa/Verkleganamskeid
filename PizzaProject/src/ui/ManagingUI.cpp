@@ -27,8 +27,6 @@ void ManagingUI::startUI(){
 
         selection = toupper(selection);
 
-        PizzaUI pizzaui;
-
         if(selection == '1'){
             baseui.startUI();
         }
@@ -36,32 +34,13 @@ void ManagingUI::startUI(){
             toppingui.startUI();
         }
         else if(selection == '3'){
-            cout << "Making pizza for menu" << endl;
-            pizzaui.startUIpizzamenu();
+            pizzaui.startUI();
         }
         else if(selection == '4'){
-            cout << "Making item" << endl;
-            extrasui.createExtras();
+            extrasui.startUI();
         }
         else if(selection == '5'){
-            workplacesui.addWorkplace();//Skra afhendingarstad
-
-        }
-        else if(selection == '6'){
-            baseui.listBases();
-            cout << endl;
-            toppingui.listToppings();
-            cout << endl;
-        }
-        else if(selection == '7'){
-            pizzaui.listAvailablePizzas();
-        }
-        else if(selection == '8'){
-            extrasui.listExtras();
-        }
-        else if(selection == '9'){
-            cout << "- Workplaces -" << endl;
-            workplacesui.listWorkplaces();
+            workplacesui.startUI();
         }
         cout << endl;
     }

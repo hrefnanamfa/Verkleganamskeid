@@ -16,8 +16,9 @@ class ExtrasRepository
         ExtrasRepository();
         ~ExtrasRepository();
         void addExtras(Extras& extras);
-
         vector<Extras> getExtras();
+        void replaceExtrasInRepo(vector<Extras> extras);
+
 };
 
 #endif // TOPPINGREPOSITORY_H

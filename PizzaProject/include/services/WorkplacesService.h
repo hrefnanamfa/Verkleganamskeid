@@ -16,7 +16,9 @@ class WorkplacesService
         Workplaces getWorkplaceAt(int i);
         void addWorkplace(Workplaces& workplaces);
         void getWorkplaces();
-        void listAvailableWorkplaces();
+        vector<Workplaces> listAvailableWorkplaces();
         int workplacesAmount();
+        void replaceAndSaveWorkplaceAt(int i, Workplaces& workplace);
+        void deleteWorkplaceAtAndSave(int i);
 };
 #endif // WORKPLACESSERVICE_H

@@ -9,6 +9,16 @@ PizzaRepository::~PizzaRepository()
 {
     //dtor
 }
+void PizzaRepository::replacePizzasInRepo(vector<Pizza> pizzas){
+    ofstream fout;
+    fout.open("pizza.dat", ios::binary);
+
+    for(unsigned int i = 0; i < pizzas.size(); i++){
+        pizzas.at(i).write(fout);
+    }
+    fout.close();
+}
+
 void PizzaRepository::addPizzaToRepo(const Pizza& pizza){
     ofstream fout;
     fout.open("pizza.dat", ios::binary|ios::app);

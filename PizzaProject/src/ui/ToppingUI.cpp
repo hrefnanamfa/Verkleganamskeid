@@ -26,36 +26,45 @@ void ToppingUI::startUI(){
         else if (selection == '2'){
             int select = 0;
             listToppings();
-            cout << "Select a topping to edit" << endl;
-            cin >> select;
-            Topping topping;
-            cin >> topping;
-            toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+            if(!toppings.empty()){
+                cout << "Select a topping to edit" << endl;
+                cin >> select;
+                Topping topping;
+                cin >> topping;
+                toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+            }
         }
         else if (selection == '3'){
             int select = 0;
             listToppings();
-            cout << "Select a topping to delete" << endl;
-            cin >> select;
-            toppingservice.deleteToppingAtAndSave(select - 1);
+            if(!toppings.empty()){
+                cout << "Select a topping to delete" << endl;
+                cin >> select;
+                toppingservice.deleteToppingAtAndSave(select - 1);
+            }
         }
         else if (selection == '4'){
             listToppings();
         }
+        cout << endl;
     }
 }
 void ToppingUI::createTopping(){
     Topping topping;
-
     cin >> topping;
-
     toppingservice.addTopping(topping);
 }
+
 void ToppingUI::listToppings(){
-    cout << "- Toppings -" << endl;
-    vector<Topping> toppings = toppingservice.listAvailableToppings();
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << i + 1 << ". " << toppings[i] << endl;
+    toppings = toppingservice.listAvailableToppings();
+
+    if(!toppings.empty()){
+        cout << "- Toppings -" << endl;
+        for(unsigned int i = 0; i < toppings.size(); i++){
+            cout << i + 1 << ". " << toppings[i] << endl;
+        }
     }
-    cout << endl;
+    else if(toppings.empty()){
+        cout << "There are no toppings registered!" << endl;
+    }
 }

@@ -10,6 +10,16 @@ ExtrasRepository::~ExtrasRepository()
     //dtor
 }
 
+void ExtrasRepository::replaceExtrasInRepo(vector<Extras> extras){
+    ofstream fout;
+    fout.open("extras.dat", ios::binary);
+
+    for(unsigned int i = 0; i < extras.size(); i++){
+        extras.at(i).write(fout);
+    }
+    fout.close();
+}
+
 void ExtrasRepository::addExtras(Extras& extras){
     ofstream fout;
 

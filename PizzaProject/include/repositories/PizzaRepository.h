@@ -10,6 +10,7 @@ class PizzaRepository
         PizzaRepository();
         ~PizzaRepository();
         vector<Pizza> getPizzas();
+        void replacePizzasInRepo(vector<Pizza> pizzas);
         void addPizzaToRepo(const Pizza& pizza);
 };
 

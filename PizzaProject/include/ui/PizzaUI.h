@@ -15,10 +15,12 @@ class PizzaUI
         BaseService baseservice;
         ToppingUI toppingui;
         BaseUI baseui;
+        vector<Pizza> pizzas;
     public:
         PizzaUI();
         ~PizzaUI();
         Pizza makeAPizza();
+        void startUI();
         void startUIpizzamenu();
         void listAvailablePizzas();
 };

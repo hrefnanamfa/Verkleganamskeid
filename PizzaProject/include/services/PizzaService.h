@@ -28,6 +28,8 @@ class PizzaService
         Pizza getPizza();
         void getPizzaList();
         vector<Pizza> listAvailablePizzas();
+        void replaceAndSavePizzaAt(int i, Pizza& pizza);
+        void deletePizzaAtAndSave(int i);
 
 };
 

@@ -20,7 +20,6 @@ int PizzaService::getPriceOfPizza(){
     return pizza.getPriceOfPizza();
 }
 
-
 void PizzaService::addBaseToPizza(const Base& base){
     pizza.setBase(base);
 }
@@ -59,4 +58,14 @@ void PizzaService::getPizzaList(){
 vector<Pizza> PizzaService::listAvailablePizzas(){
     getPizzaList();
     return pizzas;
+}
+void PizzaService::replaceAndSavePizzaAt(int i, Pizza& pizza){
+    getPizzaList();
+    pizzas.at(i) = pizza;
+    pizzarepo.replacePizzasInRepo(this->pizzas);
+}
+void PizzaService::deletePizzaAtAndSave(int i){
+    getPizzaList();
+    pizzas.erase(pizzas.begin() + i);
+    pizzarepo.replacePizzasInRepo(this->pizzas);
 }

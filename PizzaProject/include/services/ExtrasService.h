@@ -16,8 +16,12 @@ class ExtrasService
 
         void addExtras(Extras& extras);
         void getExtras();
-        vector <Extras> getExtrasVector();
-        void listAvailableExtras();
+        vector<Extras> getExtrasVector();
+        vector<Extras> listAvailableExtras();
+        void replaceAndSaveExtraAt(int i, Extras& extra);
+        void deleteExtraAndSaveAt(int i);
+
+
 };
 
 #endif // TOPPINGSERVICE_H

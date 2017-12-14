@@ -72,16 +72,16 @@ bool Order::checkPaid(){
 
 void Order::checkCurrentStatus(){
     if(this->currentStatus == 1){
-        cout << "On hold" << endl;
+        cout << "On hold";
     }
     else if(this->currentStatus == 2){
-        cout << "In making" << endl;
+        cout << "In making";
     }
     else if (this->currentStatus == 3){
-        cout << "Ready" << endl;
+        cout << "Ready";
     }
     else{
-        cout << "Delivered" << endl;
+        cout << "Delivered";
     }
 }
 
@@ -154,28 +154,33 @@ istream& operator >>(istream& in, Order& order){
 }
 
 ostream& operator <<(ostream& out, Order& order){
-    out << "Pizzas: " << endl;
+    if(!order.pizzas.empty()){
+        out << "Pizzas: " << endl;
 
-    for(unsigned int i = 0; i < order.pizzas.size(); i++){
-        out << (i + 1) << ". " << order.pizzas.at(i) << endl;
+        for(unsigned int i = 0; i < order.pizzas.size(); i++){
+            out << "    " << (i + 1) << ". " << order.pizzas.at(i) << endl;
+        }
     }
-
-    out << "Extras: " << endl;
-    for(unsigned int i = 0; i < order.extras.size(); i++){
-        out << (i + 1) << ". " << order.extras.at(i) << endl;
+    if(!order.extras.empty()){
+        out << "Extras: " << endl;
+        for(unsigned int i = 0; i < order.extras.size(); i++){
+            out << "    " << (i + 1) << ". " << order.extras.at(i) << endl;
+        }
     }
     out << "Status: ";
     order.checkCurrentStatus();
-
-    out << "Paid for? ";
+    out << " // ";
+        out << "Paid for: ";
     if(order.checkPaid())
         cout << "Yes" << endl;
     else
         cout << "No" << endl;
 
-    out << "Cost: " << order.getPrice() << "kr." << endl;
 
+    if(order.getComment() != ""){
     out << "Comment: " << order.getComment() << endl;
+    }
+    out << "Total cost: " << order.getPrice() << " kr." << endl;
 
     return out;
 }

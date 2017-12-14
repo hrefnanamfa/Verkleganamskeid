@@ -7,6 +7,7 @@ class BaseUI
 {
     private:
         BaseService baseservice;
+        vector<Base> bases;
     public:
         BaseUI();
         void startUI();

@@ -139,9 +139,9 @@ void SalesUI::saveOrder(Workplaces workplace, string comment){
     }while(!answer);
 
     order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, paidfor, workplace, comment);
-    cout << "Your order" << endl;
+    cout << " ~ Your order ~ " << endl;
     cout << order;
-    cout << "Has been made" << endl << endl;
+    cout << " ~ Has been made ~ " << endl << endl;
     orderservice.addOrder(order);
 }
 

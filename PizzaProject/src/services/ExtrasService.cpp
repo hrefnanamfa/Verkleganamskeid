@@ -27,14 +27,18 @@ vector <Extras> ExtrasService::getExtrasVector(){
     return extras;
 }
 
-void ExtrasService::listAvailableExtras(){
+vector<Extras> ExtrasService::listAvailableExtras(){
     getExtras();
-    for(unsigned int i = 0; i < extras.size(); i++){
-        cout << i + 1  << ". " << extras[i].getName();
-        if (extras[i].getName().length() > 10)
-            cout << "\t\t";
-        else
-            cout << "  \t\t";
-        cout << extras[i].getPrice() << " kr." << endl;
-    }
+    return extras;
 }
+void ExtrasService::replaceAndSaveExtraAt(int i, Extras& extra){
+    getExtras();
+    extras.at(i) = extra;
+    extrasrepository.replaceExtrasInRepo(this->extras);
+}
+void ExtrasService::deleteExtraAndSaveAt(int i){
+    getExtras();
+    extras.erase(extras.begin() + i);
+    extrasrepository.replaceExtrasInRepo(this->extras);
+}
+
