@@ -10,6 +10,7 @@ using namespace std;
 class Pizza
 {
     private:
+        string name;
         int price;
         Base base;
         vector<Topping> toppings;
@@ -17,6 +18,8 @@ class Pizza
     public:
         Pizza();
         virtual ~Pizza();
+        void setName(string name);
+        string getName();
         void setToppings(vector<Topping> toppings);
         int getPriceOfPizza();
         void addTopping(const Topping& topping);

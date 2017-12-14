@@ -17,6 +17,7 @@ class PizzaUI
         ToppingUI toppingui;
         BaseUI baseui;
         vector<Pizza> pizzas;
+        bool verbose;
     public:
         PizzaUI();
         ~PizzaUI();
@@ -25,7 +26,12 @@ class PizzaUI
         void startUI();
         void startUIpizzamenu();
         void listAvailablePizzas();
+<<<<<<< HEAD
         int getPizzaMenuSize();
+=======
+        void setVerbose(bool verbose);
+        bool isVerbose();
+>>>>>>> 74f0213d20e458bc90773fbdc5b03a0df6d9f440
 };
 
 #endif // PIZZAUI_H

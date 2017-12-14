@@ -24,9 +24,11 @@ void PizzaService::addBaseToPizza(const Base& base){
     pizza.setBase(base);
 }
 
-Pizza PizzaService::makePizza(const Base& base, const vector<Topping> toppings){
+Pizza PizzaService::makePizza(const string& name, const Base& base, const vector<Topping> toppings){
     Pizza pizza;
     int price = 0;
+
+    pizza.setName(name);
 
     pizza.setBase(base);
 
