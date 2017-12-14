@@ -43,7 +43,6 @@ void SalesUI::startUI(){
         else if(selection == '3') {
             addExtras();
         }
-
         else if(selection == '4') {
             order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplaces, comment, pickup, address, addressNumber);
             cout << "- Your order -" << endl;
@@ -56,33 +55,35 @@ void SalesUI::startUI(){
         else if(selection == '6'){
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
-            order = createNewOrder(&order);
+            bool flag = createNewOrder(&order);
+            if (flag == false){
+                break;
+            }
         }
     }
     cout << endl;
 }
 
-Order SalesUI::createNewOrder(Order *order){
+bool SalesUI::createNewOrder(Order *order){
     char select = '\0';
     Order newOrder;
-    cout << "Would you like to create a new order?(y/n)" << endl;
+    cout << "Would you like to create a new order? (y/n)" << endl;
     cin >> select;
     select = toupper(select);
 
     if(select == 'Y'){
         pizzasInOrder.clear();
         extrasInOrder.clear();
-        return newOrder;
+        return true;
     }
     else if(select == 'N'){
-        return *order;
+        return false;
     }
     else{
         cout << "Invalid input!" << endl;
         createNewOrder(&newOrder);
-        return newOrder;
     }
-
+    return true;
 }
 
 void SalesUI::setPickupOrDelivery(){
@@ -112,18 +113,22 @@ void SalesUI::setPickupOrDelivery(){
 }
 void SalesUI::addPizzaFromMenu(){
     int select = 0;
-    cout << "Pick a pizza to add to the order" << endl;
     pizzaui.listAvailablePizzas();
-    cin >> select;
+    if(!pizzaui.isPizzaVectorEmpty()){
+        cout << "Pick a pizza to add to the order" << endl;
+        cin >> select;
+        cout << endl;
+
+        Pizza pizza;
+
+        pizza = pizzaservice.getPizzaAt(select - 1);
+
+        cout << pizza << " was added to the order" << endl << endl;
+
+        pizzasInOrder.push_back(pizza);
+    }
     cout << endl;
 
-    Pizza pizza;
-
-    pizza = pizzaservice.getPizzaAt(select - 1);
-
-    cout << pizza << " was added to the order" << endl << endl;
-
-    pizzasInOrder.push_back(pizza);
 }
 void SalesUI::addExtras(){
     int select = 0;
