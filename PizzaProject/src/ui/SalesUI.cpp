@@ -140,8 +140,8 @@ void SalesUI::addPizzaFromMenu(){
 void SalesUI::addExtras(){
     int select = 0;
     extrasui.listExtras();
-    if(extrasui.isExtrasVectorEmpty()){
-        cout << "Pick an item to add to your order:" << endl << endl;
+    if(!extrasui.isExtrasVectorEmpty()){
+        cout << "Pick an item to add to your order:" << endl;
 
         cin >> select;
         cout << endl;

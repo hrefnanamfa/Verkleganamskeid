@@ -88,21 +88,6 @@ bool Order::checkIfPickup(){
     return this->pickup;
 }
 
-void Order::checkCurrentStatus(){
-    if(this->currentStatus == 1){
-        cout << "On hold";
-    }
-    else if(this->currentStatus == 2){
-        cout << "In making";
-    }
-    else if (this->currentStatus == 3){
-        cout << "Ready";
-    }
-    else{
-        cout << "Delivered";
-    }
-}
-
 int Order::getCurrentStatus(){
     return currentStatus;
 }
@@ -207,7 +192,18 @@ ostream& operator <<(ostream& out, Order& order){
         }
     }
     out << "Status: ";
-    order.checkCurrentStatus();
+    if(order.currentStatus == 1){
+        cout << "On hold";
+    }
+    else if(order.currentStatus == 2){
+        cout << "In making";
+    }
+    else if (order.currentStatus == 3){
+        cout << "Ready";
+    }
+    else{
+        cout << "Delivered";
+    }
     out << " // ";
         out << "Paid for: ";
     if(order.checkPaid())
