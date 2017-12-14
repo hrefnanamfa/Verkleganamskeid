@@ -9,6 +9,10 @@ OrderService::~OrderService()
 {
     //dtor
 }
+int OrderService::getOrderVectorSize(string work){
+    getOrderList(work);
+    return orders.size();
+}
 
 Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment, bool pickup, string address, int addressNumber){
     Order order;

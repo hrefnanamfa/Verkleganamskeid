@@ -53,7 +53,7 @@ void WorkplacesUI::startUI(){
     }
 }
 bool WorkplacesUI::isWorkplacesVectorEmpty(){
-    listWorkplaces();
+    workplaces = workplacesservice.listAvailableWorkplaces();
     if(workplaces.empty()){
         return true;
     }

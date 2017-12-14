@@ -20,6 +20,7 @@ class OrderService
         Order getOrderAt(int i, string work);
         vector<Order> getOrders(string work);
         void listOrders(string work);
+        int getOrderVectorSize(string work);
 };
 
 #endif // ORDERSERVICE_H
