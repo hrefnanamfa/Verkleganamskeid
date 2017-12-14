@@ -26,7 +26,7 @@ void SalesUI::startUI(){
         cout << "-----------------------" << endl;
         cout << "4. Show current order" << endl;
         cout << "5. Add comment" << endl;
-        cout << "6. Save order" << endl << endl;
+        cout << "6. Save order" << endl;
 
         cout << "q. to go back and cancel order" << endl;
 
@@ -56,9 +56,33 @@ void SalesUI::startUI(){
         else if(selection == '6'){
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
+            order = createNewOrder(&order);
         }
     }
     cout << endl;
+}
+
+Order SalesUI::createNewOrder(Order *order){
+    char select = '\0';
+    Order newOrder;
+    cout << "Would you like to create a new order?(y/n)" << endl;
+    cin >> select;
+    select = toupper(select);
+
+    if(select == 'Y'){
+        pizzasInOrder.clear();
+        extrasInOrder.clear();
+        return newOrder;
+    }
+    else if(select == 'N'){
+        return *order;
+    }
+    else{
+        cout << "Invalid input!" << endl;
+        createNewOrder(&newOrder);
+        return newOrder;
+    }
+
 }
 
 void SalesUI::setPickupOrDelivery(){

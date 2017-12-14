@@ -31,6 +31,7 @@ class SalesUI
         SalesUI();
         virtual ~SalesUI();
         void startUI();
+        Order createNewOrder(Order *order);
         bool checkAnswer(char answer);
         void addPizzaFromMenu();
         void setPickupOrDelivery();
