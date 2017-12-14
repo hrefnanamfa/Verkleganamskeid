@@ -53,12 +53,19 @@ void SalesUI::startUI(){
             comment = getComment();
         }
         else if(selection == '6'){
+            bool flag;
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
+<<<<<<< HEAD
             bool flag = createNewOrder(&order);
             if (flag == false){
                 break;
             }
+=======
+            flag = createNewOrder(&order);
+            if(flag == false)
+                break;
+>>>>>>> a2ba01c4f55063d946161b5ae47320f4b4809e26
         }
     }
     cout << endl;

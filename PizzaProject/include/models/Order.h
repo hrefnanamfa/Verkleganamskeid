@@ -41,6 +41,7 @@ class Order
         bool checkPaid();
         bool checkIfPickup();
         void checkCurrentStatus();
+        int getCurrentStatus();
         friend ostream& operator <<(ostream& out, Order& order);
         friend istream& operator >>(istream& in, Order& order);
         void write(ofstream& fout) const;

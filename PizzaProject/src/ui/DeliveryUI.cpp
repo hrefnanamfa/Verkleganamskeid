@@ -33,7 +33,7 @@ void DeliveryUI::startUI(){
         cout << endl;
 
         if(selection == '1'){
-            cout << "- Orders on hold & in making -" << endl << endl;
+            cout << "- Orders on hold -" << endl << endl;
             orderui.listOrdersByStatus(work, 1);
             if (orderui.getisempty()){
                 cout << "There are no orders: ";
@@ -41,6 +41,7 @@ void DeliveryUI::startUI(){
                 cout << endl;
 
             }
+            cout << endl << "- in making -" << endl << endl;
             orderui.listOrdersByStatus(work, 2);
             if (orderui.getisempty()){
                 cout << "There are no orders: ";
@@ -59,31 +60,37 @@ void DeliveryUI::startUI(){
                     cout << endl << endl;
                     continue;
             }
-            cout << "Select and order to flag delivered" << endl;
+            cout << "Select an order to flag delivered" << endl;
             cin >> select;
             cout << endl;
             Order order;
             order = orderservice.getOrderAt(select - 1, work);
+            if(order.getCurrentStatus() == 3){
+                if(!order.checkPaid()){
+                    char answer = 0;
+                    cout << "Has the order been paid for? (y/n)" << endl;
+                    cin >> answer;
+                    bool paidfor = salesui.checkAnswer(answer);
 
-            if(!order.checkPaid()){
-                char answer = 0;
-                cout << "Has the order been paid for? (y/n)" << endl;
-                cin >> answer;
-                bool paidfor = salesui.checkAnswer(answer);
+                    order.setPaid(paidfor);
+                }
 
-                order.setPaid(paidfor);
+                if(!order.checkPaid()){
+                    cout << "You can't deliver an order that hasn't been paid for!" << endl;
+                    continue;
+                }
+                //int choice = 0;
+                //cout << "Press:" << endl;
+                //cout << "4. to flag as delivered" << endl;
+                //cin >> choice;
+                order.setCurrentStatus(4);
+                orderservice.replaceAndSaveOrderAt(select - 1, order, work);
             }
-
-            if(!order.checkPaid()){
-                cout << "You can't deliver an order that hasn't been paid for!" << endl;
-                continue;
+            else{
+                cout << "Invalid input!" << endl;
+                Order newOrder;
+                order = newOrder;
             }
-            //int choice = 0;
-            //cout << "Press:" << endl;
-            //cout << "4. to flag as delivered" << endl;
-            //cin >> choice;
-            order.setCurrentStatus(4);
-            orderservice.replaceAndSaveOrderAt(select - 1, order, work);
 
             if(order.getStatus() == 4){
                 cout << "Order was flagged as: ";
