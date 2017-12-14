@@ -42,7 +42,6 @@ void SalesUI::startUI(){
         else if(selection == '3') {
             addExtras();
         }
-
         else if(selection == '4') {
             order = orderservice.makeOrder(pizzasInOrder, extrasInOrder, false, workplaces, comment, pickup, address, addressNumber);
             cout << "- Your order -" << endl;
@@ -56,9 +55,11 @@ void SalesUI::startUI(){
             bool flag;
             setPickupOrDelivery();
             saveOrder(workplaces, comment);
+
             flag = createNewOrder(&order);
-            if(flag == false)
+            if (flag == false){
                 break;
+            }
         }
     }
     cout << endl;
@@ -67,7 +68,7 @@ void SalesUI::startUI(){
 bool SalesUI::createNewOrder(Order *order){
     char select = '\0';
     Order newOrder;
-    cout << "Would you like to create a new order?(y/n)" << endl;
+    cout << "Would you like to create a new order? (y/n)" << endl;
     cin >> select;
     select = toupper(select);
 
@@ -113,18 +114,22 @@ void SalesUI::setPickupOrDelivery(){
 }
 void SalesUI::addPizzaFromMenu(){
     int select = 0;
-    cout << "Pick a pizza to add to the order" << endl;
     pizzaui.listAvailablePizzas();
-    cin >> select;
+    if(!pizzaui.isPizzaVectorEmpty()){
+        cout << "Pick a pizza to add to the order" << endl;
+        cin >> select;
+        cout << endl;
+
+        Pizza pizza;
+
+        pizza = pizzaservice.getPizzaAt(select - 1);
+
+        cout << pizza << " was added to the order" << endl << endl;
+
+        pizzasInOrder.push_back(pizza);
+    }
     cout << endl;
 
-    Pizza pizza;
-
-    pizza = pizzaservice.getPizzaAt(select - 1);
-
-    cout << pizza << " was added to the order" << endl << endl;
-
-    pizzasInOrder.push_back(pizza);
 }
 void SalesUI::addExtras(){
     int select = 0;
@@ -144,33 +149,41 @@ void SalesUI::addExtras(){
 void SalesUI::addPizza(){
     char answer = 'Y';
     do{
-        Pizza pizza;
-        cout << "Making a new pizza for order" << endl << endl;
-        pizza = pizzaui.makeAPizza();
-        pizzasInOrder.push_back(pizza);
-        cout << endl;
-        cout << pizza << " was added to the order" << endl;
+        try{
+            Pizza pizza;
+            cout << "Making a new pizza for order" << endl << endl;
+            pizza = pizzaui.makeAPizza();
 
-        bool flag = true;
-        do{
-            try{
-                cout << "Do you want to add another pizza? (y/n)" << endl;
-                cin >> answer;
-                checkAnswer(answer);
-            }
-            catch(InvalidAnswerException){
-                cout << "Invalid answer!" << endl;
-            }
-            answer = toupper(answer);
-            if(answer == 'Y' || answer == 'N'){
-                flag = true;
-            }
-            else{
-                flag = false;
-            }
-        }while(!flag);
+            pizzasInOrder.push_back(pizza);
+            cout << endl;
+            cout << pizza << " was added to the order" << endl;
 
+            bool flag = true;
+            do{
+                try{
+                    cout << "Do you want to add another pizza? (y/n)" << endl;
+                    cin >> answer;
+                    checkAnswer(answer);
+                }
+                catch(InvalidAnswerException){
+                    cout << "Invalid answer!" << endl;
+                }
+                answer = toupper(answer);
+                if(answer == 'Y' || answer == 'N'){
+                    flag = true;
+                }
+                else{
+                    flag = false;
+                }
+            }while(!flag);
+        }
+        catch(InvalidPizzaException){
+            cout << "Not possible to make pizza!" << endl;
+            cout << endl;
+            return;
+        }
     }while(answer == 'Y');
+
 }
 
 void SalesUI::saveOrder(Workplaces workplace, string comment){

@@ -17,6 +17,7 @@ class ToppingUI
     public:
         ToppingUI();
         ~ToppingUI();
+        bool isToppingVectorEmpty();
         void createTopping();
         void listToppings();
         void startUI();

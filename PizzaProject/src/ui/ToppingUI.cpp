@@ -54,6 +54,16 @@ void ToppingUI::createTopping(){
     cin >> topping;
     toppingservice.addTopping(topping);
 }
+bool ToppingUI::isToppingVectorEmpty(){
+    toppings = toppingservice.listAvailableToppings();
+    if(toppings.empty()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 void ToppingUI::listToppings(){
     toppings = toppingservice.listAvailableToppings();

@@ -13,6 +13,7 @@ class BaseUI
         void startUI();
         void createBase();
         void listBases();
+        bool isBaseVectorEmpty();
 
         ~BaseUI();
 
