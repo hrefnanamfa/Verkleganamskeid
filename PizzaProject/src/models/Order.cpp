@@ -143,6 +143,7 @@ void Order::write(ofstream& fout) const{
 }
 
 void Order::read(ifstream& fin){
+
     int countPizza = 0;
     fin.read((char*)(&countPizza), sizeof(int));
 

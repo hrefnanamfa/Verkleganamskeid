@@ -27,8 +27,7 @@ void SalesUI::startUI(){
         cout << "-----------------------" << endl;
         cout << "5. Show current order" << endl;
         cout << "6. Add comment" << endl;
-        cout << "7. Save order" << endl;
-        cout << "8. Create a new order" << endl << endl;
+        cout << "7. Save order" << endl << endl;
 
         cout << "q. to go back and cancel order" << endl;
 
@@ -59,12 +58,6 @@ void SalesUI::startUI(){
         }
         else if(selection == '7'){
             saveOrder(workplaces, comment);
-        }
-        else if(selection == '8'){
-            Order newOrder;
-            order = newOrder;
-            pizzasInOrder.clear();
-            extrasInOrder.clear();
         }
     }
     cout << endl;
