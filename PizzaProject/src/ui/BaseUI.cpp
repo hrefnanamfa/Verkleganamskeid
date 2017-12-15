@@ -25,34 +25,40 @@ void BaseUI::startUI(){
         }
         else if (selection == '2'){
             string input;
-
-            listBases();
-            if(!bases.empty()){
-                cout << "Select a base to edit" << endl;
-                cin >> input;
-
-                int select = inputSanitize(input, (int)bases.size() + 1);
-                if (select != 0) {
-                    Base base;
-                    cin >> base;
-                    baseservice.replaceAndSaveBaseAt(select - 1, base);
+            int select = 0;
+            bool basesempty;
+            do{
+                listBases();
+                basesempty = bases.empty();
+                if(!basesempty){
+                    cout << "Select a base to edit" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)bases.size() + 1);
                 }
+            }while(select < 0);
+            if (!basesempty) {
+                Base base;
+                cin >> base;
+                baseservice.replaceAndSaveBaseAt(select - 1, base);
             }
         }
         else if (selection == '3'){
             string input;
+            int select = 0;
+            bool basesempty;
+            do{
+                listBases();
+                basesempty = bases.empty();
+                if(!basesempty){
+                    cout << "Select a base to delete" << endl;
+                    cin >> input;
 
-            listBases();
-            if(!bases.empty()){
-                cout << "Select a base to delete" << endl;
-                cin >> input;
-
-                int select = inputSanitize(input, (int)bases.size() + 1);
-                if (select != 0){
-                    baseservice.deleteBaseAtAndSave(select);
+                    select = inputSanitize(input, (int)bases.size() + 1);
                 }
+            }while(select < 0);
+            if (!basesempty) {
+                baseservice.deleteBaseAtAndSave(select);
             }
-
         }
         else if (selection == '4'){
             listBases();
@@ -100,16 +106,16 @@ int BaseUI::inputSanitize(string input, int maxSize) {
     int select;
     if (isdigit(input[0])){
         select = atoi(input.c_str());
-        if (select >  0 && select < maxSize) {
+        if (select >= 0 && select < maxSize) {
             return select;
         }
         else {
             cout << "Selection does not exist" << endl << endl;
-            return 0;
+            return -1;
         }
     }
     else {
         cout << "Invalid input" << endl;
-        return 0;
+        return -1;
     }
 }

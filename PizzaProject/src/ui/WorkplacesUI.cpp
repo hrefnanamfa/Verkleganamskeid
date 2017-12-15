@@ -26,30 +26,41 @@ void WorkplacesUI::startUI(){
         }
         else if (selection == '2'){
             string input;
-            listWorkplaces();
-            if (!workplaces.empty()){
-                cout << "Select a workplace to edit" << endl;
-                cin >> input;
-                int select = inputSanitize(input, (int)workplaces.size() + 1);
-                if (select != 0) {
-                    Workplaces workplace;
-                    cin >> workplace;
-                    workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
+            int select;
+            bool workplacesempty;
+            do{
+                listWorkplaces();
+                workplacesempty = workplaces.empty();
+                if (!workplacesempty){
+                    cout << "Select a workplace to edit" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)workplaces.size() + 1);
                 }
+
+            }while(select < 0);
+            if (!workplacesempty) {
+                Workplaces workplace;
+                cin >> workplace;
+                workplacesservice.replaceAndSaveWorkplaceAt(select - 1, workplace);
             }
         }
         else if (selection == '3'){
             string input;
-            listWorkplaces();
-            if(!workplaces.empty()){
-                cout << "Select a workplace to delete" << endl;
-                cin >> input;
-                int select = inputSanitize(input, (int)workplaces.size() + 1);
-                if (select != 0) {
-                    workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+            int select;
+            bool workplacesempty;
+            do{
+                listWorkplaces();
+                workplacesempty = workplaces.empty();
+                if(!workplacesempty){
+                    cout << "Select a workplace to delete" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)workplaces.size() + 1);
                 }
-            }
 
+            }while(select < 0);
+            if (!workplacesempty) {
+                    workplacesservice.deleteWorkplaceAtAndSave(select - 1);
+            }
         }
         else if (selection == '4'){
             listWorkplaces();
@@ -128,11 +139,11 @@ int WorkplacesUI::inputSanitize(string input, int maxSize) {
         }
         else {
             cout << "Selection does not exist" << endl << endl;
-            return 0;
+            return -1;
         }
     }
     else {
         cout << "Invalid input" << endl;
-        return 0;
+        return -1;
     }
 }

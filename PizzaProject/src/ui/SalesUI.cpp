@@ -95,11 +95,14 @@ bool SalesUI::createNewOrder(Order *order){
 
 void SalesUI::setPickupOrDelivery(){
     string input;
-    cout << "Choose whether the order should be picked up or delivered" << endl;
-    cout << "1. Picked up" << endl;
-    cout << "2. Delivered" << endl;
-    cin >> input;
-    int select = orderui.inputSanitize(input, 2);
+    int select;
+    do{
+        cout << "Choose whether the order should be picked up or delivered" << endl;
+        cout << "1. Picked up" << endl;
+        cout << "2. Delivered" << endl;
+        cin >> input;
+        select = orderui.inputSanitize(input, 2);
+    }while(select < 0);
     if(select == 1){
         pickup = true;
         cout << "Where to pick up?" << endl;
@@ -121,43 +124,54 @@ void SalesUI::setPickupOrDelivery(){
 }
 void SalesUI::addPizzaFromMenu(){
     string input;
-    pizzaui.listAvailablePizzas();
-    if(!pizzaui.isPizzaVectorEmpty()){
-        cout << "Pick a pizza to add to the order" << endl;
-        cin >> input;
-        cout << endl;
-        int select = orderui.inputSanitize(input, (int)pizzaui.getPizzaMenuSize() + 1);
+    int select = 0;
+    bool pizzaempty;
 
-        Pizza pizza;
-
-        if (select != 0) {
-            pizza = pizzaservice.getPizzaAt(select - 1);
-
-            cout << pizza << " was added to the order" << endl << endl;
-
-            pizzasInOrder.push_back(pizza);
+    do{
+        pizzaui.listAvailablePizzas();
+        pizzaempty = pizzaui.isPizzaVectorEmpty();
+        if(!pizzaempty){
+            cout << "Pick a pizza to add to the order" << endl;
+            cin >> input;
+            cout << endl;
+            select = orderui.inputSanitize(input, (int)pizzaui.getPizzaMenuSize() + 1);
         }
+    }while(select < 0);
+
+    if (!pizzaempty) {
+        Pizza pizza;
+        pizza = pizzaservice.getPizzaAt(select - 1);
+
+        cout << pizza << " was added to the order" << endl << endl;
+
+        pizzasInOrder.push_back(pizza);
     }
     cout << endl;
-
 }
 void SalesUI::addExtras(){
     string input;
-    extrasui.listExtras();
-    if(!extrasui.isExtrasVectorEmpty()){
-        cout << "Pick an item to add to your order:" << endl;
+    int select = 0;
+    bool extrasempty;
 
-        cin >> input;
-        cout << endl;
-        int select = orderui.inputSanitize(input, (int)extrasui.getExtrasVectorSize() + 1);
+    do{
+        extrasui.listExtras();
+        extrasempty = extrasui.isExtrasVectorEmpty();
+        if(!extrasempty){
+            cout << "Pick an item to add to your order:" << endl;
 
-        if (select != 0) {
-            Extras extras;
-            extras = extrasservice.getExtrasAt(select - 1);
-
-            cout << extras << " was added to the order" << endl << endl;
-            extrasInOrder.push_back(extras);
+            cin >> input;
+            cout << endl;
+            select = orderui.inputSanitize(input, (int)extrasui.getExtrasVectorSize() + 1);
         }
+    }while(select < 0);
+
+    if (!extrasempty) {
+        Extras extras;
+        extras = extrasservice.getExtrasAt(select - 1);
+
+        cout << extras << " was added to the order" << endl << endl;
+        extrasInOrder.push_back(extras);
+
     }
 }
 void SalesUI::addPizza(){

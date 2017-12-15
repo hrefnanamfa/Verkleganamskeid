@@ -56,11 +56,11 @@ int OrderUI::inputSanitize(string input, int maxSize) {
         }
         else {
             cout << "Selection does not exist" << endl << endl;
-            return 0;
+            return -1;
         }
     }
     else {
         cout << "Invalid input" << endl;
-        return 0;
+        return -1;
     }
 }

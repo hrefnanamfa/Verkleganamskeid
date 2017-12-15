@@ -52,47 +52,49 @@ void DeliveryUI::startUI(){
         }
         else if(selection == '2'){
             string input;
-
-            cout << "- Ready orders -" << endl;
-            orderui.listOrdersByStatus(work, 3);
-            if (orderui.getisempty()){
-                cout << "There are no orders: ";
-                orderui.checkStatus(3);
-                cout << endl << endl;
-                continue;
-            }
-            cout << "Select an order to flag delivered" << endl;
-            cin >> input;
-            cout << endl;
-
-            int select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
-            if (select != 0) {
-                Order order;
-                order = orderservice.getOrderAt(select - 1, work);
-                if(order.getCurrentStatus() == 3){
-                    if(!order.checkPaid()){
-                        char answer = 0;
-                        cout << "Has the order been paid for? (y/n)" << endl;
-                        cin >> answer;
-                        bool paidfor = salesui.checkAnswer(answer);
-
-                        order.setPaid(paidfor);
-                    }
-                    if(!order.checkPaid()){
-                        cout << "You can't deliver an order that hasn't been paid for!" << endl;
-                        continue;
-                    }
-                    order.setCurrentStatus(4);
-                    orderservice.replaceAndSaveOrderAt(select - 1, order, work);
-                    cout << "Order was flagged as: ";
-                    orderui.checkStatus(order.getCurrentStatus());
-                    cout << endl;
+            int select;
+            do{
+                cout << "- Ready orders -" << endl;
+                orderui.listOrdersByStatus(work, 3);
+                if (orderui.getisempty()){
+                    cout << "There are no orders: ";
+                    orderui.checkStatus(3);
+                    cout << endl << endl;
+                    continue;
                 }
-                else{
-                    cout << "Invalid input!" << endl;
+                cout << "Select an order to flag as delivered" << endl;
+                cin >> input;
+                cout << endl;
+
+                select = orderui.inputSanitize(input, orderservice.getOrderVectorSize(work) + 1);
+
+            }while(select < 0);
+
+            Order order;
+            order = orderservice.getOrderAt(select - 1, work);
+            if(order.getCurrentStatus() == 3){
+                if(!order.checkPaid()){
+                    char answer = 0;
+                    cout << "Has the order been paid for? (y/n)" << endl;
+                    cin >> answer;
+                    bool paidfor = salesui.checkAnswer(answer);
+
+                    order.setPaid(paidfor);
                 }
+                if(!order.checkPaid()){
+                    cout << "You can't deliver an order that hasn't been paid for!" << endl;
+                    continue;
+                }
+                order.setCurrentStatus(4);
+                orderservice.replaceAndSaveOrderAt(select - 1, order, work);
+                cout << "Order was flagged as: ";
+                orderui.checkStatus(order.getCurrentStatus());
                 cout << endl;
             }
+            else{
+                cout << "Invalid input!" << endl;
+            }
+            cout << endl;
         }
     }
 }

@@ -25,28 +25,40 @@ void ToppingUI::startUI(){
         }
         else if (selection == '2'){
             string input;
-            listToppings();
-            if(!toppings.empty()){
-                cout << "Select a topping to edit" << endl;
-                cin >> input;
-                int select = inputSanitize(input, (int)toppings.size() + 1);
-                if (select != 0){
-                    Topping topping;
-                    cin >> topping;
-                    toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+            int select = 0;
+            bool toppingsempty;
+
+            do{
+                listToppings();
+                toppingsempty = toppings.empty();
+                if(!toppingsempty){
+                    cout << "Select a topping to edit" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)toppings.size() + 1);
                 }
+            }while(select < 0);
+            if (!toppingsempty){
+                Topping topping;
+                cin >> topping;
+                toppingservice.replaceAndSaveToppingAt(select - 1, topping);
+
             }
         }
         else if (selection == '3'){
             string input;
-            listToppings();
-            if(!toppings.empty()){
-                cout << "Select a topping to delete" << endl;
-                cin >> input;
-                int select = inputSanitize(input, (int)toppings.size() + 1);
-                if (select != 0) {
-                     toppingservice.deleteToppingAtAndSave(select - 1);
+            int select;
+            bool toppingsempty;
+            do{
+                listToppings();
+                toppingsempty = toppings.empty();
+                if(!toppingsempty){
+                    cout << "Select a topping to delete" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)toppings.size() + 1);
                 }
+            }while(select < 0);
+            if (!toppingsempty) {
+                 toppingservice.deleteToppingAtAndSave(select - 1);
             }
         }
         else if (selection == '4'){
@@ -97,11 +109,11 @@ int ToppingUI::inputSanitize(string input, int maxSize) {
         }
         else {
             cout << "Selection does not exist" << endl << endl;
-            return 0;
+            return -1;
         }
     }
     else {
         cout << "Invalid input" << endl;
-        return 0;
+        return -1;
     }
 }

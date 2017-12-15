@@ -25,25 +25,40 @@ void PizzaUI::startUI(){
             startUIpizzamenu();
         }
         else if (selection == '2'){
+            string input;
             int select = 0;
-            listAvailablePizzas();
-            if(!pizzas.empty()){
-                cout << "Select a pizza to edit" << endl;
-                cin >> select;
+            bool pizzasempty;
+            do{
+                listAvailablePizzas();
+                pizzasempty = pizzas.empty();
+                if(!pizzasempty){
+                    cout << "Select a pizza to edit" << endl;
+                    cin >> input;
+                    select = baseui.inputSanitize(input, (int)getPizzaMenuSize() + 1);
+                }
+            }while(select < 0);
+            if (!pizzasempty) {
                 Pizza pizza;
                 pizza = makeAPizza();
                 pizzaservice.replaceAndSavePizzaAt(select - 1, pizza);
             }
         }
         else if (selection == '3'){
+            string input;
             int select = 0;
-            listAvailablePizzas();
-            if(!pizzas.empty()){
-                cout << "Select a pizza to delete" << endl;
-                cin >> select;
+            bool pizzasempty;
+            do{
+                listAvailablePizzas();
+                pizzasempty = pizzas.empty();
+                if(!pizzasempty){
+                    cout << "Select a pizza to delete" << endl;
+                    cin >> input;
+                    select = baseui.inputSanitize(input, (int)getPizzaMenuSize() + 1);
+                }
+            }while(select < 0);
+            if(!pizzasempty) {
                 pizzaservice.deletePizzaAtAndSave(select);
             }
-
         }
         else if (selection == '4'){
             listAvailablePizzas();
@@ -73,30 +88,37 @@ Pizza PizzaUI::makeAPizza(){
                 getline(cin, name);
                 pizza.setName(name);
             }
+            do{
+                baseui.listBases();
+                cout << "Pick base: " << endl;
+                cin >> input;
+                choiceOfBase = baseui.inputSanitize(input, (int)baseui.getBaseVectorSize() + 1);
+                if (choiceOfBase == 0)
+                    cout << "Selection does not exist";
+            }while(choiceOfBase <= 0);
 
-            baseui.listBases();
-            cout << "Pick base: " << endl;
-            cin >> input;
-            choiceOfBase = baseui.inputSanitize(input, (int)baseui.getBaseVectorSize() + 1);
-            if (choiceOfBase != 0) {
-                base = baseservice.getBaseAt(choiceOfBase - 1);
-            }
+            base = baseservice.getBaseAt(choiceOfBase - 1);
             cout << endl;
+            do{
+                cout << "How many toppings?" << endl;
+                cin >> input;
+                numberOfToppings = baseui.inputSanitize(input, 2147483647);
+            }while(numberOfToppings < 0);
 
-            cout << "How many toppings?" << endl;
-            cin >> input;
-            numberOfToppings = baseui.inputSanitize(input, 2147483647);
-            if (numberOfToppings != 0) {
+            if (numberOfToppings > 0) {
                 cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
                 toppingui.listToppings();
 
                 for(int i = 0; i < numberOfToppings; i++){
-                    cin >> input;
-                    choiceOfTopping = baseui.inputSanitize(input, (int)toppingui.getToppingVectorSize() + 1);
-                    if (choiceOfTopping != 0) {
-                        topping = toppingservice.getToppingAt(choiceOfTopping - 1);
-                        toppings.push_back(topping);
-                    }
+                    do{
+                        cin >> input;
+                        choiceOfTopping = baseui.inputSanitize(input, (int)toppingui.getToppingVectorSize() + 1);
+                        if (choiceOfTopping == 0)
+                            cout << "Selection does not exist";
+                    }while(choiceOfTopping <= 0);
+
+                    topping = toppingservice.getToppingAt(choiceOfTopping - 1);
+                    toppings.push_back(topping);
                 }
             }
             pizza = pizzaservice.makePizza(name, base, toppings);

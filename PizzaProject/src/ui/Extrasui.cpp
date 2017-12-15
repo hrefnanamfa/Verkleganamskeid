@@ -26,31 +26,40 @@ void ExtrasUI::startUI(){
         }
         else if (selection == '2'){
             string input;
+            int select = 0;
+            bool extrasempty;
 
-            listExtras();
-            if(!extras.empty()){
-                cout << "Select an item to edit" << endl;
-                cin >> input;
-                int select = inputSanitize(input, (int)extras.size() + 1);
-                if (select != 0) {
-                    Extras extra;
-                    cin >> extra;
-                    extrasservice.replaceAndSaveExtraAt(select - 1, extra);
+            do{
+                listExtras();
+                extrasempty = extras.empty();
+                if(!extrasempty){
+                    cout << "Select an item to edit" << endl;
+                    cin >> input;
+                    select = inputSanitize(input, (int)extras.size() + 1);
                 }
+            }while(select < 0);
+            if (!extrasempty) {
+                Extras extra;
+                cin >> extra;
+                extrasservice.replaceAndSaveExtraAt(select - 1, extra);
             }
         }
         else if (selection == '3'){
             string input;
+            int select = 0;
+            bool extrasempty;
+            do{
+                listExtras();
+                extrasempty = extras.empty();
+                if(!extrasempty){
+                    cout << "Select an item to delete" << endl;
+                    cin >> input;
 
-            listExtras();
-            if(!extras.empty()){
-                cout << "Select an item to delete" << endl;
-                cin >> input;
-
-                int select = inputSanitize(input, (int)extras.size() + 1);
-                if (select != 0){
-                    extrasservice.deleteExtraAndSaveAt(select - 1);
+                    select = inputSanitize(input, (int)extras.size() + 1);
                 }
+            }while(select < 0);
+            if(!extrasempty){
+                extrasservice.deleteExtraAndSaveAt(select - 1);
             }
         }
         else if (selection == '4'){
@@ -103,12 +112,12 @@ int ExtrasUI::inputSanitize(string input, int maxSize) {
         }
         else {
             cout << "Selection does not exist" << endl << endl;
-            return 0;
+            return -1;
         }
     }
     else {
         cout << "Invalid input" << endl;
-        return 0;
+        return -1;
     }
 }
 
