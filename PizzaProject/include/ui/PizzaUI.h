@@ -7,6 +7,8 @@
 #include "PizzaUI.h"
 #include "InvalidPizzaException.h"
 
+#include <sstream>
+
 class PizzaUI
 {
 

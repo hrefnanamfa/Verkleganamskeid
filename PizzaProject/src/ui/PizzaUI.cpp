@@ -73,6 +73,7 @@ Pizza PizzaUI::makeAPizza(){
     int numberOfToppings = 0;
     int choiceOfTopping = 0;
     int choiceOfBase = 0;
+    int tempint;
     Base base;
     Topping topping;
     vector<Topping> toppings;
@@ -93,8 +94,6 @@ Pizza PizzaUI::makeAPizza(){
                 cout << "Pick base: " << endl;
                 cin >> input;
                 choiceOfBase = baseui.inputSanitize(input, (int)baseui.getBaseVectorSize() + 1);
-                if (choiceOfBase == 0)
-                    cout << "Selection does not exist";
             }while(choiceOfBase <= 0);
 
             base = baseservice.getBaseAt(choiceOfBase - 1);
@@ -102,7 +101,13 @@ Pizza PizzaUI::makeAPizza(){
             do{
                 cout << "How many toppings?" << endl;
                 cin >> input;
+                tempint = atoi(input.c_str());
+                tempint++;
+                stringstream ss;
+                ss << tempint;
+                input = ss.str();
                 numberOfToppings = baseui.inputSanitize(input, 2147483647);
+                numberOfToppings -= 1;
             }while(numberOfToppings < 0);
 
             if (numberOfToppings > 0) {
@@ -113,8 +118,6 @@ Pizza PizzaUI::makeAPizza(){
                     do{
                         cin >> input;
                         choiceOfTopping = baseui.inputSanitize(input, (int)toppingui.getToppingVectorSize() + 1);
-                        if (choiceOfTopping == 0)
-                            cout << "Selection does not exist";
                     }while(choiceOfTopping <= 0);
 
                     topping = toppingservice.getToppingAt(choiceOfTopping - 1);
