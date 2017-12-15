@@ -5,6 +5,9 @@ Order::Order(){
     this->currentStatus = 1;
     this->price = 0;
     this->comment = "";
+    this->pickup = true;
+    this->address = "";
+    this->addressNumber = 0;
 }
 
 Order::~Order(){
