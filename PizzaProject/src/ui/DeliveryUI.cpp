@@ -54,14 +54,14 @@ void DeliveryUI::startUI(){
             string input;
             int select;
 
-                cout << "- Ready orders -" << endl;
-                orderui.listOrdersByStatus(work, 3);
-                if (orderui.getisempty()){
-                    cout << "There are no orders: ";
-                    orderui.checkStatus(3);
-                    cout << endl << endl;
-                    continue;
-                }
+            cout << "- Ready orders -" << endl;
+            orderui.listOrdersByStatus(work, 3);
+            if (orderui.getisempty()){
+                cout << "There are no orders: ";
+                orderui.checkStatus(3);
+                cout << endl << endl;
+                continue;
+            }
             do{
                 cout << "Select an order to flag as delivered" << endl;
                 cin >> input;
