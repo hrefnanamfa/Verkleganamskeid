@@ -71,6 +71,7 @@ void WorkplacesUI::startUI(){
 bool WorkplacesUI::isWorkplacesVectorEmpty(){
     workplaces = workplacesservice.listAvailableWorkplaces();
     if(workplaces.empty()){
+        cout << "There are no workplaces registered!" << endl << endl;
         return true;
     }
     else{
