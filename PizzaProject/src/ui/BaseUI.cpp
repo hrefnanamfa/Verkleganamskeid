@@ -106,7 +106,7 @@ int BaseUI::inputSanitize(string input, int maxSize) {
     int select;
     if (isdigit(input[0])){
         select = atoi(input.c_str());
-        if (select >= 0 && select < maxSize) {
+        if (select > 0 && select < maxSize) {
             return select;
         }
         else {
