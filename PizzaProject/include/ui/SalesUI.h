@@ -34,6 +34,7 @@ class SalesUI
         SalesUI();
         virtual ~SalesUI();
         void startUI();
+        bool orderempty();
         bool createNewOrder(Order *order);
         bool checkAnswer(char answer);
         void addPizzaFromMenu();

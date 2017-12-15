@@ -53,22 +53,32 @@ void SalesUI::startUI(){
         }
         else if(selection == '6'){
             bool flag;
-            if(!workplacesui.isWorkplacesVectorEmpty()){
-                setPickupOrDelivery();
+            if(!orderempty()){
+                if(!workplacesui.isWorkplacesVectorEmpty()){
 
-                saveOrder(workplaces, comment);
+                    setPickupOrDelivery();
 
-                flag = createNewOrder(&order);
+                    saveOrder(workplaces, comment);
+
+                    flag = createNewOrder(&order);
+                    }
                 if (flag == false){
                     break;
                 }
             }
-            else{
-                cout << "Can not save order!" << endl << endl;
-            }
+            else
+                continue;
         }
     }
     cout << endl;
+}
+
+bool SalesUI::orderempty(){
+    if(pizzasInOrder.empty() && extrasInOrder.empty()){
+        cout << "There are no items in the order" << endl;
+        return true;
+    }
+    return false;
 }
 
 bool SalesUI::createNewOrder(Order *order){
