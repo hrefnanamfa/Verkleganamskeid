@@ -1,5 +1,5 @@
 # Verkleganamskeid
-/**
+
  *  --- Pizza Project ---
  *
  *  RU - Reykjavik University
@@ -17,5 +17,4 @@
  * @version 1.00
  * @date    15/12/2017
  *
- **/
 
