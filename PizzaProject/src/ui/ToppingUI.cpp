@@ -84,6 +84,10 @@ void ToppingUI::listToppings(){
     }
 }
 
+int ToppingUI::getToppingVectorSize(){
+    return toppings.size();
+}
+
 int ToppingUI::inputSanitize(string input, int maxSize) {
     int select;
     if (isdigit(input[0])){

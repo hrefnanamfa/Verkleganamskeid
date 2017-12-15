@@ -85,14 +85,14 @@ Pizza PizzaUI::makeAPizza(){
 
             cout << "How many toppings?" << endl;
             cin >> input;
-            numberOfToppings = baseui.inputSanitize(input, (int)toppings.size() + 1);
+            numberOfToppings = baseui.inputSanitize(input, 2147483647);
             if (numberOfToppings != 0) {
                 cout << "Pick " << numberOfToppings << " toppings from list: " << endl;
                 toppingui.listToppings();
 
                 for(int i = 0; i < numberOfToppings; i++){
                     cin >> input;
-                    choiceOfTopping = baseui.inputSanitize(input, (int)toppings.size() + 1);
+                    choiceOfTopping = baseui.inputSanitize(input, (int)toppingui.getToppingVectorSize() + 1);
                     if (choiceOfTopping != 0) {
                         topping = toppingservice.getToppingAt(choiceOfTopping - 1);
                         toppings.push_back(topping);

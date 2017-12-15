@@ -21,6 +21,7 @@ class ToppingUI
         void createTopping();
         void listToppings();
         void startUI();
+        int getToppingVectorSize();
         int inputSanitize(string input, int maxSize);
 
 };
