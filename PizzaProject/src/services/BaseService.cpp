@@ -1,15 +1,5 @@
 #include "../../include/services/BaseService.h"
 
-BaseService::BaseService()
-{
-    //ctor
-}
-
-BaseService::~BaseService()
-{
-    //dtor
-}
-
 void BaseService::addBase(Base& base){
     baserepository.addBase(base);
 }
@@ -17,6 +7,7 @@ void BaseService::addBase(Base& base){
 void BaseService::getBases(){
     bases = baserepository.getBases();
 }
+
 Base BaseService::getBaseAt(int i){
     getBases();
     return bases.at(i);

@@ -11,7 +11,6 @@
 
 class PizzaUI
 {
-
     private:
         PizzaService pizzaservice;
         ToppingService toppingservice;
@@ -20,9 +19,8 @@ class PizzaUI
         BaseUI baseui;
         vector<Pizza> pizzas;
         bool verbose;
+
     public:
-        PizzaUI();
-        ~PizzaUI();
         Pizza makeAPizza();
         bool isPizzaVectorEmpty();
         void startUI();

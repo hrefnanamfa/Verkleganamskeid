@@ -1,14 +1,5 @@
 #include "../../include/repositories/BaseRepository.h"
 
-BaseRepository::BaseRepository()
-{
-    //ctor
-}
-
-BaseRepository::~BaseRepository()
-{
-    //dtor
-}
 void BaseRepository::replaceBasesInRepo(vector<Base> bases){
     ofstream fout;
 

@@ -2,19 +2,14 @@
 #define TOPPINGSERVICE_H
 #include "../repositories/ToppingRepository.h"
 
-
 class ToppingService
 {
-
     private:
         ToppingRepository toppingrepository;
         vector <Topping> toppings;
 
     public:
-        ToppingService();
-        ~ToppingService();
         Topping getToppingAt(int i);
-
         void addTopping(Topping& topping);
         void getToppings();
         vector <Topping> getToppingVector();

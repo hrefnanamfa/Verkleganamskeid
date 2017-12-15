@@ -1,16 +1,5 @@
 #include "../../include/ui/SalesUI.h"
 
-using namespace std;
-
-SalesUI::SalesUI()
-{
-    //ctor
-}
-
-SalesUI::~SalesUI()
-{
-    //dtor
-}
 void SalesUI::startUI(){
     char selection = '\0';
     cout << "Sales" << endl;
@@ -132,6 +121,7 @@ void SalesUI::setPickupOrDelivery(){
         order.setWorkplace(workplaces);
     }
 }
+
 void SalesUI::addPizzaFromMenu(){
     string input;
     int select = 0;
@@ -158,6 +148,7 @@ void SalesUI::addPizzaFromMenu(){
     }
     cout << endl;
 }
+
 void SalesUI::addExtras(){
     string input;
     int select = 0;
@@ -184,6 +175,7 @@ void SalesUI::addExtras(){
 
     }
 }
+
 void SalesUI::addPizza(){
     char answer = 'Y';
     do{
@@ -221,7 +213,6 @@ void SalesUI::addPizza(){
             return;
         }
     }while(answer == 'Y');
-
 }
 
 void SalesUI::saveOrder(Workplaces workplace, string comment){
@@ -277,4 +268,3 @@ bool SalesUI::checkAnswer(char answer){
         throw InvalidAnswerException();
     }
 }
-

@@ -9,8 +9,6 @@ class OrderService
         vector<Order> orders;
 
     public:
-        OrderService();
-        ~OrderService();
         int getSizeOfOrders();
         int getPriceOfOrder(Order& order);
         Order makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const bool& paid, Workplaces workplaces, string comment, bool pickup, string address, int addressNumber);

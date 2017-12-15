@@ -1,14 +1,5 @@
 #include "../../include/ui/PizzaUI.h"
 
-PizzaUI::PizzaUI()
-{
-    //ctor
-}
-
-PizzaUI::~PizzaUI()
-{
-    //dtor
-}
 void PizzaUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
@@ -138,6 +129,7 @@ Pizza PizzaUI::makeAPizza(){
 
     return pizza;
 }
+
 bool PizzaUI::isPizzaVectorEmpty(){
     if(pizzas.empty()){
         return true;
@@ -160,6 +152,7 @@ void PizzaUI::startUIpizzamenu(){
         cout << "Not possible to make pizza!" << endl;
     }
 }
+
 void PizzaUI::listAvailablePizzas(){
     pizzas = pizzaservice.listAvailablePizzas();
     if(!pizzas.empty()){
@@ -172,7 +165,6 @@ void PizzaUI::listAvailablePizzas(){
     else if(pizzas.empty()){
         cout << "There are no pizzas registered!" << endl;
     }
-
 }
 
 int PizzaUI::getPizzaMenuSize(){

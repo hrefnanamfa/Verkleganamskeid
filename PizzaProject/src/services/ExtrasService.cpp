@@ -1,15 +1,5 @@
 #include "../../include/services/ExtrasService.h"
 
-ExtrasService::ExtrasService()
-{
-    //ctor
-}
-
-ExtrasService::~ExtrasService()
-{
-    //dtor
-}
-
 Extras ExtrasService::getExtrasAt(int i){
     getExtras();
     return extras.at(i);
@@ -31,11 +21,13 @@ vector<Extras> ExtrasService::listAvailableExtras(){
     getExtras();
     return extras;
 }
+
 void ExtrasService::replaceAndSaveExtraAt(int i, Extras& extra){
     getExtras();
     extras.at(i) = extra;
     extrasrepository.replaceExtrasInRepo(this->extras);
 }
+
 void ExtrasService::deleteExtraAndSaveAt(int i){
     getExtras();
     extras.erase(extras.begin() + i);

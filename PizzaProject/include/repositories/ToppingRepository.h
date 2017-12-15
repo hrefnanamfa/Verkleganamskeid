@@ -6,16 +6,11 @@
 
 #include <vector>
 
-using namespace std;
-
 class ToppingRepository
 {
-
     private:
 
     public:
-        ToppingRepository();
-        ~ToppingRepository();
         void addTopping(Topping& topping);
 
         void replaceToppingsInRepo(vector<Topping> toppings);

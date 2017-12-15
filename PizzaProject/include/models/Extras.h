@@ -24,7 +24,6 @@ class Extras
         void read(ifstream& fin);
         friend istream& operator >> (istream& in, Extras& extras);
         friend ostream& operator << (ostream& out, const Extras& extras);
-        ~Extras();
 
 };
 

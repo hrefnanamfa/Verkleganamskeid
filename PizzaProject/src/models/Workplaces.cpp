@@ -1,15 +1,11 @@
 #include "../../include/models/Workplaces.h"
 
 Workplaces::Workplaces(){
-    name = "";
-}
-
-Workplaces::~Workplaces(){
-    //dtor
+    this->name = "";
 }
 
 string Workplaces::getName() const{
-    return name;
+    return this->name;
 }
 
 void Workplaces::setName(string name){

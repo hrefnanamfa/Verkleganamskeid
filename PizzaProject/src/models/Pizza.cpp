@@ -1,16 +1,10 @@
 #include "../../include/models/Pizza.h"
 
-Pizza::Pizza()
-{
+Pizza::Pizza(){
     name = "";
     price = 0;
     Base base();
     toppings.clear();
-}
-
-Pizza::~Pizza()
-{
-    //dtor
 }
 
 int Pizza::getPriceOfPizza(){
@@ -43,7 +37,6 @@ void Pizza::setToppings(vector<Topping> toppings){
     this->toppings = toppings;
 }
 
-
 void Pizza::setBase(const Base& base){
     this->base = base;
 }
@@ -62,11 +55,9 @@ void Pizza::write(ofstream& fout) const{
     int count_toppings = toppings.size();
     fout.write((char*)(&count_toppings), sizeof(int));
 
-    for (int i = 0; i < count_toppings; i++)
-    {
+    for (int i = 0; i < count_toppings; i++){
         toppings[i].write(fout);
     }
-
 }
 
 void Pizza::read(ifstream& fin){
@@ -84,8 +75,7 @@ void Pizza::read(ifstream& fin){
     int count_toppings = 0;
     fin.read((char*)(&count_toppings), sizeof(int));
 
-    for (int i = 0; i < count_toppings; i++)
-    {
+    for (int i = 0; i < count_toppings; i++){
         Topping topping;
         topping.read(fin);
         addTopping(topping);
@@ -103,7 +93,7 @@ istream& operator >> (istream& in, Pizza& pizza){
     in >> toppingCount;
 
     Topping topping;
-    for (unsigned int i = 0; i < pizza.toppings.size(); i++) {
+    for (unsigned int i = 0; i < pizza.toppings.size(); i++){
         in >> topping;
         pizza.addTopping(topping);
     }

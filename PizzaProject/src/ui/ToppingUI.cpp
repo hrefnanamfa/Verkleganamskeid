@@ -1,14 +1,5 @@
 #include "../../include/ui/ToppingUI.h"
 
-ToppingUI::ToppingUI()
-{
-    //ctor
-}
-
-ToppingUI::~ToppingUI()
-{
-    //dtor
-}
 void ToppingUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
@@ -67,11 +58,13 @@ void ToppingUI::startUI(){
         cout << endl;
     }
 }
+
 void ToppingUI::createTopping(){
     Topping topping;
     cin >> topping;
     toppingservice.addTopping(topping);
 }
+
 bool ToppingUI::isToppingVectorEmpty(){
     toppings = toppingservice.listAvailableToppings();
     if(toppings.empty()){

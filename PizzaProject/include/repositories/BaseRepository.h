@@ -11,8 +11,6 @@ class BaseRepository
     private:
 
     public:
-        BaseRepository();
-        ~BaseRepository();
         void addBase(Base& base);
 
         vector<Base> getBases();

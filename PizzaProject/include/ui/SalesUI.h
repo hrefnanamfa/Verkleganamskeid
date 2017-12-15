@@ -8,7 +8,6 @@
 #include "../services/ExtrasService.h"
 #include "WorkplacesUI.h"
 #include "../services/WorkplacesService.h"
-
 #include "../exceptions/InvalidAnswerException.h"
 
 class SalesUI
@@ -31,8 +30,6 @@ class SalesUI
         int addressNumber;
 
     public:
-        SalesUI();
-        virtual ~SalesUI();
         void startUI();
         bool orderempty();
         bool createNewOrder(Order *order);

@@ -10,10 +10,6 @@ Order::Order(){
     this->addressNumber = 0;
 }
 
-Order::~Order(){
-    //dtor
-}
-
 void Order::setPizzas(vector<Pizza> pizzas){
     this->pizzas = pizzas;
 }
@@ -25,6 +21,7 @@ void Order::setExtras(vector<Extras> extras){
 void Order::setPaid(bool paid){
     this->paid = paid;
 }
+
 void Order::setCurrentStatus(int status){
     this->currentStatus = status;
 }
@@ -42,6 +39,7 @@ void Order::setPrice(){
 
     this->price = currentPrice;
 }
+
 void Order::setWorkplace(Workplaces workplaces){
     this->workplaces = workplaces;
 }
@@ -50,10 +48,10 @@ void Order::setAddress(string address, int addressNumber){
     this->address = address;
     this->addressNumber = addressNumber;
 }
+
 void Order::setComment(string comment){
     this->comment = comment;
 }
-
 
 void Order::setPickup(bool pickup){
     this->pickup = pickup;
@@ -67,6 +65,7 @@ int Order::getPrice() {
     setPrice();
     return this->price;
 }
+
 int Order::getStatus(){
     return this->currentStatus;
 }
@@ -76,15 +75,15 @@ string Order::getComment(){
 }
 
 string Order::getAddress(){
-    return address;
+    return this->address;
 }
 
 int Order::getAddressNumber(){
-    return addressNumber;
+    return this->addressNumber;
 }
 
 bool Order::checkPaid(){
-    return paid;
+    return this->paid;
 }
 
 bool Order::checkIfPickup(){
@@ -92,7 +91,7 @@ bool Order::checkIfPickup(){
 }
 
 int Order::getCurrentStatus(){
-    return currentStatus;
+    return this->currentStatus;
 }
 
 void Order::addPizza(Pizza& pizza){
@@ -176,7 +175,6 @@ void Order::read(ifstream& fin){
 }
 
 istream& operator >>(istream& in, Order& order){
-
     return in;
 }
 

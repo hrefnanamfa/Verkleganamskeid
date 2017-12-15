@@ -24,7 +24,6 @@ class Topping
         void read(ifstream& fin);
         friend istream& operator >> (istream& in, Topping& topping);
         friend ostream& operator << (ostream& out, const Topping& topping);
-        ~Topping();
 
 };
 

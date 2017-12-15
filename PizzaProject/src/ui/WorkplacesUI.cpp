@@ -1,15 +1,5 @@
 #include "../../include/ui/WorkplacesUI.h"
 
-WorkplacesUI::WorkplacesUI()
-{
-    //ctor
-}
-
-WorkplacesUI::~WorkplacesUI()
-{
-    //dtor
-}
-
 void WorkplacesUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){
@@ -68,6 +58,7 @@ void WorkplacesUI::startUI(){
         cout << endl;
     }
 }
+
 bool WorkplacesUI::isWorkplacesVectorEmpty(){
     workplaces = workplacesservice.listAvailableWorkplaces();
     if(workplaces.empty()){
@@ -128,8 +119,6 @@ Workplaces WorkplacesUI::selectWorkplace(){
 
     return workplace;
 }
-
-
 
 int WorkplacesUI::inputSanitize(string input, int maxSize) {
     int select;

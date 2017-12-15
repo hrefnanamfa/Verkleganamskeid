@@ -17,7 +17,6 @@ class Pizza
 
     public:
         Pizza();
-        virtual ~Pizza();
         void setName(string name);
         string getName();
         void setToppings(vector<Topping> toppings);
@@ -31,6 +30,5 @@ class Pizza
         friend ostream& operator << (ostream& out, Pizza& pizza);
 
 };
-
 
 #endif // PIZZA_H

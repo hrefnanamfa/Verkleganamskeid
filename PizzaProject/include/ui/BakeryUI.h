@@ -6,9 +6,9 @@
 #include "OrderUI.h"
 #include "../exceptions/EmptyOrderListException.h"
 #include "../exceptions/InvalidAnswerException.h"
+
 class BakeryUI
 {
-
     private:
         WorkplacesUI workplacesui;
         WorkplacesService workplacesservice;
@@ -16,9 +16,6 @@ class BakeryUI
         OrderUI orderui;
 
     public:
-        BakeryUI();
-        virtual ~BakeryUI();
         void startUI();
 };
-
 #endif // BAKERYUI_H

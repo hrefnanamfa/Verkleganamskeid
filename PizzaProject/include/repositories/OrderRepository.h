@@ -5,7 +5,6 @@
 #include "../exceptions/InvalidReadException.h"
 #include "../exceptions/InvalidWriteException.h"
 
-
 class OrderRepository
 {
 
@@ -13,8 +12,6 @@ class OrderRepository
         Workplaces workplaces;
 
     public:
-        OrderRepository();
-        ~OrderRepository();
         vector<Order> getOrders(string work);
         void addOrderToRepo(Order& order);
         void replaceOrdersInRepo(vector<Order> orders, string workplace);

@@ -18,7 +18,6 @@
  *
  **/
 
-
 #include "include/ui/MainUI.h"
 
 using namespace std;

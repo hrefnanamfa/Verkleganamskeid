@@ -1,15 +1,5 @@
 #include "../../include/repositories/ToppingRepository.h"
 
-ToppingRepository::ToppingRepository()
-{
-    //ctor
-}
-
-ToppingRepository::~ToppingRepository()
-{
-    //dtor
-}
-
 void ToppingRepository::replaceToppingsInRepo(vector<Topping> toppings){
     ofstream fout;
 

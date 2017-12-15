@@ -1,14 +1,5 @@
 #include "../../include/services/OrderService.h"
 
-OrderService::OrderService()
-{
-    //ctor
-}
-
-OrderService::~OrderService()
-{
-    //dtor
-}
 int OrderService::getOrderVectorSize(string work){
     getOrderList(work);
     return orders.size();
@@ -29,10 +20,10 @@ Order OrderService::makeOrder(vector<Pizza> pizzas, vector<Extras> extras, const
 int OrderService::getPriceOfOrder(Order& order){
     return order.getPrice();
 }
+
 int OrderService::getSizeOfOrders(){
     return orders.size();
 }
-
 
 void OrderService::addOrder(Order& order){
     orderrepo.addOrderToRepo(order);

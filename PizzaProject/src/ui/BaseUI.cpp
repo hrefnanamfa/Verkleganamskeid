@@ -1,14 +1,5 @@
 #include "../../include/ui/BaseUI.h"
 
-BaseUI::BaseUI()
-{
-    //ctor
-}
-
-BaseUI::~BaseUI()
-{
-    //dtor
-}
 void BaseUI::startUI(){
  char selection = '\n';
     while (selection != 'Q'){
@@ -100,7 +91,6 @@ void BaseUI::listBases() {
         cout << "There are no bases registered!" << endl;
     }
 }
-
 
 int BaseUI::inputSanitize(string input, int maxSize) {
     int select;

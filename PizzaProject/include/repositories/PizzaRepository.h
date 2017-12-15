@@ -9,8 +9,6 @@ class PizzaRepository
     private:
 
     public:
-        PizzaRepository();
-        ~PizzaRepository();
         vector<Pizza> getPizzas();
         void replacePizzasInRepo(vector<Pizza> pizzas);
         void addPizzaToRepo(const Pizza& pizza);

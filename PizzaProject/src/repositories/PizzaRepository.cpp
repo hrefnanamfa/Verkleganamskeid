@@ -1,14 +1,5 @@
 #include "../../include/repositories/PizzaRepository.h"
 
-PizzaRepository::PizzaRepository()
-{
-    //ctor
-}
-
-PizzaRepository::~PizzaRepository()
-{
-    //dtor
-}
 void PizzaRepository::replacePizzasInRepo(vector<Pizza> pizzas){
     ofstream fout;
     try {
