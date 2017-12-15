@@ -33,7 +33,7 @@ void BakeryUI::startUI(){
         if(selection == '1'){
             string input;
             int select;
-            do{
+
                 cout << "- Orders on hold -" << endl;
                 orderui.listOrdersByStatus(work, 1);
                 if (orderui.getisempty()){
@@ -42,6 +42,7 @@ void BakeryUI::startUI(){
                     cout << endl << endl;
                     continue;
                 }
+            do{
                 cout << "Select an order to flag as in making" << endl;
                 cin >> input;
                 cout << endl;
@@ -67,7 +68,7 @@ void BakeryUI::startUI(){
         else if(selection == '2'){
             string input;
             int select;
-            do{
+
                 cout << "- Orders in making -" << endl;
                 orderui.listOrdersByStatus(work, 2);
                 if (orderui.getisempty()){
@@ -76,7 +77,7 @@ void BakeryUI::startUI(){
                     cout << endl << endl;
                     continue;
                 }
-
+            do{
                 cout << "Select an order to flag as ready" << endl;
                 cin >> input;
                 cout << endl;

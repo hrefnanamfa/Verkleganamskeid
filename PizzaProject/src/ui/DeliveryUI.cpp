@@ -53,7 +53,7 @@ void DeliveryUI::startUI(){
         else if(selection == '2'){
             string input;
             int select;
-            do{
+
                 cout << "- Ready orders -" << endl;
                 orderui.listOrdersByStatus(work, 3);
                 if (orderui.getisempty()){
@@ -62,6 +62,7 @@ void DeliveryUI::startUI(){
                     cout << endl << endl;
                     continue;
                 }
+            do{
                 cout << "Select an order to flag as delivered" << endl;
                 cin >> input;
                 cout << endl;
