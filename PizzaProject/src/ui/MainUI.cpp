@@ -26,7 +26,9 @@ void MainUI::startUI(){
         }
         else if(selection == 'S') {
             SalesUI salesui;
-            salesui.startUI();
+            if (!workplacesui.isWorkplacesVectorEmpty()){
+                salesui.startUI();
+            }
         }
         else if(selection == 'B') {
             BakeryUI bakeryui;
