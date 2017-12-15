@@ -101,7 +101,7 @@ void SalesUI::setPickupOrDelivery(){
         cout << "1. Picked up" << endl;
         cout << "2. Delivered" << endl;
         cin >> input;
-        select = orderui.inputSanitize(input, 2);
+        select = orderui.inputSanitize(input, 3);
     }while(select < 0);
     if(select == 1){
         pickup = true;
@@ -246,7 +246,7 @@ string SalesUI::getComment(){
 
         if (comment.length() > 50){
             valid = false;
-            cout << "Comments can only have a maximum of 50 characters" << endl;
+            cout << "Comments can only have a maximum of 50 characters!" << endl;
         }
         else{
             valid = true;

@@ -108,12 +108,12 @@ int ToppingUI::inputSanitize(string input, int maxSize) {
             return select;
         }
         else {
-            cout << "Selection does not exist" << endl << endl;
+            cout << "Selection does not exist!" << endl << endl;
             return -1;
         }
     }
     else {
-        cout << "Invalid input" << endl;
+        cout << "Invalid input!" << endl;
         return -1;
     }
 }
