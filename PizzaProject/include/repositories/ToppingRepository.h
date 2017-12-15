@@ -1,8 +1,8 @@
 #ifndef TOPPINGREPOSITORY_H
 #define TOPPINGREPOSITORY_H
 #include "../models/Topping.h"
-#include "InvalidReadException.h"
-#include "InvalidWriteException.h"
+#include "../exceptions/InvalidReadException.h"
+#include "../exceptions/InvalidWriteException.h"
 
 #include <vector>
 

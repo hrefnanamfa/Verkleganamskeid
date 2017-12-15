@@ -1,8 +1,8 @@
 #ifndef PIZZAREPOSITORY_H
 #define PIZZAREPOSITORY_H
 #include "../models/Pizza.h"
-#include "InvalidReadException.h"
-#include "InvalidWriteException.h"
+#include "../exceptions/InvalidReadException.h"
+#include "../exceptions/InvalidWriteException.h"
 
 class PizzaRepository
 {

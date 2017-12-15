@@ -1,8 +1,8 @@
 #ifndef WORKPLACESREPOSITORY_H
 #define WORKPLACESREPOSITORY_H
 #include "../models/Workplaces.h"
-#include "InvalidReadException.h"
-#include "InvalidWriteException.h"
+#include "../exceptions/InvalidReadException.h"
+#include "../exceptions/InvalidWriteException.h"
 
 #include <vector>
 

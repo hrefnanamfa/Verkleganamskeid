@@ -9,7 +9,7 @@
 #include "WorkplacesUI.h"
 #include "../services/WorkplacesService.h"
 
-#include "InvalidAnswerException.h"
+#include "../exceptions/InvalidAnswerException.h"
 
 class SalesUI
 {

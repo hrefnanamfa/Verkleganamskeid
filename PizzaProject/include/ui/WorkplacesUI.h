@@ -2,7 +2,7 @@
 #define WORKPLACESUI_H
 #include "../services/WorkplacesService.h"
 #include "../models/Workplaces.h"
-#include "InvalidAnswerException.h"
+#include "../exceptions/InvalidAnswerException.h"
 
 #include <cstdlib>
 #include <iostream>
