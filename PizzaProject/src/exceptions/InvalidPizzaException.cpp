@@ -1,4 +1,4 @@
-#include "InvalidPizzaException.h"
+#include "../../include/exceptions/InvalidPizzaException.h"
 
 InvalidPizzaException::InvalidPizzaException()
 {

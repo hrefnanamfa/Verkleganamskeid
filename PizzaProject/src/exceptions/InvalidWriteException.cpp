@@ -1,4 +1,4 @@
-#include "InvalidWriteException.h"
+#include "../../include/exceptions/InvalidWriteException.h"
 
 InvalidWriteException::InvalidWriteException()
 {

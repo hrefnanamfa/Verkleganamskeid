@@ -1,4 +1,4 @@
-#include "InvalidAnswerException.h"
+#include "../../include/exceptions/InvalidAnswerException.h"
 
 InvalidAnswerException::InvalidAnswerException()
 {
