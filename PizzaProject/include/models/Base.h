@@ -25,8 +25,6 @@ class Base
         friend istream& operator >> (istream& in, Base& base);
         friend ostream& operator << (ostream& out, const Base& base);
 
-        ~Base();
-
 };
 
 #endif // BASE_H

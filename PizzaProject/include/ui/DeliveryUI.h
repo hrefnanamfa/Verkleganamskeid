@@ -5,20 +5,17 @@
 #include "../ui/OrderUI.h"
 #include "../ui/SalesUI.h"
 
-
 class DeliveryUI
 {
-    public:
-        DeliveryUI();
-        virtual ~DeliveryUI();
-        void startUI();
-
     private:
         WorkplacesUI workplacesui;
         WorkplacesService workplacesservice;
         OrderService orderservice;
         OrderUI orderui;
         SalesUI salesui;
+
+    public:
+        void startUI();
 };
 
 #endif // DELIVERYUI_H

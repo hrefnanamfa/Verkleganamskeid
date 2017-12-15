@@ -1,15 +1,5 @@
 #include "../../include/repositories/ExtrasRepository.h"
 
-ExtrasRepository::ExtrasRepository()
-{
-    //ctor
-}
-
-ExtrasRepository::~ExtrasRepository()
-{
-    //dtor
-}
-
 void ExtrasRepository::replaceExtrasInRepo(vector<Extras> extras){
     ofstream fout;
     try {

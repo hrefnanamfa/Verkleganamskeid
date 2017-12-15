@@ -20,9 +20,6 @@ class Workplaces
 
         friend istream& operator >> (istream& in, Workplaces& workplaces);
         friend ostream& operator << (ostream& out, const Workplaces& workplaces);
-
-        ~Workplaces();
-
 };
 
 #endif // WORKPLACES_H

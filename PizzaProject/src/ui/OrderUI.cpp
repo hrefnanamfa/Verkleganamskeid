@@ -5,11 +5,6 @@ OrderUI::OrderUI()
     isempty = false;
 }
 
-OrderUI::~OrderUI()
-{
-    //dtor
-}
-
 void OrderUI::listOrdersByStatus(string work, int status){
     int counter = 0;
     orders = orderservice.getOrders(work);

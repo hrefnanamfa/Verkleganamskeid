@@ -4,6 +4,7 @@
 #include "Extras.h"
 #include "Workplaces.h"
 
+using namespace std;
 
 class Order
 {
@@ -21,7 +22,6 @@ class Order
 
     public:
         Order();
-        ~Order();
         void setPrice();
         int getPrice();
         int getStatus();

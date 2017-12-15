@@ -1,16 +1,5 @@
 #include "../../include/ui/BakeryUI.h"
 
-using namespace std;
-
-BakeryUI::BakeryUI()
-{
-    //ctor
-}
-
-BakeryUI::~BakeryUI()
-{
-    //dtor
-}
 void BakeryUI::startUI(){
     char selection = '\0';
     cout << "Bakery" << endl;

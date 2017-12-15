@@ -1,10 +1,5 @@
 #include "../../include/ui/MainUI.h"
 
-MainUI::MainUI()
-{
-    //ctor
-}
-
 void MainUI::startUI(){
     char selection;
     WorkplacesUI workplacesui;
@@ -44,5 +39,4 @@ void MainUI::startUI(){
         }
 
     }while(selection != 'Q');
-
 }

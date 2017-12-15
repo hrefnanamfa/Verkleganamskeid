@@ -1,15 +1,9 @@
 #include "../../include/models/Topping.h"
 
-Topping::Topping()
-{
+Topping::Topping(){
     name = "";
     price = 0;
     verbose = true;
-}
-
-Topping::~Topping()
-{
-    //dtor
 }
 
 void Topping::setName(string name){
@@ -19,6 +13,7 @@ void Topping::setName(string name){
 void Topping::setPrice(int price){
     this->price = price;
 }
+
 string Topping::getName() const{
     return this->name;
 }

@@ -1,15 +1,5 @@
 #include "../../include/services/ToppingService.h"
 
-ToppingService::ToppingService()
-{
-    //ctor
-}
-
-ToppingService::~ToppingService()
-{
-    //dtor
-}
-
 Topping ToppingService::getToppingAt(int i){
     getToppings();
     return toppings.at(i);
@@ -31,11 +21,13 @@ vector<Topping> ToppingService::listAvailableToppings(){
     getToppings();
     return toppings;
 }
+
 void ToppingService::replaceAndSaveToppingAt(int i, Topping& topping){
     getToppings();
     toppings.at(i) = topping;
     toppingrepository.replaceToppingsInRepo(toppings);
 }
+
 void ToppingService::deleteToppingAtAndSave(int i){
     getToppings();
     toppings.erase(toppings.begin() + i);

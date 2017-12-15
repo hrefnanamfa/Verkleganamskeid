@@ -1,14 +1,5 @@
 #include "../../include/repositories/WorkplacesRepository.h"
 
-WorkplacesRepository::WorkplacesRepository()
-{
-    //ctor
-}
-
-WorkplacesRepository::~WorkplacesRepository()
-{
-    //dtor
-}
 void WorkplacesRepository::replaceWorkplacesInRepo(vector<Workplaces> workplaces){
     ofstream fout;
     try {

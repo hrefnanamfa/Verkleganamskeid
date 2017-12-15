@@ -1,15 +1,5 @@
 #include "../../include/repositories/OrderRepository.h"
 
-OrderRepository::OrderRepository()
-{
-    //ctor
-}
-
-OrderRepository::~OrderRepository()
-{
-    //dtor
-}
-
 void OrderRepository::addOrderToRepo(Order& order){
     ofstream fout;
     string filename = order.getLocation() + ".dat";

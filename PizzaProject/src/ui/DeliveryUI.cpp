@@ -1,17 +1,5 @@
 #include "../../include/ui/DeliveryUI.h"
-#include <iostream>
 
-using namespace std;
-
-DeliveryUI::DeliveryUI()
-{
-    //ctor
-}
-
-DeliveryUI::~DeliveryUI()
-{
-    //dtor
-}
 void DeliveryUI::startUI(){
     char selection = '\0';
     cout << "Delivery" << endl;
@@ -20,7 +8,6 @@ void DeliveryUI::startUI(){
     Workplaces workplace = workplacesui.selectWorkplace();
 
     string work = workplace.getName();
-
 
     while(selection != 'Q'){
         cout << "1. View Orders: On hold & in making" << endl;

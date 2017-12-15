@@ -11,16 +11,12 @@ class BaseUI
         BaseService baseservice;
         vector<Base> bases;
     public:
-        BaseUI();
         void startUI();
         void createBase();
         void listBases();
         bool isBaseVectorEmpty();
         int getBaseVectorSize();
         int inputSanitize(string input, int maxSize);
-
-        ~BaseUI();
-
 };
 
 #endif // BASEUI_H

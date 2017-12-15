@@ -1,16 +1,11 @@
 #include "../../include/models/Base.h"
 
-Base::Base()
-{
+Base::Base(){
     name = "";
     price = 0;
     verbose = true;
 }
 
-Base::~Base()
-{
-    //dtor
-}
 string Base::getName() const{
     return name;
 }
@@ -55,31 +50,28 @@ void Base::read(ifstream& fin){
 
 ostream& operator << (ostream& out, const Base& base){
     out << base.getName();
-    if (base.getName().length() > 10)
+    if (base.getName().length() > 10){
         out << "\t";
-    else
+    }
+    else{
         out << "  \t\t";
+    }
     out << base.getPrice() << " kr.";
     return out;
 }
 
 istream& operator >> (istream& in, Base& base){
-    //string name;
-    //int price;
 
     if(base.verbose){
         cout << "Base name: ";
     }
     in >> ws;
     getline(in, base.name);
-    //in >> name;
-    //base.setName(name);
 
     if(base.verbose){
         cout << "Base price: ";
     }
     in >> base.price;
-    //base.setPrice(price);
 
     return in;
 }

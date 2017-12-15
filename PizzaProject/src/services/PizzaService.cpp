@@ -1,14 +1,6 @@
 #include "../../include/services/PizzaService.h"
 
-PizzaService::PizzaService()
-{
-    //ctor
-}
 
-PizzaService::~PizzaService()
-{
-    //dtor
-}
 void PizzaService::clearPizzas(){
     pizzas.clear();
 }
@@ -16,6 +8,7 @@ void PizzaService::clearPizzas(){
 void PizzaService::addToppingToPizza(Topping& topping){
     pizza.addTopping(topping);
 }
+
 int PizzaService::getPriceOfPizza(){
     return pizza.getPriceOfPizza();
 }
@@ -61,11 +54,13 @@ vector<Pizza> PizzaService::listAvailablePizzas(){
     getPizzaList();
     return pizzas;
 }
+
 void PizzaService::replaceAndSavePizzaAt(int i, Pizza& pizza){
     getPizzaList();
     pizzas.at(i) = pizza;
     pizzarepo.replacePizzasInRepo(this->pizzas);
 }
+
 void PizzaService::deletePizzaAtAndSave(int i){
     getPizzaList();
     pizzas.erase(pizzas.begin() + i);

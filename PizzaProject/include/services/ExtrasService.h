@@ -4,14 +4,11 @@
 
 class ExtrasService
 {
-
     private:
         ExtrasRepository extrasrepository;
         vector <Extras> extras;
 
     public:
-        ExtrasService();
-        ~ExtrasService();
         Extras getExtrasAt(int i);
 
         void addExtras(Extras& extras);
@@ -20,8 +17,6 @@ class ExtrasService
         vector<Extras> listAvailableExtras();
         void replaceAndSaveExtraAt(int i, Extras& extra);
         void deleteExtraAndSaveAt(int i);
-
-
 };
 
 #endif // TOPPINGSERVICE_H

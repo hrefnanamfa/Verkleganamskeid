@@ -10,9 +10,6 @@ class WorkplacesService
         vector<Workplaces> workplaces;
 
     public:
-        WorkplacesService();
-        ~WorkplacesService();
-
         Workplaces getWorkplaceAt(int i);
         void addWorkplace(Workplaces& workplaces);
         void getWorkplaces();

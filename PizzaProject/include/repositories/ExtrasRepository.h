@@ -6,16 +6,12 @@
 
 #include <vector>
 
-using namespace std;
-
 class ExtrasRepository
 {
 
     private:
 
     public:
-        ExtrasRepository();
-        ~ExtrasRepository();
         void addExtras(Extras& extras);
         vector<Extras> getExtras();
         void replaceExtrasInRepo(vector<Extras> extras);

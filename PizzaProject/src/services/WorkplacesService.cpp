@@ -1,15 +1,5 @@
 #include "../../include/services/WorkplacesService.h"
 
-WorkplacesService::WorkplacesService()
-{
-    //ctor
-}
-
-WorkplacesService::~WorkplacesService()
-{
-    //dtor
-}
-
 void WorkplacesService::addWorkplace(Workplaces& workplaces){
     workplacesrepository.addWorkplace(workplaces);
 }
@@ -32,11 +22,13 @@ int WorkplacesService::workplacesAmount(){
     getWorkplaces();
     return workplaces.size();
 }
+
 void WorkplacesService::replaceAndSaveWorkplaceAt(int i, Workplaces& workplace){
     getWorkplaces();
     workplaces.at(i) = workplace;
     workplacesrepository.replaceWorkplacesInRepo(this->workplaces);
 }
+
 void WorkplacesService::deleteWorkplaceAtAndSave(int i){
     getWorkplaces();
     workplaces.erase(workplaces.begin() + i);

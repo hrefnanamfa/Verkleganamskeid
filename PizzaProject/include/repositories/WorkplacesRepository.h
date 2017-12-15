@@ -11,8 +11,6 @@ class WorkplacesRepository
     private:
 
     public:
-        WorkplacesRepository();
-        ~WorkplacesRepository();
         void addWorkplace(Workplaces& workplaces);
         void replaceWorkplacesInRepo(vector<Workplaces> workplaces);
         vector<Workplaces> getWorkplaces();

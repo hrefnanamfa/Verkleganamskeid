@@ -6,16 +6,12 @@
 
 class PizzaService
 {
-
     private:
         PizzaRepository pizzarepo;
         Pizza pizza;
         vector<Pizza> pizzas;
 
     public:
-        PizzaService();
-        ~PizzaService();
-
         Pizza makePizza(const string& name, const Base& base, vector<Topping> toppings);
         void clearPizzas();
         Pizza getPizzaAt(int i);

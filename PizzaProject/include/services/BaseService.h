@@ -4,15 +4,11 @@
 
 class BaseService
 {
-
     private:
         BaseRepository baserepository;
         vector<Base> bases;
 
     public:
-        BaseService();
-        ~BaseService();
-
         Base getBaseAt(int i);
         void addBase(Base& base);
         void getBases();

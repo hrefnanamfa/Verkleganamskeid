@@ -8,19 +8,15 @@
 
 class ManagingUI
 {
-    public:
-        ManagingUI();
-        virtual ~ManagingUI();
-        void startUI();
-
-    protected:
-
     private:
         ToppingUI toppingui;
         BaseUI baseui;
         PizzaUI pizzaui;
         ExtrasUI extrasui;
         WorkplacesUI workplacesui;
+
+    public:
+        void startUI();
 };
 
 #endif // MANAGINGUI_H

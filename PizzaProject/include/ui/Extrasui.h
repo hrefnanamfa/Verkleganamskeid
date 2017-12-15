@@ -4,9 +4,6 @@
 #include "../services/ExtrasService.h"
 
 #include <cstdlib>
-#include <iostream>
-
-using namespace std;
 
 class ExtrasUI
 {
@@ -15,8 +12,6 @@ class ExtrasUI
         vector<Extras> extras;
 
     public:
-        ExtrasUI();
-        ~ExtrasUI();
         bool isExtrasVectorEmpty();
         void createExtras();
         void listExtras();

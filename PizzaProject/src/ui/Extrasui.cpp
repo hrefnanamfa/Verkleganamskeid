@@ -1,15 +1,5 @@
 #include "../../include/ui/Extrasui.h"
 
-ExtrasUI::ExtrasUI()
-{
-    //ctor
-}
-
-ExtrasUI::~ExtrasUI()
-{
-    //dtor
-}
-
 void ExtrasUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){

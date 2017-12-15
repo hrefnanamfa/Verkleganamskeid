@@ -1,14 +1,5 @@
 #include "../../include/ui/ManagingUI.h"
 
-ManagingUI::ManagingUI()
-{
-    //ctor
-}
-
-ManagingUI::~ManagingUI()
-{
-    //dtor
-}
 void ManagingUI::startUI(){
     char selection = '\n';
     while (selection != 'Q'){

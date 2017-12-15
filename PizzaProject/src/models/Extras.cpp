@@ -1,16 +1,9 @@
 #include "./../include/models/Extras.h"
 
-Extras::Extras()
-{
+Extras::Extras(){
     name = "";
     price = 0;
     verbose = true;
-}
-
-
-Extras::~Extras()
-{
-    //dtor
 }
 
 int Extras::getPriceOfExtras(){
@@ -34,8 +27,9 @@ string Extras::getName() const{
 
 int Extras::getPrice() const{
     return this->price;
+}
 
-}void Extras::setVerbose(bool setting){
+void Extras::setVerbose(bool setting){
     this->verbose = setting;
 }
 
